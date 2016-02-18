@@ -1,0 +1,73 @@
+<div class="index">
+    <div class="index-middle">
+        <div class="container" >
+            <div>
+
+                <div >
+                    <div class="inedx-table2">
+                        <div id="flrtop">
+                            <span> 我的一览表</span>
+                        </div>
+                        <ul class="index_schedule index-line">
+                            <hr/>
+                            <li>
+                                <a  ui-sref="account.todoTask.list({category:'wdxx'})">
+                                    <img src="../images/unread.png">
+                                    我的未读消息
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="index_schedule index-line">
+                            <li>
+                                <a ui-sref="account.todoTask.list({category:'wtbb'})">
+                                    <img src="../images/unread_two.png">
+                                    我未完成的报表填报任务
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="index_schedule index-line">
+                            <li>
+                                <a href="" ng-click="qqwcl()">
+                                    <img src="../images/unread_three.png">
+                                    我的请求（未处理）
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" ng-click="qqwck()">
+                                    <img src="../images/unread_fore.png">
+                                    我的请求（已处理未查看）
+
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="index_schedule">
+                            <li>
+                                <a href="" ng-click="pzwhd()">
+                                    <img src="../images/unread_five.png">
+                                    我的电子凭证（财政未核对）
+
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" ng-click="pzth()">
+                                    <img src="../images/unread_six.png">
+                                    我的电子凭证（被退回）
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" ng-click="pzhdwck()">
+                                    <img src="../images/unread_seven.png">
+                                    我的电子凭证（已核对未查看）
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div ui-view >
+                <div ng-include="'account/todoTaskList.html'"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<form ng-submit="submitLogin()">
+    <div class="form-group">
+        <input type="text" class="form-control" name="userName" placeholder="请输入用户名" ng-model="loginUser.userName" required>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" name="passowrd" placeholder="请输入密码" ng-model="loginUser.passowrd" required>
+    </div>
+    <div class="form-group">
+        <div class="banner-security">
+            <input type="text" class="form-control" name="verifyCode" placeholder="请输入验证码">
+        </div>
+        <div class="banner-security banner-img">
+            <img src="../images/security.png" class="img-responsive center-block">
+        </div>
+    </div>
+    <button type="submit" class="btn index-btn">登 录</button>
+    <div class="form-group index-safety">
+        <div class="banner-security ">
+            <a href="#" class="index-user">
+                <img src="../images/safety.png"> 证书用户登录
+            </a>
+        </div>
+        <div class="banner-security">
+            <a href="#" class="index-user index-forget">
+                忘记密码
+            </a>
+        </div>
+    </div>
+</form>
