@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2016/02/18.
  */
+var jsondata={};
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams) {
         var current_user;
@@ -46,11 +47,52 @@ angular.module('FWPT')
                 }
             },
             getTodoTask: function(category) {
-                if(category == "wdxx" || !category) {
-                    return [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'},{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}];
-                } else {
-                    return [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}];
+
+                $http({
+                    method:'POST',
+                    url:'../assets/testjson.json'
+
+                }).success(function(data){
+                    jsondata=data;
+                    }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("login failed");
+                });
+                switch(category){
+                    case "wdxx"://我的未读消息
+                        $(".flrrightinfo>h5>span").html("我的未读消息");
+                        return jsondata.wdxx;
+                        break;
+                    case "wtbb"://我未完成的报表填报任务
+                        $(".flrrightinfo>h5>span").html("我未完成的报表填报任务");
+                        return jsondata.wtbb;
+                        break;
+                    case "wqq":// 我的请求（未处理）
+                        $(".flrrightinfo>h5>span").html(" 我的请求（未处理）");
+                        return jsondata.wqq;
+                        break;
+                    case "ckqq"://我的请求（已处理未查看）
+                        $(".flrrightinfo>h5>span").html("我的请求（已处理未查看）");
+                        return jsondata.ckqq;
+                        break;
+                    case "whddp":// 我的电子凭证（财政未核对）
+                        $(".flrrightinfo>h5>span").html("我的电子凭证（财政未核对）");
+                        return jsondata.wdxx;
+                        break;
+                    case "thddp"://我的电子凭证（被退回）
+                        $(".flrrightinfo>h5>span").html("我的电子凭证（被退回）");
+                        return jsondata.wdxx;
+                        break;
+                    case "hdwcdp"://我未完成的报表填报任务
+                        $(".flrrightinfo>h5>span").html("我未完成的报表填报任务");
+                        return jsondata.wdxx;
+                        break;
                 }
+                //if(category == "wdxx" || !category) {
+                //    return [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'},{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}];
+                //} else {
+                //    return [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}];
+                //}
             }
         }
     });
