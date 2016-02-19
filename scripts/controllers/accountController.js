@@ -6,11 +6,13 @@ angular.module('FWPT')
         $scope.sendLogin = function(user) {
             AccountService.sendLogin(user);
 
-        }
+        };
     }])
-    .controller('TodoTaskController',['$scope','$state','$stateParams','TodoTaskService', function($scope,$state,$stateParams,TodoTaskService) {
+    .controller('TodoTaskController',['$scope','$state','$stateParams','TodoTaskService', 'AccountService',function($scope,$state,$stateParams,TodoTaskService,AccountService) {
+        $scope.displayName=AccountService.getCurrentUser().displayName;
         if($state.includes('account.todoTask')) {
             $scope.taskInfos = TodoTaskService.getTodoTask($stateParams.category);
+
         } else {
             $scope.taskSum = TodoTaskService.getTodoTaskSum();
         }
