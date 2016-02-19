@@ -22,6 +22,6 @@
     "font-awesome": "~4.0",
     "moment": "~2.5",
     "less.js": "~1.6",
-    "font-awesome": "~4.0"
+    "laydate": "git@github.com:sentsin/laydate.git"
   }
 }
