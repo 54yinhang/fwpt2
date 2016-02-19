@@ -431,3 +431,278 @@ hr{
     margin: 10px 0px 10px 20px;
     border: none;
 }
+/*电子档案*/
+.section {
+    width: 100%;
+    background-color: #f5f4f9;
+    padding-bottom: 20px;
+}
+.info {
+    margin-top: 33px;
+}
+.info:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.left {
+    float: left;
+    width: 284px;
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    padding: 10px;
+}
+.left > span {
+    font-size: 16px;
+    line-height: 65px;
+    padding-left: 15px;
+}
+.left > ul {
+    padding: 0;
+    margin: 0;
+}
+.left > ul > li {
+    border-top: 1px solid #ccc;
+}
+.left > ul > li > span {
+    margin-left: 15px;
+    line-height: 58px;
+}
+.left > ul > li > span > i {
+    float: right;
+    width: 16px;
+    height: 8px;
+    margin: 25px 15px;
+    background: url(../img/icon.png) no-repeat 1px -188px;
+}
+.left > ul > li > span > i.on {
+    background-position: 0 -174px;
+}
+.manage {
+    padding: 0;
+    background-color: #f5f4f9;
+}
+.manage > li {
+    line-height: 50px;
+}
+.manage > li > i {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0 10px 0 26px;
+    vertical-align: middle;
+    background: url(../img/icon.png) no-repeat;
+}
+.manage > li > i.add {
+    background-position: 0 0;
+}
+.manage > li > i.revise {
+    background-position: 0 -17px;
+}
+.manage > li > i.report {
+    background-position: 0 -34px;
+}
+.manage > li > i.check {
+    background-position: 0 -52px;
+}
+.manage > li > a {
+    color: #666666;
+}
+.manage > li > a:hover {
+    color: #3299fe;
+    text-decoration: none;
+}
+.right {
+    float: right;
+    width: 833px;
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    padding: 0 17px;
+}
+.note {
+    border-bottom: 1px solid #e1e1e1;
+    margin: 0;
+    padding-left: 7px;
+}
+.note:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.note > li {
+    line-height: 55px;
+    float: left;
+}
+.note > li i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: url(../img/icon.png) no-repeat -54px -177px;
+    margin-right: 5px;
+}
+.record form,
+.check form,
+.report form,
+.revise form {
+    padding: 0;
+}
+.record form > div > input,
+.check form > div > input,
+.report form > div > input,
+.revise form > div > input {
+    width: 643px !important;
+    height: 39px;
+    padding-left: 38px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-left: 6px;
+    margin-right: 10px;
+}
+.record form > div > span,
+.check form > div > span,
+.report form > div > span,
+.revise form > div > span {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: url(../img/icon.png) no-repeat 0 -199px;
+    top: 12px;
+    left: 18px;
+}
+.record form > div button,
+.check form > div button,
+.report form > div button,
+.revise form > div button {
+    width: 128px;
+    height: 39px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.record table,
+.check table,
+.report table,
+.revise table {
+    border: 1px solid #e1e1e1;
+    width: 786px;
+    margin-left: 6px;
+    margin-top: 26px;
+}
+.record table thead,
+.check table thead,
+.report table thead,
+.revise table thead {
+    background-color: #F5F4F9;
+}
+.record table thead th,
+.check table thead th,
+.report table thead th,
+.revise table thead th {
+    height: 50px;
+    vertical-align: middle;
+}
+.record table tbody td,
+.check table tbody td,
+.report table tbody td,
+.revise table tbody td {
+    height: 55px;
+    vertical-align: middle;
+}
+.record .formPage,
+.check .formPage,
+.report .formPage,
+.revise .formPage {
+    margin-bottom: 30px;
+    text-align: right;
+    margin-right: 50px;
+}
+.record .formPage ul,
+.check .formPage ul,
+.report .formPage ul,
+.revise .formPage ul {
+    display: inline-block;
+}
+.record .formPage ul li,
+.check .formPage ul li,
+.report .formPage ul li,
+.revise .formPage ul li {
+    float: left;
+    margin-right: 8px;
+    text-align: center;
+}
+.record .formPage ul li a,
+.check .formPage ul li a,
+.report .formPage ul li a,
+.revise .formPage ul li a {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-decoration: none;
+    color: #666666;
+}
+.record .formPage ul .allPage,
+.check .formPage ul .allPage,
+.report .formPage ul .allPage,
+.revise .formPage ul .allPage {
+    height: 26px;
+    line-height: 26px;
+    margin-right: 40px;
+    font-size: 12px;
+}
+.record .formPage ul .prev > a,
+.check .formPage ul .prev > a,
+.report .formPage ul .prev > a,
+.revise .formPage ul .prev > a,
+.record .formPage ul .next > a,
+.check .formPage ul .next > a,
+.report .formPage ul .next > a,
+.revise .formPage ul .next > a {
+    display: inline;
+}
+.record .formPage ul .active,
+.check .formPage ul .active,
+.report .formPage ul .active,
+.revise .formPage ul .active {
+    background-color: #950909;
+}
+.record .formPage ul .active a,
+.check .formPage ul .active a,
+.report .formPage ul .active a,
+.revise .formPage ul .active a {
+    color: #fff;
+}
+.record table .blank,
+.report table .blank {
+    padding-left: 25px;
+}
+.record table input,
+.report table input {
+    margin-right: 5px;
+    vertical-align: text-top;
+}
+.record .formPage,
+.report .formPage {
+    height: 34px;
+}
+.record .formPage div,
+.report .formPage div {
+    float: left;
+    margin-left: 20px;
+}
+.record .formPage div input,
+.report .formPage div input {
+    margin-right: 15px;
+}
+.record .formPage div button,
+.report .formPage div button {
+    width: 78px;
+    height: 34px;
+    background-color: #f7f7f7;
+    border: 1px solid #e1e1e1;
+}
+.record .formPage ul,
+.report .formPage ul {
+    margin-top: 5px;
+}
