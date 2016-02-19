@@ -20,7 +20,7 @@ angular.module('FWPT')
 
 
                     $state.go('account',$stateParams);
-                    $(".reLofin").css("display","none");
+                    $(".reLogin").css("display","none");
                 }).error(function(data,status,headers,config) {
                     // 当响应以错误状态返回时调用
                     console.log("login failed");
