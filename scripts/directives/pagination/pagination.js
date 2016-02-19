@@ -14,7 +14,7 @@
             onChange: function(){
             },
 			dataCountDisplay:true,         //选择显示当前页显示的数据数量
-			jumpOrNot:true           //是否选择跳转  暂时有问题，不要改动布尔值
+			jumpOrNot:true           //是否选择跳转
         };
 
  */
@@ -31,7 +31,7 @@ angular.module('pagination', []).directive('pagination',[function(){
             '<li ng-class="{disabled: conf.currentPage == conf.numberOfPages}" ng-click="nextPage()"><span>&raquo;</span></li>' +
             '</ul>' +
             '<div class="page-total" ng-show="conf.totalItems > 0">' +
-            '第<input type="text" ng-model="jumpPageNum"  ng-keyup="jumpToPage($event)"/>页 ' +
+            '<input type="text" ng-show="conf.jumpOrNot" ng-model="jumpPageNum"  ng-keyup="jumpToPage($event)"/> ' +
             '<select ng-if="conf.dataCountDisplay" ng-model="conf.itemsPerPage" ng-options="option for option in conf.perPageOptions "></select>' +
             '/共<b>{{ conf.totalItems }}</b>条' +
             '</div>' +
