@@ -1,9 +1,11 @@
 <!--index-->
+
 <div class="index" >
     <!--middle-->
     <div class="index-middle">
         <div class="container " >
             <div class="row" ng-controller="TodoTaskController">
+                <div class="reLofin" login-form on-login="sendLogin(user)"></div>
                 <div class="col-md-12">
                     <div class="index-subtitle">
                         我的一览表
@@ -14,6 +16,7 @@
                 </div>
                 <div class="col-xs-4 col-md-4">
                     <div class="inedx-table inedx-account">
+
                         <div class="account-head">
                             <img src="../images/head.png">
                                     <span>
@@ -24,7 +27,7 @@
                             温州数字财政服务平台
                         </p>
                         <div class="account-bottom">
-                            <button ng-click="resout()" type="button" class="btn account-log">重新登录</button>
+                            <button ng-click="reLogin()" type="button" class="btn account-log">重新登录</button>
                             <button ui-sref="home" type="button" class="btn btn-danger account-log">安全退出</button>
                         </div>
                     </div>

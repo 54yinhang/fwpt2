@@ -3,7 +3,7 @@
  */
 
 angular.module('FWPT')
-    .factory('AccountService', function($http, $state, $stateParams) {
+    .factory('AccountService', function($http, $state, $stateParams,$location) {
         var current_user;
         return {
 
@@ -17,7 +17,10 @@ angular.module('FWPT')
                     current_user = data;
                     //console.log(current_user.displayName);
                     // 不合适的跳转，应该控制器中操作
+
+
                     $state.go('account',$stateParams);
+                    $(".reLofin").css("display","none");
                 }).error(function(data,status,headers,config) {
                     // 当响应以错误状态返回时调用
                     console.log("login failed");

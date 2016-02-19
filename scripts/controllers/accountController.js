@@ -16,4 +16,11 @@ angular.module('FWPT')
         } else {
             $scope.taskSum = TodoTaskService.getTodoTaskSum();
         }
+        $scope.reLogin=function(){
+            $scope.sendLogin = function(user) {
+                AccountService.sendLogin(user);
+
+            };
+            $(".reLofin").css("display","block");
+        }
     }]);
