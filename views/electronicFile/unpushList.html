@@ -1,0 +1,48 @@
+<div class="right report">
+    <ul class="note">
+        <li>
+            <a ui-sref="electronic">
+                电子凭证
+            </a>
+            <i></i>
+        </li>
+        <li>上报档案</li>
+    </ul>
+    <form class="navbar-form" action="">
+        <div class="form-group has-feedback">
+            <label class="sr-only" for="search">搜索</label>
+            <input class="form-control" id="search" type="text" placeholder="请输入关键字查询"/>
+            <span></span>
+            <button class="btn btn-info">查询</button>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="blank">单位名称</th>
+            <th>年度</th>
+            <th>支付口令</th>
+            <th>申报状态</th>
+            <th>上报人</th>
+            <th>上报日期</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="data in listData">
+            <td><input type="checkbox" id="{{data.id}}" ng-click="updateSelections($event,data.id)" ng-checked="isSelected(data.id)"/><span ng-bind="data.ysdwmc"></span></td>
+            <td><span ng-bind="data.ssny"></span></td>
+            <td><span ng-bind="data.zflh"></span></td>
+            <td><span ng-bind="data.spzt"></span></td>
+            <td><span ng-bind="data.spr"></span></td>
+            <td><span ng-bind="data.spsj"></span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="formPage">
+        <div>
+            <input type="checkbox"/>
+            <button ng-click="push">上报</button>
+        </div>
+    </div>
+
+</div>

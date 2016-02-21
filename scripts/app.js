@@ -89,7 +89,79 @@ angular.module('FWPT', [
             url: '/about',
             templateUrl: 'portal/anonymous.html'
         })
+
+
+
+        /* electronicFile*/
+        .state('electronic',{
+            url:'/electronic',
+            views: {
+                '@': {
+                    templateUrl:'electronicFile/menu.html',
+                    controller:'ElectronicFileController'
+                }
+            }
+        })
+        .state('electronic.modifyList',{
+            url:'/modifyList',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/modifyList.html',
+                    controller:'ElectronicFileModifyController'
+                }
+            }
+        })
+        .state('electronic.unpushList',{
+            url:'/unpushList',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/unpushList.html',
+                    controller:'ElectronicFilePushController'
+                }
+            }
+        })
+        .state('electronic.allList',{
+            url:'/allList',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/allList.html',
+                    controller:'ElectronicFileController'
+                }
+            }
+        })
+        .state('electronic.addFile',{
+            url:'/addFile',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/addFile.html',
+                    controller:'ElectronicFileController'
+                }
+            }
+        })
+        .state('electronic.modifyFile',{
+            url:'/modifyFile',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/modifyFile.html',
+                    controller:'ElectronicFileModifyController'
+                }
+            }
+        })
+        /* electronicFile*/
+
+        /*knowledgeData*/
+        .state('list',{
+            url:'/list',
+            templateUrl:'knowledgeData/list.html'
+        })
+        .state('knowledgeDetail',{
+            url:'/knowledgeDetail:knowId',
+            templateUrl: 'knowledgeData/knowledgeDetail.html'
+        })
+        /*knowledgeData*/
 }])
+
+
 .run(function($rootScope, config, $state, $stateParams) {
     //全局配置常量使用
     $rootScope.config = config;
