@@ -962,4 +962,21 @@ hr{
     display:none;
 
 }
+.reloginClose{
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    position: fixed;
+    margin: auto;
+    z-index: 9999;
+    top: -330px; left: 400px; bottom: 0; right: 0;
+    display: none;
+    cursor: pointer;
+}
 /*重新登录框样式*/

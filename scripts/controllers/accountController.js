@@ -21,6 +21,11 @@ angular.module('FWPT')
                 AccountService.sendLogin(user);
             };
             $(".reLogin").css("display","block");
+            $(".reloginClose").css("display","block");
+            $(".reloginClose").click(function(){
+                $(".reLogin").css("display","none");
+                $(".reloginClose").css("display","none");
+            })
         }
 
     }]);
