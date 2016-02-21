@@ -6,7 +6,7 @@ angular.module("FWPT")
     .directive('loginForm', function() {
         return {
             scope: {
-                onLogin: '&',
+                onLogin: '&'
             },
             templateUrl: 'account/loginForm.html',
             link: function(scope, ele, attrs) {

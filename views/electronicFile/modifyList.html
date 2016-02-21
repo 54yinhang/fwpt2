@@ -1,9 +1,12 @@
 <div class="right check">
     <ul class="note">
-        <li>电子凭证
+        <li>
+            <a ui-sref="electronic">
+                电子凭证
+            </a>
             <i></i>
         </li>
-        <li>查看档案</li>
+        <li>修改档案</li>
     </ul>
     <form class="navbar-form" action="">
         <div class="form-group has-feedback">
@@ -33,7 +36,7 @@
             <td><span ng-bind="data.spzt"></span></td>
             <td><span ng-bind="data.spr"></span></td>
             <td><span ng-bind="data.spsj"></span></td>
-            <td><a>修改</a></td>
+            <td><a ui-sref="electronic.modifyFile({id:data.id})">修改</a></td>
         </tr>
         </tbody>
     </table>

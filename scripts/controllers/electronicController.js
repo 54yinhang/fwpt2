@@ -32,6 +32,7 @@ angular.module('FWPT')
                         $scope.listData = data;
                     }
                 );
+                $scope.selected = [];
             }
     }])
     .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
@@ -63,7 +64,24 @@ angular.module('FWPT')
                         $scope.listData = data;
                     }
                 );
+                $scope.selected = [];
             }
-        }])
+        }
+    ])
+    .controller('ElectronicFileModifyController',['$scope','$state','$stateParams','ElectronicFileService',
+        function($scope, $state, $stateParams, ElectronicFileService){
+            //根据传入的菜单选项标识category获取相应菜单列表数据
+            ElectronicFileService.getList($stateParams.category).then(
+                function(data){
+                    $scope.listData = data;
+                }
+            );
+            ElectronicFileService.getOne($stateParams.id).then(
+                function(data){
+                    $scope.data = data;
+                }
+            );
+        }
+    ])
 
 

@@ -1,6 +1,9 @@
 <div class="right report">
     <ul class="note">
-        <li>电子凭证
+        <li>
+            <a ui-sref="electronic">
+                电子凭证
+            </a>
             <i></i>
         </li>
         <li>上报档案</li>
@@ -26,7 +29,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="data in listData">
-            <td><input type="checkbox" id="{{data.id}}" ng-click="updateSelections($event,data.id)" ng-checked="isSelected(data.id)"/><span ng-bind="data.ysdwmc"></span></td>
+            <td><input type="checkbox" id="{{data.id}}" ng-click="updateSelections($event,data.id)" ng-checked="selectAll"/><span ng-bind="data.ysdwmc"></span></td>
             <td><span ng-bind="data.ssny"></span></td>
             <td><span ng-bind="data.zflh"></span></td>
             <td><span ng-bind="data.spzt"></span></td>
@@ -37,7 +40,7 @@
     </table>
     <div class="formPage">
         <div>
-            <input type="checkbox"/>
+            <input type="checkbox" ng-model="selectAll"/>
             <button ng-click="push">上报</button>
         </div>
     </div>
