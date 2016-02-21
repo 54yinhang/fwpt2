@@ -1,1 +1,73 @@
-<span>22222222222222报表列表</span>
+<div class="section">
+    <!--middle-->
+    <div class="index-middle">
+        <div class="container fill">
+            <div class="title">
+                <span>报表填报</span>
+                <form class="navbar-form navbar-right" action="">
+                    <div class="form-group has-feedback">
+                        <label class="sr-only" for="search">搜索</label>
+                        <input class="form-control" id="search" ng-model="searchText" type="text" placeholder="请输入关键字查询"/>
+                        <span></span>
+                        <button class="btn" ng-click="searchQuery();">查询</button>
+                    </div>
+                </form>
+            </div>
+            <div class="formSection">
+                <div class="formContent">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>日期</th>
+                            <th>标题</th>
+                            <th>状态</th>
+                            <th>办结期限</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="tbxx in tbxxMsg | orderBy : 'creationDate' : true">
+                            <td>{{tbxx.bbId}}</td>
+                            <td>{{tbxx.creationDate}}</td>
+                            <td>{{tbxx.title}}</td>
+                            <td>
+                                <span  ng-switch="tbxx.state">
+                                    <span ng-switch-when="0">未填报</span>
+                                    <span ng-switch-when="1">已填报</span>
+                                </span>
+                            </td>
+                            <td>{{tbxx.dueDate}}</td>
+                            <td>
+                                <a href="#">
+                                <span  ng-switch="tbxx.state">
+                                    <span ng-switch-when="0">填报</span>
+                                    <span ng-switch-when="1">查看</span>
+                                </span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--<div class="formPage">-->
+                    <!--<ul>-->
+                        <!--<li class="allPage">共有<span>7</span>条，每页显示50条</li>-->
+                        <!--<li class="prev"><a href="">上一页</a></li>-->
+                        <!--<li class="active"><a href="">1</a></li>-->
+                        <!--<li><a href="">2</a></li>-->
+                        <!--<li><a href="">3</a></li>-->
+                        <!--<li class="next"><a href="">下一页</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <nav class="navbar-right">
+                    <div conf="paginationConf"></div>
+                </nav>
+            </div>
+
+        </div>
+
+    </div>
+    <!--middle-->
+
+</div>
