@@ -706,3 +706,75 @@ hr{
 .report .formPage ul {
     margin-top: 5px;
 }
+
+/*知识库样式*/
+.knowledge-list{
+    float: left;
+    width: 1170px;
+    border: 1px solid #ccc;
+    border-left: none;
+}
+
+.page_right_nav{
+    width: 1170px;
+    margin: 0 auto;
+    height: 35px;
+    margin-top: 20px;
+    line-height: 35px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.page_right_nav .colnum_name {
+    text-indent: 30px;
+    color: #0f6eae;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+
+.page_right_nav .pos{
+    padding-right: 20px;
+}
+
+.fr{
+    float: left;
+}
+
+.knowledge-detail{
+    border: 1px solid;
+}
+.knowledge-detail-show{
+    width: 1100px;
+    margin: auto;
+}
+
+.knowledge_title{
+    line-height: 58px;
+    font-size: 22px;
+    color: #004AB5;
+    text-align: center;
+    font-weight: bold;
+}
+
+.knowledge_info{
+    line-height: 20px;
+    font-size: 12px;
+    color:#b6b6b6;
+    text-align: center;
+}
+
+.knowledge-content{
+    font-size: 14px;
+    line-height: 180%;
+}
+
+.tab-content > .tab-pane {
+    display: none;
+}
+.tab-content > .active {
+    display: block;
+}
+/*知识库样式*/

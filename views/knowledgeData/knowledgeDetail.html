@@ -1,0 +1,43 @@
+<div class="container"  ng-controller="KnowDetailCtrl">
+    <div class="row"> 
+        <div class="col-md-12">
+            <div class="page_right_nav">
+            	<div class="pos fr">
+            		<a ui-sref="home">首页</a>
+            		 > 
+            		<a ui-sref="list">通知公告(知识库&资料下载)</a>
+            		 >
+            		<a ui-sref="knowledgeDetail" ng-bind="details.title"></a>
+            	</div>
+            </div>
+            
+            <div class="knowledge-detail">
+				<div class="row">
+					<div class="col-xs-9 col-md-9">
+						<div class="knowledge-detail-show">
+							<div class="knowledge_title" ng-bind="details.title">
+							</div>
+							<!--<div class="knowledge_info">
+								作者： {{details.author}} | 发布日期：{{details.date}} | 浏览次数：{{details.djl+1}}次
+							</div>-->
+							<div class="knowledge-content" ng-bind="details.content">
+							</div>
+							<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+							<div class="knowledge-upload">
+								<a href="../assets/knowledgeData/{{details.uploadTitle}}" title="{{details.uploadTitle}}">
+									<img ng-src="../images/{{details.type}}.png" />
+											{{details.uploadTitle}}
+								</a>
+							</div>
+							<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+						</div>
+					</div>
+					<div class="col-xs-3 col-md-3">
+
+					</div>
+				</div>
+            </div>
+        </div>
+                               
+    </div>
+</div>
