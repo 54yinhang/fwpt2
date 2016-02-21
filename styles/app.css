@@ -473,7 +473,7 @@ hr{
     width: 16px;
     height: 8px;
     margin: 25px 15px;
-    background: url(../img/icon.png) no-repeat 1px -188px;
+    background: url(../images/icon.png) no-repeat 1px -188px;
 }
 .left > ul > li > span > i.on {
     background-position: 0 -174px;
@@ -491,7 +491,7 @@ hr{
     height: 14px;
     margin: 0 10px 0 26px;
     vertical-align: middle;
-    background: url(../img/icon.png) no-repeat;
+    background: url(../images/icon.png) no-repeat;
 }
 .manage > li > i.add {
     background-position: 0 0;
@@ -537,9 +537,16 @@ hr{
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: url(../img/icon.png) no-repeat -54px -177px;
+    background: url(../images/icon.png) no-repeat -54px -177px;
     margin-right: 5px;
 }
+.note > li > a {
+    color: #000000;
+}
+.note > li> a:hover {
+      color: #3299fe;
+      text-decoration: none;
+  }
 .record form,
 .check form,
 .report form,
@@ -566,7 +573,7 @@ hr{
     position: absolute;
     width: 16px;
     height: 16px;
-    background: url(../img/icon.png) no-repeat 0 -199px;
+    background: url(../images/icon.png) no-repeat 0 -199px;
     top: 12px;
     left: 18px;
 }
@@ -706,6 +713,128 @@ hr{
 .report .formPage ul {
     margin-top: 5px;
 }
+/*右边详情-具体部分-（新增档案、修改档案详情、查看档案详情）*/
+.detail {
+    padding-left: 66px;
+    padding-right: 95px;
+}
+.detail .form-control,
+.detail .form-group {
+    display: inline-block;
+}
+.detail .form-group {
+    line-height: 40px;
+}
+.detail .form-group input {
+    vertical-align: middle;
+    height: 40px;
+    line-height: 26px;
+}
+.detail > .setting {
+    width: 628px;
+    margin: 25px 0 15px 0;
+}
+.detail > .setting label {
+    font-weight: 400;
+}
+.detail > .setting .select {
+    display: inline-block;
+    margin: 0 32px 0 10px;
+    vertical-align: middle;
+}
+.detail > .setting .select .companyName {
+    width: 340px;
+}
+.detail > .setting .select .companyLists {
+    width: 340px;
+    height: 200px;
+    overflow-x: hidden;
+}
+.detail > .setting .select .companyLists > li a {
+    line-height: 30px;
+}
+.detail > .setting .year {
+    margin-left: 10px;
+    width: 106px;
+}
+.detail > .setting .tip {
+    width: 18px;
+    top: 15px;
+}
+.detail > .setting .tip i {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: url(../images/icon.png) no-repeat;
+}
+.detail > .setting .tip i.top {
+    background-position: -54px -193px;
+}
+.detail > .setting .tip i.down {
+    background-position: -54px -203px;
+}
+.detail > .setting .paynum {
+    width: 540px;
+    height: 40px;
+    margin-left: 10px;
+}
+.detail > .setting .choseFile {
+    margin-left: 10px;
+    width: 127px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.detail > .setting .reportFile {
+    width: 127px;
+    background-color: #3398CC;
+    color: #fff;
+}
+.detail > table {
+    border: 1px solid #e1e1e1;
+}
+.detail > table thead {
+    background-color: #f5f4f9;
+}
+.detail > .intro {
+    margin-top: 40px;
+}
+.detail > .intro:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.detail > .intro p {
+    width: 550px;
+    height: 90px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+    float: right;
+}
+.detail > .state {
+    margin-bottom: 29px;
+}
+.detail > .state:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.detail > .state button {
+    width: 110px;
+    height: 33px;
+    color: #fff;
+    float: right;
+    margin-left: 20px;
+}
+.detail > .state button.save {
+    background-color: #4989b9;
+}
+.detail > .state button.sar {
+    background-color: #9c221f;
+}
+.detail > .state button.back {
+    background-color: #aeafb1;
+}}
 
 /*知识库样式*/
 .knowledge-list{
