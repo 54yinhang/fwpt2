@@ -11,6 +11,7 @@ angular.module('FWPT')
 			pagesLength: 10,    //分页条的长度
 			perPageOptions: [10, 20, 30, 40, 50],    //当前显示的数据可选数量
 			onChange: function(){
+				$scope.setPagingFilter($scope.searchText);
 			},
 			dataCountDisplay:true,         //选择显示当前页显示的数据数量
 			jumpOrNot:true           //是否选择跳转
@@ -43,11 +44,6 @@ angular.module('FWPT')
 		 * ***********************************************************************
 		 * 分页调用---结束
 		 */
-
-		//监控当前页和当前页显示数量的改变情况
-		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', function(){
-			$scope.setPagingFilter($scope.searchText);
-		},true);
 
 		//搜索
 	    $scope.searchQuery = function(){
