@@ -62,6 +62,32 @@ angular.module('FWPT')
                         });
                     return deferred.promise;
                 }
+            },
+            delete:function(deleteData){
+                $http({
+                    method:'POST',
+                    url:'',
+                    data:deleteData
+                })
+                    .success(function(data){
+                        alert("删除成功");
+                    })
+                    .error(function(){
+                        alert("删除失败");
+                    })
+            },
+            push:function(pushData){
+                $http({
+                    method:'POST',
+                    url:'',
+                    data:deleteData
+                })
+                    .success(function(data){
+                        alert("上报成功");
+                    })
+                    .error(function(){
+                        alert("上报失败");
+                    })
             }
         };
     });

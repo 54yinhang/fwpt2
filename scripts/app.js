@@ -98,7 +98,7 @@ angular.module('FWPT', [
             views:{
                 'list':{
                     templateUrl:'electronicFile/unpushList.html',
-                    controller:'ElectronicFileController'
+                    controller:'ElectronicFilePushController'
                 }
             }
         })

@@ -26,23 +26,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>某某预水水水水水水水算单位</td>
-            <td>2015</td>
-            <td>2015301321</td>
-            <td>以填报</td>
-            <td>张三</td>
-            <td>2015301321</td>
-            <td>修改</td>
-        </tr>
-        <tr>
-            <td>某某预水水水水水水水算单位</td>
-            <td>2015</td>
-            <td>2015301321</td>
-            <td>以填报</td>
-            <td>张三</td>
-            <td>2015301321</td>
-            <td>修改</td>
+        <tr ng-repeat="data in listData">
+            <td><span ng-bind="data.ysdwmc"></span></td>
+            <td><span ng-bind="data.ssny"></span></td>
+            <td><span ng-bind="data.zflh"></span></td>
+            <td><span ng-bind="data.spzt"></span></td>
+            <td><span ng-bind="data.spr"></span></td>
+            <td><span ng-bind="data.spsj"></span></td>
+            <td><a>修改</a></td>
         </tr>
         </tbody>
     </table>
