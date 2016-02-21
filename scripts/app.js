@@ -51,6 +51,24 @@ angular.module('FWPT', [
                 }
             }
         })
+        .state('account.todoTask.list.detail',
+        {
+            url:'/:id',
+            views:{
+                '@account.todoTask':{
+                    //templateUrl: 'account/record-check-detail.html',
+                    templateUrl:function($routeParams){
+                        if($routeParams.id<20){
+                            return  'account/messageForm.html';
+
+                        }else{
+                            return 'account/record-check-detail.html';
+                        }
+                    },
+                    controller: 'TodoTaskController'
+                }
+            }
+        })
         //.state('todoTask.detail')
         /* account */
 
