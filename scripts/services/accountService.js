@@ -64,10 +64,6 @@ angular.module('FWPT')
         });
         return {
             //改为从后端取数
-            getUsernamepic:function(){
-              return userjson.displayName
-
-            },
             getTodoTaskSum: function () {
                 return {
                     wdxx: 9,
@@ -99,15 +95,15 @@ angular.module('FWPT')
                     //break;
                     case "whddp":// 我的电子凭证（财政未核对）
                         $(".flrrightinfo>h5>span").html("我的电子凭证（财政未核对）");
-                        return jsondata.wdxx;
+                        return jsondata.whddp;
                     //break;
                     case "thddp"://我的电子凭证（被退回）
                         $(".flrrightinfo>h5>span").html("我的电子凭证（被退回）");
-                        return jsondata.wdxx;
+                        return jsondata.thddp;
                     //break;
                     case "hdwcdp"://我未完成的报表填报任务
                         $(".flrrightinfo>h5>span").html("我未完成的报表填报任务");
-                        return jsondata.wdxx;
+                        return jsondata.hdwcdp;
                     //break;
                 }
 
