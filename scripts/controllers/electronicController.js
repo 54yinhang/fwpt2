@@ -108,6 +108,7 @@ angular.module('FWPT')
                     $scope.listData = data;
                 }
             );
+            //获得单个详细数据
             ElectronicFileService.getOne($stateParams.id).then(
                 function(data){
                     $scope.data = data;
