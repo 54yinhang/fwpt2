@@ -61,7 +61,8 @@ angular.module('FWPT', [
         })
         .state('fillReport',{
             url: '/fillReport',
-            templateUrl: 'portal/anonymous.html'
+            templateUrl: 'report/list.html',
+            controller: 'FillReportController'
         })
         .state('report',{
             url: '/report',
