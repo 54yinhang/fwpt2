@@ -11,60 +11,92 @@ angular.module('FWPT')
                     $scope.listData = data;
                 }
             );
-            //删除档案数组
-            $scope.selected = [];
-            //根据checkbox的勾选情况对删除档案数组进行增删
-            $scope.updateSelections = function ($event, id) {
+            //全选
+            $scope.selectAll = function($event){
                 var checkbox = $event.target;
-                var action = (checkbox.checked?'add':'remove');
-                if(action=='add' && $scope.selected.indexOf(id)==-1){
-                    $scope.selected.push(id);
-                }
-                if(action=='remove' && $scope.selected.indexOf(id)!=-1){
-                    $scope.selected.splice($scope.selected.indexOf(id),1);
-                }
-            }
-            //删除档案
-            $scope.delete = function(){
-                ElectronicFileService.delete($scope.selected);
-                ElectronicFileService.getList($stateParams.category).then(
-                    function(data){
-                        $scope.listData = data;
+                if(checkbox.checked){
+                    for(var i=0;i<$scope.listData.length;i++){
+                        $scope.listData[i].selected = true;
                     }
-                );
-                $scope.selected = [];
-            }
-    }])
-    .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
-        function ($scope, $state, $stateParams, ElectronicFileService) {
-            //根据传入的菜单选项标识category获取相应菜单列表数据
-            ElectronicFileService.getList($stateParams.category).then(
-                function(data){
-                    $scope.listData = data;
+                }else{
+                    for(var i=0;i<$scope.listData.length;i++){
+                        $scope.listData[i].selected = false;
+                    }
                 }
-            );
-            //上报档案数组
-            $scope.selected = [];
-            //根据checkbox的勾选情况对上报档案数组进行增删
-            $scope.updateSelections = function ($event, id) {
+            }
+            //单选
+            $scope.setSelected = function($event,index){
                 var checkbox = $event.target;
-                var action = (checkbox.checked?'add':'remove');
-                if(action=='add' && $scope.selected.indexOf(id)==-1){
-                    $scope.selected.push(id);
-                }
-                if(action=='remove' && $scope.selected.indexOf(id)!=-1){
-                    $scope.selected.splice($scope.selected.indexOf(id),1);
+                if(checkbox.checked){
+                    $scope.listData[index].selected = true;
+                }else{
+                    $scope.listData[index].selected = false;
                 }
             }
-            //上报档案
+            //将选好的删除条目上传服务器
             $scope.push = function(){
+                var selected = {};
+                for(var i=0;i<$scope.listData.length;i++){
+                    if($scope.listData[i].selected = true){
+                        selected.push($scope.listData[i]);
+                    }
+                }
                 ElectronicFileService.push($scope.selected);
                 ElectronicFileService.getList($stateParams.category).then(
                     function(data){
                         $scope.listData = data;
                     }
                 );
-                $scope.selected = [];
+            }
+    }])
+    .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
+        function ($scope, $state, $stateParams, ElectronicFileService) {
+            //根据传入的菜单选项标识category获取相应菜单列表数据
+
+            ElectronicFileService.getList($stateParams.category).then(
+                function(data){
+                    $scope.listData = data;
+                    for(var i=0;i<$scope.listData.length;i++){
+                        $scope.listData[i].selected = false;
+                    }
+                }
+            );
+            //全选
+            $scope.selectAll = function($event){
+                var checkbox = $event.target;
+                if(checkbox.checked){
+                    for(var i=0;i<$scope.listData.length;i++){
+                        $scope.listData[i].selected = true;
+                    }
+                }else{
+                    for(var i=0;i<$scope.listData.length;i++){
+                        $scope.listData[i].selected = false;
+                    }
+                }
+            }
+            //单选
+            $scope.setSelected = function($event,index){
+                var checkbox = $event.target;
+                if(checkbox.checked){
+                    $scope.listData[index].selected = true;
+                }else{
+                    $scope.listData[index].selected = false;
+                }
+            }
+            //将选好的上报条目上传服务器
+            $scope.push = function(){
+                var selected = {};
+                for(var i=0;i<$scope.listData.length;i++){
+                    if($scope.listData[i].selected = true){
+                        selected.push($scope.listData[i]);
+                    }
+                }
+                ElectronicFileService.push($scope.selected);
+                ElectronicFileService.getList($stateParams.category).then(
+                        function(data){
+                            $scope.listData = data;
+                        }
+                );
             }
         }
     ])

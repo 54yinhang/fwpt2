@@ -57,7 +57,10 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="data in listData">
-                            <td><input type="checkbox" id="{{data.id}}" ng-click="updateSelections($event,data.id)" ng-checked="selectAll"/><span ng-bind="data.ysdwmc"></span></td>
+                            <td>
+                                <input type="checkbox" id="{{data.id}}" ng-model="data.selected" ng-click="setSelected($event,$index)" ng-bind="data.selected"/>
+                                <span ng-bind="data.ysdwmc"></span>
+                            </td>
                             <td><span ng-bind="data.ssny"></span></td>
                             <td><span ng-bind="data.zflh"></span></td>
                             <td><span ng-bind="data.spzt"></span></td>
@@ -69,7 +72,7 @@
                     </table>
                     <div class="formPage">
                         <div>
-                            <input type="checkbox" ng-model="selectAll"/>
+                            <input type="checkbox" ng-click="selectAll($event)"/>
                             <button ng-click="delete">删除</button>
                         </div>
                         <ul>
