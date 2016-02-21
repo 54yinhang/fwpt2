@@ -21,7 +21,6 @@
     "angular-bootstrap": "~0.14.3",
     "font-awesome": "~4.0",
     "moment": "~2.5",
-    "less.js": "~1.6",
-    "laydate": "git@github.com:sentsin/laydate.git"
+    "less.js": "~1.6"
   }
 }

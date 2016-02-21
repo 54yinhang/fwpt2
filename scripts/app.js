@@ -1,5 +1,5 @@
 angular.module('FWPT', [
-    'ui.bootstrap','ui.utils','ui.router','ngAnimate','pagination'
+    'ui.bootstrap','ui.utils','ui.router','ngAnimate'
 ])
 
 .config(['$stateProvider', '$urlRouterProvider',function ($stateProvider,   $urlRouterProvider) {
@@ -79,7 +79,8 @@ angular.module('FWPT', [
         })
         .state('fillReport',{
             url: '/fillReport',
-            templateUrl: 'portal/anonymous.html'
+            templateUrl: 'report/list.html',
+            controller: 'FillReportController'
         })
         .state('report',{
             url: '/report',
@@ -107,7 +108,7 @@ angular.module('FWPT', [
             views:{
                 'list':{
                     templateUrl:'electronicFile/modifyList.html',
-                    controller:'ElectronicFileModifyController'
+                    controller:'ElectronicFileController'
                 }
             }
         })
@@ -138,27 +139,7 @@ angular.module('FWPT', [
                 }
             }
         })
-        .state('electronic.modifyFile',{
-            url:'/modifyFile',
-            views:{
-                'list':{
-                    templateUrl:'electronicFile/modifyFile.html',
-                    controller:'ElectronicFileModifyController'
-                }
-            }
-        })
         /* electronicFile*/
-
-        /*knowledgeData*/
-        .state('list',{
-            url:'/list',
-            templateUrl:'knowledgeData/list.html'
-        })
-        .state('knowledgeDetail',{
-            url:'/knowledgeDetail:knowId',
-            templateUrl: 'knowledgeData/knowledgeDetail.html'
-        })
-        /*knowledgeData*/
 }])
 
 
@@ -179,4 +160,5 @@ angular.module('FWPT', [
             this.$apply(fn);
         }
     };
+
 });

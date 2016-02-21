@@ -1,0 +1,923 @@
+/*通用样式*/
+* {
+  font-family: '微软雅黑', Microsoft YaHei, Helvetica, Tahoma;
+}
+body {
+  font-size: 14px;
+  min-width: 1170px !important;
+}
+.container {
+  min-width: 1170px !important;
+  margin: 0 auto;
+}
+ol,
+ul,
+li {
+  list-style-type: none;
+}
+.line-height {
+  height: 38px;
+  line-height: 38px;
+}
+/*复写样式*/
+input.form-control {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  height: 38px;
+  line-height: 38px;
+}
+.btn-danger {
+  background-color: #9c221f;
+  border-color: #9c221f;
+}
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+/*header*/
+.index-nav {
+  width: 100%;
+  height: 82px;
+  background-color: #fff;
+  font-size: 16px;
+}
+.index-nav .nav-pills {
+  float: right;
+  margin-top: 20px;
+}
+.index-nav .nav-pills a {
+  color: #666666;
+  border-radius: 0;
+}
+.index-nav .nav-pills a:hover {
+  background-color: #fff;
+  color: #950909;
+  border-bottom: 2px solid #950909;
+}
+.index-nav .nav-pills a.active {
+  background-color: #fff;
+  color: #950909;
+  border-bottom: 2px solid #950909;
+}
+/*banner*/
+.index-banner {
+  background: url(../images/banner_bj.jpg) repeat-x;
+  width: 100%;
+  height: 371px;
+}
+.index-banner .banner-left {
+  float: left;
+  height: 371px;
+  background: url(../images/banner.png) no-repeat top right;
+  width: 750px;
+}
+.index-banner .banner-left .banner-year {
+  margin-left: 247px;
+  color: #950909;
+  font-size: 68px;
+  margin-top: 180px;
+  font-family: Arial;
+  font-weight: bold;
+}
+.index-banner .banner-left .banner-year span {
+  color: #fff;
+  margin-left: -24px;
+  font-family: Arial;
+}
+.index-banner .banner-right {
+  float: right;
+  position: relative;
+}
+.index-banner .banner-right .banner-box {
+  width: 372px;
+  height: 291px;
+  background-color: #fff;
+  margin-top: 38px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  filter: alpha(opacity=40);
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+  opacity: 0.4;
+}
+.index-banner .banner-right .banner-relative {
+  position: absolute;
+  top: 38px;
+  width: 374px;
+  padding: 24px 32px;
+}
+.index-banner .banner-right .banner-relative .banner-security {
+  float: left;
+  width: 150px;
+}
+.index-banner .banner-right .banner-relative .banner-img {
+  margin-left: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  height: 38px;
+  line-height: 38px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.index-banner .banner-right .banner-relative .index-safety {
+  margin-top: 20px;
+}
+.index-banner .banner-right .banner-relative .index-safety .index-user {
+  color: #950909;
+}
+.index-banner .banner-right .banner-relative .index-safety .index-forget {
+  text-align: right;
+  display: block;
+}
+/*红底白字按钮*/
+.index-btn {
+  width: 100%;
+  background-color: #950909;
+  color: #fff;
+  margin-top: 20px;
+  border: 2px solid #950909;
+}
+.index-btn:hover {
+  background-color: #fff;
+  color: #950909;
+  border: 2px solid #950909;
+}
+/*middle*/
+.index-middle {
+  width: 100%;
+  background-color: #f5f4f9;
+  padding-bottom: 20px;
+  /*通知公告*/
+  /*知识库资料下载*/
+  /*业务系统*/
+}
+.index-middle .index-subtitle {
+  margin-top: 34px;
+  font-size: 24px;
+  color: #333;
+}
+.index-middle .index-subtitle > a {
+  float: right;
+  font-size: 14px;
+  color: #666666;
+}
+.index-middle .index-subtitle > a:hover {
+  color: #950909;
+}
+.index-middle .index-list {
+  background-color: #fff;
+  width: 100%;
+  height: 290px;
+  border: 1px solid #cccccc;
+  margin-top: 27px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+.index-middle .index-list .index-top {
+  position: absolute;
+}
+.index-middle .index-list .index-topic {
+  font-size: 16px;
+  width: 145px;
+  height: 44px;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 28px;
+  color: #333;
+}
+.index-middle .index-list .index-detail {
+  border-top: 1px solid #cccccc;
+  width: 86%;
+  margin-top: 20px;
+  color: #666666;
+  text-indent: 2em;
+  padding-top: 30px;
+  height: 120px;
+}
+.index-middle .index-list .index-more {
+  width: 90px;
+  text-align: center;
+  height: 32px;
+  line-height: 30px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.index-middle .index-knowledge {
+  margin-top: 39px;
+  background-color: #fff;
+  width: 100%;
+}
+.index-middle .index-knowledge .index-knowledge-left {
+  float: left;
+  width: 250px;
+  height: 294px;
+  position: relative;
+}
+.index-middle .index-knowledge .index-knowledge-left .index-knowledge-brands {
+  width: 250px;
+  height: 303px;
+  background: url(../images/bj.png) no-repeat;
+  padding-top: 200px;
+  position: absolute;
+  top: -9px;
+}
+.index-middle .index-knowledge .index-knowledge-left .index-knowledge-brands .index-whole {
+  background-color: #fff;
+  color: #950909;
+  width: 172px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 5px;
+  text-align: center;
+}
+.index-middle .index-knowledge .index-knowledge-left .index-knowledge-data {
+  background-image: url(../images/bj2.png);
+}
+.index-middle .index-knowledge .index-knowledge-right {
+  float: left;
+  width: 902px;
+  height: 294px;
+  border: 1px solid #cccccc;
+  border-left: none;
+  margin-left: -12px;
+}
+.index-middle .index-knowledge .index-knowledge-right .index-ul {
+  padding-left: 32px;
+  margin-top: 20px;
+}
+.index-middle .index-knowledge .index-knowledge-right .index-ul li {
+  height: 48px;
+  line-height: 48px;
+  border-bottom: 1px solid #f5f4f9;
+}
+.index-middle .index-knowledge .index-knowledge-right .index-ul li a {
+  color: #666666;
+  display: block;
+}
+.index-middle .index-knowledge .index-knowledge-right .index-ul li a:hover {
+  color: #950909;
+}
+.index-middle .index-knowledge .index-knowledge-right .index-ul li a > span {
+  float: right;
+  margin-right: 20px;
+}
+.index-middle .index-business {
+  background-color: #fff;
+  margin-top: 20px;
+  width: 165px;
+}
+/*我的一览表*/
+.inedx-table {
+  background-color: #fff;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 100%;
+  height: 292px;
+  margin-top: 30px;
+  border: 1px solid #cccccc;
+  padding-top: 10px;
+}
+.inedx-table .index_schedule {
+  padding-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.inedx-table .index_schedule li {
+  height: 32px;
+  line-height: 32px;
+}
+.inedx-table .index_schedule li a {
+  color: #666666;
+  display: block;
+}
+.inedx-table .index_schedule li a:hover {
+  color: #950909;
+  background-color: #f2eded;
+}
+.inedx-table .index_schedule li a > span {
+  float: right;
+  margin-right: 4px;
+}
+.inedx-table .index-line {
+  border-bottom: 1px dashed #cccccc;
+  padding-bottom: 4px;
+}
+.inedx-account {
+  padding: 30px;
+}
+.inedx-account .account-head {
+  width: 100%;
+  height: 80px;
+  background-color: #f5f4f9;
+}
+.inedx-account .account-head img {
+  width: 80px;
+  margin-right: 20px;
+}
+.inedx-account .account-enterprise {
+  margin-top: 30px;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.inedx-account .account-bottom {
+  margin-top: 40px;
+}
+.inedx-account .account-bottom .account-log {
+  width: 142px;
+}
+/*footer*/
+.footer {
+  width: 100%;
+  height: 82px;
+  line-height: 82px;
+  background-color: #950909;
+}
+.footer p {
+  text-align: center;
+  color: #fff;
+}
+.footer p a {
+  text-align: center;
+  color: #fff;
+}
+/*通知公告和知识库*/
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+}
+.notices .mainSection {
+  border: 1px solid #e1e1e1;
+  width: 1140px;
+  margin-bottom: 20px;
+}
+.notices .mainSection > ul {
+  width: 1116px;
+  height: 50px;
+  margin-left: 12px;
+}
+.notices .mainSection > ul li a {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  height: 47px;
+  line-height: 28px;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+}
+.notices .mainSection > ul li.active {
+  border-top: 3px solid #950909;
+}
+.notices .notice,
+.notices .knowledge {
+  background-color: #fff;
+  width: 1138px;
+}
+.notices .notice > .content,
+.notices .knowledge > .content {
+  padding-top: 10px;
+}
+.notices .notice > .content ul,
+.notices .knowledge > .content ul {
+  padding: 0;
+  margin: 0;
+  width: 1084px;
+  margin-left: 17px;
+}
+.notices .notice > .content ul li,
+.notices .knowledge > .content ul li {
+  border-bottom: 1px dashed #cbcbcb;
+  position: relative;
+}
+.notices .notice > .content ul li a,
+.notices .knowledge > .content ul li a {
+  display: block;
+  height: 47px;
+  line-height: 47px;
+  width: 1084px;
+  color: #666666;
+  text-decoration: none;
+}
+.notices .notice > .content ul li a .date,
+.notices .knowledge > .content ul li a .date {
+  float: right;
+}
+.notices .notice > .content ul li a .program,
+.notices .knowledge > .content ul li a .program {
+  margin-left: 17px;
+}
+.notices .notice > .content ul li a b,
+.notices .knowledge > .content ul li a b {
+  position: absolute;
+  width: 13px;
+  height: 16px;
+  background: url(../images/icon.png) no-repeat 0 -154px;
+  top: 15px;
+}
+.notices .notice > .page,
+.notices .knowledge > .page {
+  padding-top: 20px;
+  text-align: center;
+}
+.notices .notice > .page ul,
+.notices .knowledge > .page ul {
+  display: inline-block;
+}
+.notices .notice > .page ul li,
+.notices .knowledge > .page ul li {
+  float: left;
+  margin-right: 15px;
+  text-align: center;
+}
+.notices .notice > .page ul li a,
+.notices .knowledge > .page ul li a {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #666666;
+}
+.notices .notice > .page ul .prev > a,
+.notices .knowledge > .page ul .prev > a,
+.notices .notice > .page ul .next > a,
+.notices .knowledge > .page ul .next > a {
+  display: inline;
+}
+.notices .notice > .page ul .active,
+.notices .knowledge > .page ul .active {
+  background-color: #950909;
+}
+.notices .notice > .page ul .active a,
+.notices .knowledge > .page ul .active a {
+  color: #fff;
+}
+.notices .knowledge > .content ul li a b {
+  width: 26px;
+  height: 26px;
+  background: url(../images/icon.png) no-repeat 0 -72px;
+}
+.notices .knowledge > .content ul li a .program {
+  margin-left: 30px;
+}
+.notices .knowledge {
+  display: none;
+}
+.notices .guide,
+.notice .guide {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.notices .guide ol,
+.notice .guide ol {
+  height: 15px;
+  line-height: 15px;
+}
+.notices .guide ol li,
+.notice .guide ol li {
+  float: left;
+}
+.notices .guide ol li span,
+.notice .guide ol li span {
+  display: inline-block;
+  width: 7px;
+  height: 8px;
+  background: url(../images/icon.png) no-repeat -54px -168px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+/*公告详情*/
+.notice .mainSection > div {
+  border: 1px solid #e1e1e1;
+  background-color: #fff;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding: 0 17px 10px 17px;
+}
+.notice .mainSection .article {
+  float: left;
+  width: 804px;
+}
+.notice .mainSection .article h2 {
+  color: #950909;
+  text-align: center;
+}
+.notice .mainSection .article p {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 30px;
+}
+.notice .mainSection .notice-list {
+  float: right;
+  width: 316px;
+}
+.notice .mainSection .notice-list p {
+  margin: 18px 0 0 10px;
+  font-size: 16px;
+}
+.notice .mainSection .notice-list hr {
+  margin-top: 15px;
+}
+.notice .mainSection .notice-list ol {
+  margin-left: 8px;
+}
+.notice .mainSection .notice-list ol span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #950909;
+  margin: 10px 8px 0 0;
+}
+/*电子档案*/
+.section {
+  width: 100%;
+  background-color: #f5f4f9;
+  padding-bottom: 20px;
+}
+.info {
+  margin-top: 33px;
+}
+.info:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.left {
+  float: left;
+  width: 284px;
+  border: 1px solid #e1e1e1;
+  background-color: #fff;
+  padding: 10px;
+}
+.left > span {
+  font-size: 16px;
+  line-height: 65px;
+  padding-left: 15px;
+}
+.left > ul {
+  padding: 0;
+  margin: 0;
+}
+.left > ul > li {
+  border-top: 1px solid #ccc;
+}
+.left > ul > li > span {
+  margin-left: 15px;
+  line-height: 58px;
+}
+.left > ul > li > span > i {
+  float: right;
+  width: 16px;
+  height: 8px;
+  margin: 25px 15px;
+  background: url(../images/icon.png) no-repeat 1px -188px;
+}
+.left > ul > li > span > i.on {
+  background-position: 0 -174px;
+}
+.manage {
+  padding: 0;
+  background-color: #f5f4f9;
+}
+.manage > li {
+  line-height: 50px;
+}
+.manage > li > i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 10px 0 26px;
+  vertical-align: middle;
+  background: url(../images/icon.png) no-repeat;
+}
+.manage > li > i.add {
+  background-position: 0 0;
+}
+.manage > li > i.revise {
+  background-position: 0 -17px;
+}
+.manage > li > i.report {
+  background-position: 0 -34px;
+}
+.manage > li > i.check {
+  background-position: 0 -52px;
+}
+.manage > li > a {
+  color: #666666;
+}
+.manage > li > a:hover {
+  color: #3299fe;
+  text-decoration: none;
+}
+.right {
+  float: right;
+  width: 833px;
+  border: 1px solid #e1e1e1;
+  background-color: #fff;
+  padding: 0 17px;
+}
+.note {
+  border-bottom: 1px solid #e1e1e1;
+  margin: 0;
+  padding-left: 7px;
+}
+.note:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.note > li {
+  line-height: 55px;
+  float: left;
+}
+.note > li i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: url(../images/icon.png) no-repeat -54px -177px;
+  margin-right: 5px;
+}
+.record form,
+.check form,
+.report form,
+.revise form {
+  padding: 0;
+}
+.record form > div > input,
+.check form > div > input,
+.report form > div > input,
+.revise form > div > input {
+  width: 643px !important;
+  height: 39px;
+  padding-left: 38px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin-left: 6px;
+  margin-right: 10px;
+}
+.record form > div > span,
+.check form > div > span,
+.report form > div > span,
+.revise form > div > span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon.png) no-repeat 0 -199px;
+  top: 12px;
+  left: 18px;
+}
+.record form > div button,
+.check form > div button,
+.report form > div button,
+.revise form > div button {
+  width: 128px;
+  height: 39px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.record table,
+.check table,
+.report table,
+.revise table {
+  border: 1px solid #e1e1e1;
+  width: 786px;
+  margin-left: 6px;
+  margin-top: 26px;
+}
+.record table thead,
+.check table thead,
+.report table thead,
+.revise table thead {
+  background-color: #F5F4F9;
+}
+.record table thead th,
+.check table thead th,
+.report table thead th,
+.revise table thead th {
+  height: 50px;
+  vertical-align: middle;
+}
+.record table tbody td,
+.check table tbody td,
+.report table tbody td,
+.revise table tbody td {
+  height: 55px;
+  vertical-align: middle;
+}
+.record .formPage,
+.check .formPage,
+.report .formPage,
+.revise .formPage {
+  margin-bottom: 30px;
+  text-align: right;
+  margin-right: 50px;
+}
+.record .formPage ul,
+.check .formPage ul,
+.report .formPage ul,
+.revise .formPage ul {
+  display: inline-block;
+}
+.record .formPage ul li,
+.check .formPage ul li,
+.report .formPage ul li,
+.revise .formPage ul li {
+  float: left;
+  margin-right: 8px;
+  text-align: center;
+}
+.record .formPage ul li a,
+.check .formPage ul li a,
+.report .formPage ul li a,
+.revise .formPage ul li a {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #666666;
+}
+.record .formPage ul .allPage,
+.check .formPage ul .allPage,
+.report .formPage ul .allPage,
+.revise .formPage ul .allPage {
+  height: 26px;
+  line-height: 26px;
+  margin-right: 40px;
+  font-size: 12px;
+}
+.record .formPage ul .prev > a,
+.check .formPage ul .prev > a,
+.report .formPage ul .prev > a,
+.revise .formPage ul .prev > a,
+.record .formPage ul .next > a,
+.check .formPage ul .next > a,
+.report .formPage ul .next > a,
+.revise .formPage ul .next > a {
+  display: inline;
+}
+.record .formPage ul .active,
+.check .formPage ul .active,
+.report .formPage ul .active,
+.revise .formPage ul .active {
+  background-color: #950909;
+}
+.record .formPage ul .active a,
+.check .formPage ul .active a,
+.report .formPage ul .active a,
+.revise .formPage ul .active a {
+  color: #fff;
+}
+.record table .blank,
+.report table .blank {
+  padding-left: 25px;
+}
+.record table input,
+.report table input {
+  margin-right: 5px;
+  vertical-align: text-top;
+}
+.record .formPage,
+.report .formPage {
+  height: 34px;
+}
+.record .formPage div,
+.report .formPage div {
+  float: left;
+  margin-left: 20px;
+}
+.record .formPage div input,
+.report .formPage div input {
+  margin-right: 15px;
+}
+.record .formPage div button,
+.report .formPage div button {
+  width: 78px;
+  height: 34px;
+  background-color: #f7f7f7;
+  border: 1px solid #e1e1e1;
+}
+.record .formPage ul,
+.report .formPage ul {
+  margin-top: 5px;
+}
+/*报表填报*/
+.index-middle:before {
+  display: table;
+  content: " ";
+  clear: both;
+}
+.fill {
+  margin-top: 32px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 12px;
+  border: 1px solid #e1e1e1;
+}
+.fill .title {
+  height: 53px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.fill .title > span {
+  font-size: 16px;
+  margin-top: 17px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.fill .title form > div {
+  position: relative;
+}
+.fill .title form > div input {
+  border-color: #e1e1e1;
+  width: 305px;
+  height: 39px;
+  border-radius: 2px;
+  padding-left: 38px;
+}
+.fill .title form > div > span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon.png) no-repeat 0 -199px;
+  top: 11px;
+  left: 12px;
+}
+.fill .title form > div button {
+  width: 128px;
+  height: 39px;
+  border-radius: 2px;
+  background-color: #2196F3;
+}
+.fill .formSection .formContent {
+  margin-top: 36px;
+}
+.fill .formSection .formContent table {
+  width: 1081px;
+  border: 1px solid #D5D4D5;
+  margin-left: 29px;
+}
+.fill .formSection .formContent table thead {
+  background-color: #F5F4F9;
+}
+.fill .formSection .formContent table thead th {
+  height: 50px;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+.fill .formSection .formContent table td {
+  height: 55px;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+.fill .formSection .formPage {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: right;
+  margin-right: 50px;
+}
+.fill .formSection .formPage ul {
+  display: inline-block;
+}
+.fill .formSection .formPage ul li {
+  float: left;
+  margin-right: 15px;
+  text-align: center;
+}
+.fill .formSection .formPage ul li a {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #666666;
+}
+.fill .formSection .formPage ul .allPage {
+  height: 26px;
+  line-height: 26px;
+  margin-right: 40px;
+}
+.fill .formSection .formPage ul .prev > a,
+.fill .formSection .formPage ul .next > a {
+  display: inline;
+}
+.fill .formSection .formPage ul .active {
+  background-color: #950909;
+}
+.fill .formSection .formPage ul .active a {
+  color: #fff;
+}
+/*报表查询*/
