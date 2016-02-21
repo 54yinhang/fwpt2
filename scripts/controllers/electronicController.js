@@ -32,6 +32,7 @@ angular.module('FWPT')
                         $scope.listData = data;
                     }
                 );
+                $scope.selected = [];
             }
     }])
     .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
@@ -63,6 +64,7 @@ angular.module('FWPT')
                         $scope.listData = data;
                     }
                 );
+                $scope.selected = [];
             }
         }
     ])
