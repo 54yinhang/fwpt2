@@ -5,20 +5,6 @@ angular.module('FWPT')
     .factory('ElectronicFileService', function ($http, $state, $stateParams,$q) {
 
         return {
-            getModifyList: function () {
-                var deferred = $q.defer();
-                $http({
-                    method:'GET',
-                    url:'../assets/electronicFile.json'
-                })
-                    .success(function (data) {
-                        deferred.resolve(data);
-                    })
-                    .error(function () {
-                        alert("连接服务器失败");
-                    });
-                return deferred.promise;
-            },
             getList: function (category) {
                 var deferred = $q.defer();
                 //根据不同菜单选项，获取相应列表数据
@@ -36,7 +22,7 @@ angular.module('FWPT')
                         });
                     return deferred.promise;
                 }
-                if(catefory=='modifyList'){
+                if(category=='modifyList'){
                     $http({
                         method:'GET',
                         url:'../assets/electronicFile.json'
@@ -49,7 +35,7 @@ angular.module('FWPT')
                         });
                     return deferred.promise;
                 }
-                if(catefory=='unpushList'){
+                if(category=='unpushList'){
                     $http({
                         method:'GET',
                         url:'../assets/electronicFile.json'
@@ -80,7 +66,7 @@ angular.module('FWPT')
                 $http({
                     method:'POST',
                     url:'',
-                    data:deleteData
+                    data:pushData
                 })
                     .success(function(data){
                         alert("上报成功");
@@ -88,6 +74,21 @@ angular.module('FWPT')
                     .error(function(){
                         alert("上报失败");
                     })
+            },
+            getOne:function(id){
+                var deferred = $q.defer();
+                $http({
+                    method:'POST',
+                    url:'',
+                    data:id
+                })
+                    .success(function(data){
+                        deferred.resolve(data);
+                    })
+                    .error(function(){
+                        alert("获取数据失败");
+                    })
+                return deferred.promise;
             }
         };
     });
