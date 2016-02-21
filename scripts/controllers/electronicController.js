@@ -116,5 +116,8 @@ angular.module('FWPT')
             );
         }
     ])
-
+function toggle($event){
+    $(".manage").toggle();
+    $($event.target).toggleClass("on");
+}
 
