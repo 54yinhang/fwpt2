@@ -431,8 +431,6 @@ hr{
     margin: 10px 0px 10px 20px;
     border: none;
 }
-
-
 /*电子档案*/
 .section {
     width: 100%;
@@ -719,7 +717,6 @@ hr{
 .detail {
     padding-left: 66px;
     padding-right: 95px;
-
 }
 .detail .form-control,
 .detail .form-group {
@@ -914,6 +911,10 @@ hr{
 .knowledge-content{
     font-size: 14px;
     line-height: 180%;
+    margin: 20px;
+}
+.knowledge_upload{
+    margin: 20px;
 }
 
 .tab-content > .tab-pane {
@@ -980,3 +981,86 @@ hr{
     cursor: pointer;
 }
 /*重新登录框样式*/
+/*知识库样式*/
+/*通知公告的样式--start*/
+.inedx-table-list-inform{
+    background-color: #fff;
+    width: 100%;
+    margin-top:18px;
+    border: 1px solid #ccc;
+
+}
+.index-table-list-inform>div{
+    background-color:#f5f4f9;
+}
+.inform_font{
+    font-size:16px;
+}
+.index-bgcolor{
+    background-color:#f5f4f9;
+}
+.index-ul{
+    margin:0px 5px;
+    padding:0px;
+}
+.index-ul li{
+    margin: 0px;
+    padding: 0px;
+    height:100%;
+}
+.index-ul a{
+    width:100%;
+    margin: 0px;
+    height:100%;
+    padding: 0px;
+}
+.index_message{
+    padding-top: 20px;
+    padding-bottom:50px;
+    background-color:#f5f4f9;
+}
+.inform_left{
+    text-align:center;
+    padding-top: 10px;
+    font-weight: 700;
+}
+.inform_right{
+    padding-top: 10px;
+    padding-left:20px;
+}
+.circle_type{
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color:#e4393c;
+}
+.inform_li_list{
+    margin:0px 0px 5px 0px;
+    padding: 0px;
+    font-size: 16px;
+}
+.border_list{
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+    color: #666;
+    /*text-indent: 2em;*/
+    padding:20px 10px;
+    margin: 10px;
+}
+.border_list_text{
+    text-indent: 2em;
+}
+.index-list-informList{
+    background-color: #fff;
+    width: 100%;
+    height:100%;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.inform_sign{
+    margin:60px 10px 20px 20px;
+}
+/*通知公告的样式--end*/

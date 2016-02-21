@@ -122,6 +122,17 @@ angular.module('FWPT', [
             }
         })
         /* electronicFile*/
+
+        /*knowledgeData*/
+        .state('list',{
+            url:'/list',
+            templateUrl:'knowledgeData/list.html'
+        })
+        .state('knowledgeDetail',{
+            url:'/knowledgeDetail:knowId',
+            templateUrl: 'knowledgeData/knowledgeDetail.html'
+        })
+        /*knowledgeData*/
 }])
 
 

@@ -11,10 +11,10 @@
             	</div>
             </div>
             
-            <div class="knowledge-detail">
+            <!--<div class="knowledge-detail">-->
 				<div class="row">
 					<div class="col-xs-9 col-md-9">
-						<div class="knowledge-detail-show">
+						<div class="index-list-informList">
 							<div class="knowledge_title" ng-bind="details.title">
 							</div>
 							<!--<div class="knowledge_info">
@@ -23,7 +23,7 @@
 							<div class="knowledge-content" ng-bind="details.content">
 							</div>
 							<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
-							<div class="knowledge-upload">
+							<div class="knowledge_upload">
 								<a href="../assets/knowledgeData/{{details.uploadTitle}}" title="{{details.uploadTitle}}">
 									<img ng-src="../images/{{details.type}}.png" />
 											{{details.uploadTitle}}
@@ -33,10 +33,20 @@
 						</div>
 					</div>
 					<div class="col-xs-3 col-md-3">
-
+						<div class="index-list-informList">
+							<h4>知识库&资料下载</h4>
+							<div class="tab-content">
+								<ul class="index-ul">
+									<li ng-repeat="k in knowLists | orderBy:'djl':true | limitTo:5">
+										<a ui-sref="knowledgeDetail({knowId:k.knowId})" title="{{k.title}}" ng-bind="k.title">
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-            </div>
+            <!--</div>-->
         </div>
                                
     </div>
