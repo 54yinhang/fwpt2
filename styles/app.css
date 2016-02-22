@@ -716,97 +716,101 @@ hr{
     margin-top: 5px;
 }
 /*右边详情-具体部分-（新增档案、修改档案详情、查看档案详情）*/
-.detail {
+.add-form {
     padding-left: 66px;
     padding-right: 95px;
-
 }
-.detail .form-control,
-.detail .form-group {
+.add-form .form-control,
+.add-form .form-group {
     display: inline-block;
 }
-.detail .form-group {
+.add-form .form-group {
     line-height: 40px;
 }
-.detail .form-group input {
+.add-form .form-group input {
     vertical-align: middle;
     height: 40px;
     line-height: 26px;
 }
-.detail > .setting {
+.add-form > .setting {
     width: 628px;
     margin: 25px 0 15px 0;
 }
-.detail > .setting label {
+.add-form > .setting label {
     font-weight: 400;
 }
-.detail > .setting .select {
+.add-form > .setting .select {
     display: inline-block;
     margin: 0 32px 0 10px;
     vertical-align: middle;
 }
-.detail > .setting .select .companyName {
+.add-form > .setting .select .companyName {
     width: 340px;
 }
-.detail > .setting .select .companyLists {
+.add-form > .setting .select .companyLists {
     width: 340px;
     height: 200px;
     overflow-x: hidden;
 }
-.detail > .setting .select .companyLists > li a {
+.add-form > .setting .select .companyLists > li a {
     line-height: 30px;
 }
-.detail > .setting .year {
+.add-form > .setting .year {
     margin-left: 10px;
     width: 106px;
 }
-.detail > .setting .tip {
+.add-form > .setting .tip {
     width: 18px;
     top: 15px;
 }
-.detail > .setting .tip i {
+.add-form > .setting .tip i {
     display: block;
     width: 8px;
     height: 8px;
     background: url(../images/icon.png) no-repeat;
 }
-.detail > .setting .tip i.top {
+.add-form > .setting .tip i.top {
     background-position: -54px -193px;
 }
-.detail > .setting .tip i.down {
+.add-form > .setting .tip i.down {
     background-position: -54px -203px;
 }
-.detail > .setting .paynum {
+.add-form > .setting .paynum {
     width: 540px;
     height: 40px;
     margin-left: 10px;
 }
-.detail > .setting .choseFile {
+.add-form > .setting .choseFile {
     margin-left: 10px;
     width: 127px;
     background-color: #fff;
     border: 1px solid #ccc;
 }
-.detail > .setting .reportFile {
+.add-form > .setting .reportFile {
     width: 127px;
     background-color: #3398CC;
     color: #fff;
 }
-.detail > table {
+.add-form > .setting .fail {
+    width: 135px;
+    color: #fff;
+    margin-left: 142px;
+}
+.add-form > table {
     border: 1px solid #e1e1e1;
 }
-.detail > table thead {
+.add-form > table thead {
     background-color: #f5f4f9;
 }
-.detail > .intro {
+.add-form > .intro {
     margin-top: 40px;
 }
-.detail > .intro:after {
+.add-form > .intro:after {
     content: "";
     display: table;
     clear: both;
 }
-.detail > .intro p {
+.add-form > .intro p {
     width: 550px;
     height: 90px;
     margin-bottom: 40px;
@@ -814,28 +818,28 @@ hr{
     border: 1px solid #e1e1e1;
     float: right;
 }
-.detail > .state {
+.add-form > .state {
     margin-bottom: 29px;
 }
-.detail > .state:after {
+.add-form > .state:after {
     content: "";
     display: table;
     clear: both;
 }
-.detail > .state button {
+.add-form > .state button {
     width: 110px;
     height: 33px;
     color: #fff;
     float: right;
     margin-left: 20px;
 }
-.detail > .state button.save {
+.add-form > .state button.save {
     background-color: #4989b9;
 }
-.detail > .state button.sar {
+.add-form > .state button.sar {
     background-color: #9c221f;
 }
-.detail > .state button.back {
+.add-form > .state button.back {
     background-color: #aeafb1;
 }
 .messageBox{
