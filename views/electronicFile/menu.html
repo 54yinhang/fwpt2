@@ -5,8 +5,8 @@
                 <span>电子档案</span>
                 <ul>
                     <li>
-                        <span>电子凭证<i class="on" onclick="toggle(event)"></i></span>
-                        <ul class="manage">
+                        <span>电子凭证<i ng-click="tag()" ng-class="{on:toggle}" ng-model="toggle"></i></span>
+                        <ul class="manage" ng-class="{manageon:!toggle}">
                             <li>
                                 <i class="add"></i>
                                 <a ui-sref="electronic.addFile">新增档案</a>

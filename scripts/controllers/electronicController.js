@@ -48,6 +48,17 @@ angular.module('FWPT')
                     }
                 );
             }
+            $scope.toggle = true;
+            $scope.ulToggle = false;
+            $scope.tag = function(){
+                if($scope.toggle){
+                    return $scope.toggle = false;
+                    $scope.ulToggle = true;
+                }else{
+                    return $scope.toggle = true;
+                    $scope.ulToggle = false;
+                }
+            }
     }])
     .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
         function ($scope, $state, $stateParams, ElectronicFileService) {
@@ -116,8 +127,5 @@ angular.module('FWPT')
             );
         }
     ])
-function toggle($event){
-    $(".manage").toggle();
-    $($event.target).toggleClass("on");
-}
+
 
