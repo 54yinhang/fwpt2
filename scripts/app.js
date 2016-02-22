@@ -108,7 +108,7 @@ angular.module('FWPT', [
             views:{
                 'list':{
                     templateUrl:'electronicFile/modifyList.html',
-                    controller:'ElectronicFileController'
+                    controller:'ElectronicFileModifyController'
                 }
             }
         })
@@ -130,12 +130,30 @@ angular.module('FWPT', [
                 }
             }
         })
+        .state('electronic.getFile',{
+            url:'/getFile',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/getFile.html',
+                    controller:'ElectronicFileModifyController'
+                }
+            }
+        })
         .state('electronic.addFile',{
             url:'/addFile',
             views:{
                 'list':{
                     templateUrl:'electronicFile/addFile.html',
                     controller:'ElectronicFileController'
+                }
+            }
+        })
+        .state('electronic.modifyFile',{
+            url:'/modifyFile',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/modifyFile.html',
+                    controller:'ElectronicFileModifyController'
                 }
             }
         })

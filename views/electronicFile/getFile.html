@@ -1,0 +1,91 @@
+<div class="right">
+    <ul class="note">
+        <li>
+            <a ui-sref="electronic">
+                电子凭证
+            </a>
+            <i></i>
+        </li>
+        <li>
+            <a ui-sref="electronic.modifyList({category:modifyList})">修改档案</a>
+            <i></i>
+        </li>
+        <li>
+            修改详情
+        </li>
+    </ul>
+    <form action="" class="detail">
+        <div class="setting">
+            <div class="form-group has-feedback">
+                <label>单位名称：</label>
+
+                <div class="dropdown select">
+                    <input type="text" class="form-control companyName" data-toggle="dropdown"/>
+                                <span class="form-control-feedback tip">
+                                <i class="top"></i>
+                                <i class="down"></i>
+                            </span>
+                    <ul class="dropdown-menu companyLists">
+                        <li ><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group  has-feedback">
+                <label>年度：</label>
+                <input type="text" class="form-control year" value="2016"/>
+                            <span class="form-control-feedback tip">
+                                <i class="top"></i>
+                                <i class="down"></i>
+                            </span>
+            </div>
+            <div class="form-group">
+                <label for="num">支付令号：</label>
+                <input type="text" class="form-control paynum" id="num" value="请输入支付令号"/>
+            </div>
+            <div class="form-group">
+                <label>上传附件：</label>
+                <button type="button" class="btn choseFile">选择附件</button>
+                <button type="button" class="btn reportFile">上传附件</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>单位名称</th>
+                <th>附件大小</th>
+                <th>上传日期</th>
+                <th>上传人</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>某某预算单位</td>
+                <td>201M</td>
+                <td>2016-01-21</td>
+                <td>张三</td>
+                <td>删除</td>
+            </tr>
+            <tr>
+                <td>某某预算单位</td>
+                <td>201M</td>
+                <td>2016-01-21</td>
+                <td>张三</td>
+                <td>删除</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="intro">
+            <span>档案说明：</span>
+
+            <p></p>
+        </div>
+        <div class="state">
+            <button type="button" class="btn back">返回</button>
+        </div>
+
+    </form>
+
+
+</div>

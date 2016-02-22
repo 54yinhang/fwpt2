@@ -4,11 +4,35 @@
 angular.module('FWPT')
     .controller('ElectronicFileController',['$scope','$state','$stateParams','ElectronicFileService',
         function($scope, $state, $stateParams, ElectronicFileService) {
-
+            //分页
+            $scope.paginationConf = {
+                currentPage: 1,      //当前页，默认为1
+                totalItems: 50,      //数据总数量，默认为50
+                itemsPerPage: 7,   //默认当前页显示的数据数量
+                pagesLength: 10,    //分页条的长度
+                perPageOptions: [7, 14, 21],    //当前显示的数据可选数量
+                //onChange: function(){
+                //    $scope.setPagingFilter($scope.searchText);
+                //},
+                dataCountDisplay:true,         //选择显示当前页显示的数据数量
+                jumpOrNot:true           //是否选择跳转
+            };
+            //设置分页数据
+            $scope.setPagingData = function(data, currentPage, itemsPerPage){
+                var pageData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+                $scope.listData = pageData;
+                $scope.paginationConf.totalItems = data.length;
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            };
             //根据传入的菜单选项标识category获取相应菜单列表数据
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
-                    $scope.listData = data;
+                    $scope.setPagingData(data, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                    for(var i=0;i<$scope.listData.length;i++){
+                        $scope.listData[i].selected = false;
+                    }
                 }
             );
             //全选
@@ -62,11 +86,32 @@ angular.module('FWPT')
     }])
     .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
         function ($scope, $state, $stateParams, ElectronicFileService) {
+            //分页
+            $scope.paginationConf = {
+                currentPage: 1,      //当前页，默认为1
+                totalItems: 50,      //数据总数量，默认为50
+                itemsPerPage: 7,   //默认当前页显示的数据数量
+                pagesLength: 10,    //分页条的长度
+                perPageOptions: [7, 14, 21],    //当前显示的数据可选数量
+                //onChange: function(){
+                //    $scope.setPagingFilter($scope.searchText);
+                //},
+                dataCountDisplay:true,         //选择显示当前页显示的数据数量
+                jumpOrNot:true           //是否选择跳转
+            };
+            //设置分页数据
+            $scope.setPagingData = function(data, currentPage, itemsPerPage){
+                var pageData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+                $scope.listData = pageData;
+                $scope.paginationConf.totalItems = data.length;
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            };
             //根据传入的菜单选项标识category获取相应菜单列表数据
-
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
-                    $scope.listData = data;
+                    $scope.setPagingData(data, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
                     for(var i=0;i<$scope.listData.length;i++){
                         $scope.listData[i].selected = false;
                     }
@@ -113,10 +158,32 @@ angular.module('FWPT')
     ])
     .controller('ElectronicFileModifyController',['$scope','$state','$stateParams','ElectronicFileService',
         function($scope, $state, $stateParams, ElectronicFileService){
+            //分页
+            $scope.paginationConf = {
+                currentPage: 1,      //当前页，默认为1
+                totalItems: 50,      //数据总数量，默认为50
+                itemsPerPage: 7,   //默认当前页显示的数据数量
+                pagesLength: 10,    //分页条的长度
+                perPageOptions: [7, 14, 21],    //当前显示的数据可选数量
+                //onChange: function(){
+                //    $scope.setPagingFilter($scope.searchText);
+                //},
+                dataCountDisplay:true,         //选择显示当前页显示的数据数量
+                jumpOrNot:true           //是否选择跳转
+            };
+            //设置分页数据
+            $scope.setPagingData = function(data, currentPage, itemsPerPage){
+                var pageData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+                $scope.listData = pageData;
+                $scope.paginationConf.totalItems = data.length;
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            };
             //根据传入的菜单选项标识category获取相应菜单列表数据
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
-                    $scope.listData = data;
+                    $scope.setPagingData(data, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
                 }
             );
             //获得单个详细数据
