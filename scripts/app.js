@@ -6,7 +6,6 @@ angular.module('FWPT', [
     /* Add New States Above */
     //$urlRouterProvider.when('/:category', '/todoTask/:category')
     $urlRouterProvider.otherwise('/home');
-    $urlRouterProvider.when('/electronic','/electronic/list');
     $stateProvider
         .state('home',{
             url: '/home',
@@ -97,16 +96,11 @@ angular.module('FWPT', [
         .state('electronic',{
             url:'/electronic',
             views: {
-                '@': {
+                '': {
                     templateUrl:'electronicFile/menu.html',
                     controller:'ElectronicFileController'
-                }
-            }
-        })
-        .state('electronic.list',{
-            url:'/list',
-            views:{
-                'list':{
+                },
+                'list@electronic':{
                     templateUrl:'electronicFile/list.html',
                     controller:'ElectronicFileController'
                 }
