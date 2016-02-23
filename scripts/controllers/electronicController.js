@@ -199,9 +199,18 @@ angular.module('FWPT')
         function($scope, $state, $stateParams, ElectronicFileService,$http){
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
-                    console.log(data);
+                    console.log(data.result);
                 }
             );
+            $scope.saveAddFile = function(){
+                $scope.fileData = {
+                    sydwmc:$scope.addFile.ysdwmc,
+                    ssny:$scope.addFile.ssny,
+                    zflh:$scope.addFile.zflh,
+                    ms:$scope.addFile.ms
+                }
+                ElectronicFileService.sendAddFile($scope.fileData);
+            }
             /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({
                 swf: 'Uploader.swf',

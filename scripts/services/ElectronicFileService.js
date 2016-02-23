@@ -51,7 +51,7 @@ angular.module('FWPT')
                 if(category=='addRequest'){
                     $http({
                         method:'GET',
-                        url:''
+                        url:'http://localhost:8080/rap/fwpt/msgService/getPK.do'
                     })
                         .success(function(data){
                             deferred.resolve(data);
@@ -102,6 +102,20 @@ angular.module('FWPT')
                         alert("获取数据失败");
                     })
                 return deferred.promise;
+            },
+            sendAddFile:function(fileData){
+                $http({
+                    method:'Post',
+                    url:'',
+                    data:fileData
+                })
+                    .success(function(){
+                        alert("保存成功");
+                    })
+                    .error(function(){
+                        alert("连接服务器失败");
+                    })
+
             }
         };
     });
