@@ -204,7 +204,7 @@ angular.module('FWPT')
             );
             $scope.saveAddFile = function(){
                 $scope.fileData = {
-                    sydwmc:$scope.addFile.ysdwmc,
+                    ysdwmc:$scope.addFile.ysdwmc,
                     ssny:$scope.addFile.ssny,
                     zflh:$scope.addFile.zflh,
                     ms:$scope.addFile.ms
