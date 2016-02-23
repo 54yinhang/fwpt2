@@ -10,6 +10,9 @@ angular.module("FWPT")
             },
             templateUrl: 'account/loginForm.html',
             link: function(scope, ele, attrs) {
+                scope.recode=function(){
+                    $("#codeimg").attr("src","http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/code.do?t="+Math.random());
+                };
                 scope.submitLogin = function() {
                     scope.onLogin({user: scope.loginUser});
                 }

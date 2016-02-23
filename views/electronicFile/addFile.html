@@ -1,6 +1,9 @@
 <div class="right">
     <ul class="note">
-        <li>电子凭证
+        <li>
+            <a ui-sref="electronic">
+                电子凭证
+            </a>
             <i></i>
         </li>
         <li>新增档案</li>
@@ -9,33 +12,23 @@
         <div class="setting">
             <div class="form-group">
                 <label>单位名称：</label>
+
                 <div class="dropdown select">
-                    <input type="text" class="form-control companyName" data-toggle="dropdown" ng-model="upInfo.cName"/>
-                    <ul class="dropdown-menu companyLists">
-                        <li><a href="#">温州企业1</a></li>
-                        <li><a href="#">温州企业2</a></li>
-                        <li><a href="#">温州企业3</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                    </ul>
+                    <input type="text" class="form-control companyName" ng-model="addFile.ysdwmc"/>
                 </div>
             </div>
 
             <div class="form-group  has-feedback">
                 <label>年度：</label>
-                <input type="text" class="form-control year" value="2016" ng-model="upInfo.year"/>
-                        <span class="form-control-feedback tip">
-                            <i class="top"></i>
-                            <i class="down"></i>
-                        </span>
+                <input type="text" class="form-control year" value="2016" ng-model="addFile.ssny"/>
+                            <span class="form-control-feedback tip">
+                                <i class="top"></i>
+                                <i class="down"></i>
+                            </span>
             </div>
             <div class="form-group">
                 <label for="num">支付令号：</label>
-                <input type="text" class="form-control paynum" id="num" value="请输入支付令号" ng-model="upInfo.payNum"/>
+                <input type="text" class="form-control paynum" id="num" ng-model="addFile.zfhl"/>
             </div>
             <div class="form-group">
                 <div id="uploader">
@@ -48,7 +41,6 @@
                     <div id="list" class="uploader-list"></div>
                 </div>
             </div>
-
         </div>
         <table class="table">
             <thead>
@@ -68,16 +60,28 @@
                 <td>{{item.upPerson}}</td>
                 <td><a ng-click="delDoc(item.docId)">操作</a></td>
             </tr>
+            <tr>
+                <td>某某预算单位</td>
+                <td>201M</td>
+                <td>2016-01-21</td>
+                <td>张三</td>
+                <td>删除</td>
+            </tr>
             </tbody>
         </table>
         <div class="intro">
             <span>档案说明：</span>
-            <p></p>
+
+            <p><input type="text" ng-model="addFile.ms"></p>
         </div>
         <div class="state">
-            <button type="button" class="btn save" ng-click="save()">保存</button>
-            <button type="button" class="btn sar" ng-click="saves()">保存并上报</button>
+            <button type="button" class="btn save" ng-click="saveAddFile()">保存</button>
+            <button type="button" class="btn sar">保存并上报</button>
             <button type="button" class="btn back">返回</button>
+
         </div>
+
     </form>
+
+
 </div>
