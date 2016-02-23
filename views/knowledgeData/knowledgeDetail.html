@@ -2,36 +2,28 @@
     <div class="index-middle">
         <div class="container notice">
             <div class="guide">
-            	<!--<div class="pos fr">-->
-            		<a ui-sref="home">首页</a>
-            		 > 
-            		<a ui-sref="list">通知公告(知识库&资料下载)</a>
-            		 >
-            		<a ui-sref="knowledgeDetail" ng-bind="details.bt"></a>
-            	<!--</div>-->
+				<a ui-sref="home">首页</a>
+				 >
+				<a ui-sref="list({state:'knowledge'})">通知公告(知识库&资料下载)</a>
+				 >
+				<a ui-sref="">知识库&资料下载详情</a>
             </div>
             
 			<div class="mainSection">
 				<div class="article">
-					<!--<h2 ng-bind="details.bt">-->
-					<!--</h2>-->
-					<!--<hr/>-->
-					<!--<p  id="content">-->
-					<!--</p>-->
 					<div ui-view="detail"></div>
 				</div>
-
 
 				<div class="notice-list">
 						<p>知识库&资料下载</p>
 						<hr/>
-							<ol>
-								<li ng-repeat="k in knowLists | limitTo:10">
-									<span></span>
-									<a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" ng-bind="k.bt">
-									</a>
-								</li>
-							</ol>
+						<ol>
+							<li ng-repeat="k in knowledgeDatas | limitTo:10">
+								<span></span>
+								<a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" ng-bind="k.bt">
+								</a>
+							</li>
+						</ol>
 				</div>
 			</div>
         </div>

@@ -3,22 +3,22 @@
         <div class="col-md-12">
             <div class="index-subtitle">
                 通知公告
-                <a ng-show="loadMore" ui-sref="list">+查看更多</a>
+                <a ng-show="loadMore" ui-sref="list({state:'notice'})"   target="_blank">+查看更多</a>
             </div>
         </div>
         <div class="col-md-12" ng-hide="noThing">
             <h4 class="text-center">暂无通知公告信息！</h4>
         </div>
-        <div class="col-xs-3 col-md-3" ng-repeat="s in informTops | orderBy:'yxj':true" ng-show="noThing">
+        <div class="col-xs-3 col-md-3" ng-repeat="s in informTops | orderBy:'yxj':true" ng-show="noThing"  target="_blank">
             <div class="index-list">
                 <img ng-src="../images/top.png" class="index-top" ng-show="s.yxj">
-                <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="活力青春•动杆财税”台球比赛举行">
+                <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="{{s.bt}}">
                     {{s.bt}}
                 </p>
                 <div class="index-detail center-block">
                     {{s.nrjj}}
                 </div>
-                <a  ui-sref="informDetail.detail({listId:s.xxid})" class="index-btn center-block index-more">
+                <a  ui-sref="informDetail.detail({listId:s.xxid})" class="index-btn center-block index-more"  target="_blank">
                     <span>查看详情</span>
                 </a>
             </div>
@@ -37,7 +37,7 @@
             <div class="index-knowledge clearfix">
                 <div class="index-knowledge-left">
                     <div class="index-knowledge-brands">
-                        <a ui-sref="list" class="center-block index-more index-whole" target="_blank">
+                        <a ui-sref="list({state:'knowledge'})" class="center-block index-more index-whole"  target="_blank">
                             全部资料
                         </a>
                     </div>
@@ -49,8 +49,8 @@
                             <a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" target="_blank">
                                 <!--<img ng-src="../images/{{k.type}}.png" />-->
                                 {{k.bt}}
-                                		<span class="index-time" ng-bind="k.fbrq.substring(0,10)">
-                                        </span>
+                                <span class="index-time" ng-bind="k.fbrq.substring(0,10)">
+                                </span>
                             </a>
                         </li>
                     </ul>
@@ -61,57 +61,19 @@
             <div class="index-knowledge clearfix">
                 <div class="index-knowledge-left">
                     <div class="index-knowledge-brands index-knowledge-data">
-                        <a href="#" class="center-block index-more index-whole">
+                        <a ui-sref="list({state:'knowledge'})" class="center-block index-more index-whole" target="_blank">
                             全部资料
                         </a>
                     </div>
 
                 </div>
-                <div class="index-knowledge-right">
+                <div class="index-knowledge-right" ng-controller="DataCtrl">
                     <ul class="index-ul">
-                        <li>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                <img src="../images/excel.png">
-                                我局取得全市党员干部讲故事比赛季军
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                <img src="../images/ppt.png">
-                                我局取得全市党员干部讲故事比赛季军
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                <img src="../images/excel.png">
-                                我局取得全市党员干部讲故事比赛季军
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                <img src="../images/word.png">
-                                我局取得全市党员干部讲故事比赛季军
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                <img src="../images/excel.png">
-                                我局取得全市党员干部讲故事比赛季军
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
+                        <li  ng-repeat="d in datas | limitTo:5">
+                            <a ui-sref="knowledgeDetail.detail({xxid:d.xxid})" title="{{d.bt}}" target="_blank">
+                                {{d.bt}}
+                                <span class="index-time"  ng-bind="d.fbrq.substring(0,10)">
+                                </span>
                             </a>
                         </li>
                     </ul>
