@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/scripts/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scripts/controllers/Uploader.swf" charset="GBK" />
     <file url="file://$PROJECT_DIR$/scripts/controllers/electronicController.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scripts/controllers/webuploader.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/styles/app.css" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
