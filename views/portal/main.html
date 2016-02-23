@@ -9,7 +9,7 @@
         <div class="col-md-12" ng-hide="noThing">
             <h4 class="text-center">暂无通知公告信息！</h4>
         </div>
-        <div class="col-xs-3 col-md-3" ng-repeat="s in informTops | orderBy:'yxj':true" ng-show="noThing"  target="_blank">
+        <div class="col-xs-3 col-md-3" ng-repeat="s in informTops | orderBy:'s.yxj'" ng-show="noThing"  target="_blank">
             <div class="index-list">
                 <img ng-src="../images/top.png" class="index-top" ng-show="s.yxj >= 9">
                 <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="{{s.bt}}">
