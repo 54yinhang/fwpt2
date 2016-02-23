@@ -51,7 +51,7 @@ angular.module('FWPT')
                 if(category=='addRequest'){
                     $http({
                         method:'GET',
-                        url:''
+                        url:'http://localhost:8080/rap/fwpt/msgService/getPK.do'
                     })
                         .success(function(data){
                             deferred.resolve(data);
@@ -106,7 +106,7 @@ angular.module('FWPT')
             sendAddFile:function(fileData){
                 $http({
                     method:'Post',
-                    url:'',
+                    url:'http://localhost:8080/rap/fwpt/msgService/daAdd.do',
                     data:fileData
                 })
                     .success(function(){
