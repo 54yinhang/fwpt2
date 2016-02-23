@@ -23,8 +23,11 @@ angular.module('FWPT')
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
-                        console.log(1);
-                    }})
+                        $state.go('account',$stateParams);
+                        $(".reLogin").css("display","none");
+                        $(".reloginClose").css("display","none");
+                    }});
+                $state.go('account',$stateParams);
             //}).success(function(data,status,headers,config) {
             //        // 当相应准备就绪时调用
             //        current_user = data;
@@ -54,18 +57,7 @@ angular.module('FWPT')
         };
     })
     .factory('TodoTaskService', function($http, $state, $stateParams) {
-        $http({
-            method:'GET',
-            url:'http://localhost:8080/ifugle-rap/szcz/dagl/daCount.do'
 
-        }).success(function(data){
-            console.log(data);
-            //jsondata=data;
-
-        }).error(function(data,status,headers,config) {
-            // 当响应以错误状态返回时调用
-            console.log("login failed");
-        });
         var jsondata={};
         var userjson={};
         $http({
@@ -93,6 +85,18 @@ angular.module('FWPT')
         return {
             //改为从后端取数
             getTodoTaskSum: function () {
+                $http({
+                    method:'GET',
+                    url:'http://http://192.168.1.88:8082/ifugle-rap/szcz/dagl/daCount.do'
+
+                }).success(function(data){
+                    console.log(data);
+                    //jsondata=data;
+
+                }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("login failed");
+                });
                 return {
                     wdxx: 9,
                     wtbb: 11,
