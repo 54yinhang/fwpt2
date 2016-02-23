@@ -1,12 +1,26 @@
 angular.module('FWPT')
 	.factory('ListService',function($http,$q){
 		return {
+			getKnowledgeDatas : function(){
+				var defer = $q.defer();
+				$http({
+					method:'GET',
+					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=50'
+				})
+					.success(function(data){
+						defer.resolve(data.result);
+					})
+					.error(function(){
+						console.log('获取资料下载列表失败');
+					});
+				return defer.promise;
+			},
 			getKnowledges : function(){
 				var defer = $q.defer();
 				$http({
 					method:'GET',
 					//url:'../assets/knowledgeList.json'
-					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=50'
+					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=10'
 				})
 				.success(function(data){
 					defer.resolve(data.result);
@@ -14,6 +28,20 @@ angular.module('FWPT')
 				.error(function(){
 					console.log('获取知识库列表失败');
 				});
+				return defer.promise;
+			},
+			getDatas : function(){
+				var defer = $q.defer();
+				$http({
+					method:'GET',
+					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=11&limit=20'
+				})
+					.success(function(data){
+						defer.resolve(data.result);
+					})
+					.error(function(){
+						console.log('获取资料下载列表失败');
+					});
 				return defer.promise;
 			}
 		}
