@@ -370,6 +370,27 @@ angular.module('FWPT')
                     });
                 }
             });
+
+            $("#cBtn").click(function(){
+                console.log('查看');
+                $http.get('http://localhost:8080/rap/szcz/dagl/queryAttachment.do?daid=123')
+                    .success(function(data,status){
+                        angular.forEach(data.result,function(value,key){
+                            $scope.items.push({
+                                docId:value.id,
+                                cName:value.userDeptName,
+                                docName:value.label,
+                                docSize:value.fileSize,
+                                upTime:value.creationDate,
+                                upPerson:value.creator
+                            });
+                            $scope.$apply();
+                        })
+                    }).error(function(data){
+                        console.log(data);
+                        console.log('查看出错！');
+                    })
+            });
             /***************************重新上传失败附件*********************************/
             $('#reupload').click(function(){
                 $.each(uploader.getFiles('error'),function(i,item){
@@ -454,13 +475,8 @@ angular.module('FWPT')
             });
             /***************************删除附件***********************************/
             $scope.delDoc = function(doc){
-                var transform = function(data){
-                    return $.param(data);
-                };
-                $http.post('http://localhost:8080/ifugle-rap/szcz/xxgl/xxts/deleteAttachment.do',{id:doc,cratorId:'456'},{
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                    transformRequest: transform
-                }).success(function(data,status){
+                $http.post('http://localhost:8080/rap/szcz/xxgl/xxts/deleteAttachment.do',{id:doc,creatorId:1990200032})
+                    .success(function(data,status){
                     if(data.success){
                         angular.forEach($scope.items, function(value, key){
                             if(value['docId'] == doc)
