@@ -373,7 +373,7 @@ angular.module('FWPT')
                 var file = block.file;
 
                 data.fl = 1;
-                data.daid = '$scope.daId';//$scope.daId;
+                data.daid = '$scope.addFile.result';//$scope.daId;
                 data.wjid = (new Date()).getTime();
                 $scope.docId = data.wjid;
                 data.name = file.name;
