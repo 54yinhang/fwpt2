@@ -4,29 +4,43 @@
 
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams,$location) {
+        $http.get('http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/code.do' ).success(function(data){
+            //console.log(data);
+            window.sessionStorage.setItem("key", "value");
+
+        }).error(function(data,status,headers,config) {
+            // 当响应以错误状态返回时调用
+            console.log("获取验证码错误");
+        });
+
         var current_user;
         return {
 
             sendLogin: function(user) {
-                $http({
-                    method:'POST',
-                    url:'../assets/account.user.json',// /userName/user.userName/passowrd/user.password
-                    params:{userName:user.userName, password:user.password}
-                }).success(function(data,status,headers,config) {
-                    // 当相应准备就绪时调用
-                    current_user = data;
-                    //console.log(current_user.displayName);
-                    // 不合适的跳转，应该控制器中操作
-
-
-                    $state.go('account',$stateParams);
-                    $(".reLogin").css("display","none");
-                    $(".reloginClose").css("display","none");
-
-                }).error(function(data,status,headers,config) {
-                    // 当响应以错误状态返回时调用
-                    console.log("login failed");
-                });
+                $.ajax({
+                    url: 'http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/fwptLogin.do',
+                    type: 'GET',
+                    // dataType: 'json',
+                    data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
+                    success:function(data){
+                        console.log(1);
+                    }})
+            //}).success(function(data,status,headers,config) {
+            //        // 当相应准备就绪时调用
+            //        current_user = data;
+            //        console.log(data);
+            //        //console.log(current_user.displayName);
+            //        // 不合适的跳转，应该控制器中操作
+            //
+            //
+            //        $state.go('account',$stateParams);
+            //        $(".reLogin").css("display","none");
+            //        $(".reloginClose").css("display","none");
+            //
+            //    }).error(function(data,status,headers,config) {
+            //        // 当响应以错误状态返回时调用
+            //        console.log("login failed");
+            //    });
             },
             sendLogout: function() {
                 current_user = null;
@@ -40,10 +54,22 @@ angular.module('FWPT')
         };
     })
     .factory('TodoTaskService', function($http, $state, $stateParams) {
+        $http({
+            method:'GET',
+            url:'http://localhost:8080/ifugle-rap/szcz/dagl/daCount.do'
+
+        }).success(function(data){
+            console.log(data);
+            //jsondata=data;
+
+        }).error(function(data,status,headers,config) {
+            // 当响应以错误状态返回时调用
+            console.log("login failed");
+        });
         var jsondata={};
         var userjson={};
         $http({
-            method:'POST',
+            method:'GET',
             url:'../assets/testjson.json'
 
         }).success(function(data){
@@ -54,7 +80,7 @@ angular.module('FWPT')
             console.log("login failed");
         });
         $http({
-            method:'POST',
+            method:'GET',
             url:'../assets/account.user.json'
 
         }).success(function(data){
