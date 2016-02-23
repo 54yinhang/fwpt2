@@ -106,7 +106,7 @@ angular.module('FWPT')
             sendAddFile:function(fileData){
                 $http({
                     method:'Post',
-                    url:'',
+                    url:'http://localhost:8080/rap/fwpt/msgService/daAdd.do',
                     data:fileData
                 })
                     .success(function(){

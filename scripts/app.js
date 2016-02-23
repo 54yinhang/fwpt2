@@ -186,6 +186,26 @@ angular.module('FWPT', [
             }
         })
         /*knowledgeData*/
+        /*inform_notice*/
+        .state('informDetail',{
+            url:'/informDetail',
+            views: {
+                '@': {
+                    templateUrl:'inform/inform.html',
+                    controller:'informDetailCtrl'
+                }
+            }
+        })
+        .state('informDetail.detail',{
+            url:'/:listId',
+            views:{
+                'Detail':{
+                    templateUrl:'inform/informDetail.html' ,
+                    controller:'DetailCtrl'
+                }
+            }
+        })
+        /*inform_notice*/
 }])
 
 

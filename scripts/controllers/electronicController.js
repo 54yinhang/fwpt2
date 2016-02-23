@@ -311,6 +311,15 @@ angular.module('FWPT')
                     $scope.daId = data.result;
                 }
             );
+            $scope.saveAddFile = function(){
+                $scope.fileData = {
+                    sydwmc:$scope.addFile.ysdwmc,
+                    ssny:$scope.addFile.ssny,
+                    zflh:$scope.addFile.zflh,
+                    ms:$scope.addFile.ms
+                }
+                ElectronicFileService.sendAddFile($scope.fileData);
+            }
             /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({
                 swf: 'Uploader.swf',
@@ -412,7 +421,6 @@ angular.module('FWPT')
             });
             /*************************上传结束***************************************/
             uploader.on('uploadFinished',function(){
-                console.log('上传结束');
                 if(uploader.getFiles('error')==[]){
                     $('#reupload').css('display','block');
                 }else{
@@ -423,7 +431,6 @@ angular.module('FWPT')
             });
             /***************************删除附件***********************************/
             $scope.delDoc = function(doc){
-                console.log('删除');
                 var transform = function(data){
                     return $.param(data);
                 };

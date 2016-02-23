@@ -4,9 +4,9 @@
         <div class="container notices">
             <div class="guide">
                 <!--<div class="pos fr">-->
-                    <a ui-sref="home">首页</a>
-                     >
-                    <a ui-sref="list">通知公告(知识库&资料下载)</a>
+                <a ui-sref="home">首页</a>
+                >
+                <a ui-sref="list">通知公告(知识库&资料下载)</a>
                 <!--</div>-->
             </div>
 
@@ -16,34 +16,40 @@
                     <li role="presentation" ng-class="{true:'active'}[knowledgeClass]"><a ng-click="showKnowledge()">知识库&资料下载</a></li>
                 </ul>
             </div>
-
-            <div class="tab-content" ng-show="state=='notice'">
-                    <ul class="index-ul">
-                        <li ng-repeat="times in listDetail">
-                            <a ui-sref="noticeDetail({did:times.did})">
-                                <img src="../images/hot.png">
-                                {{times.title}}
-                                        <span ng-bind="times.dataTime">
-                                        </span>
+            <div class="notice" ng-show="state=='notice'" ng-controller="ListInformCtrl">
+                <div class="content">
+                    <ul>
+                        <li ng-repeat="v in informList">
+                            <a ui-sref="informDetail.detail({listId:v.xxid})">
+                                <b ng-show="v.yxj"></b>
+                                <span class="program" ng-bind="v.bt"></span>
+                                <span class="date" ng-bind="v.fbrq | limitTo:'10'"></span>
+                                <!--<span class="date">{{v.fbrq | limitTo:'10'}}</span>-->
                             </a>
                         </li>
                     </ul>
+                </div>
+                <nav class="navbar-right">
+                    <div conf="paginationConf"></div>
+                </nav>
             </div>
 
-            <div class="tab-content" ng-show="state=='knowledge'">
-                    <ul class="index-ul">
-                        <li ng-repeat="k in knowLists">
+            <div class="notice" ng-show="state=='knowledge'">
+                <div class="content">
+                    <ul>
+                        <li ng-repeat="k in knowledgeDatas">
                             <a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}">
                                 <!--<img ng-src="../images/{{k.type}}.png" />-->
-                                        {{k.bt}}
-                                <span ng-bind="k.fbrq.substring(0,10)">
+                                <span class="program" ng-bind="k.bt"></span>
+                                <span class="date" ng-bind="k.fbrq.substring(0,10)">
                                 </span>
                             </a>
                         </li>
                     </ul>
-                    <nav class="navbar-right">
-                        <div conf="paginationConf"></div>
-                    </nav>
+                </div>
+                <nav class="navbar-right">
+                    <div conf="paginationConf"></div>
+                </nav>
             </div>
         </div>
 

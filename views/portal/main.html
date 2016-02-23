@@ -1,161 +1,84 @@
-<div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="index-subtitle">
-                        通知公告
-                        <a href="#">+查看更多</a>
-                    </div>
-                </div>
-                <div class="col-xs-3 col-md-3">
-                    <div class="index-list">
-                        <img src="../images/top.png" class="index-top">
-                        <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="活力青春•动杆财税”台球比赛举行">
-                            活力青春•动杆财税”台球比赛举行
-                        </p>
-                        <div class="index-detail center-block">
-                            近日，由温州市财政地税局机关党委、工会、团委主办、开发区分局承办的温州市第九届财...
-                        </div>
-                        <a href="#" class="index-btn center-block index-more">
-                            阅读更多
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xs-3 col-md-3">
-                    <div class="index-list">
-                        <img src="../images/top.png" class="index-top">
-                        <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="活力青春•动杆财税”台球比赛举行">
-                            活力青春•动杆财税”台球比赛举行
-                        </p>
-                        <div class="index-detail center-block">
-                            近日，由温州市财政地税局机关党委、工会、团委主办、开发区分局承办的温州市第九届财...
-                        </div>
-                        <a href="#" class="index-btn center-block index-more">
-                            阅读更多
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xs-3 col-md-3">
-                    <div class="index-list">
-                        <img src="../images/top.png" class="index-top">
-                        <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="活力青春•动杆财税”台球比赛举行">
-                            活力青春•动杆财税”台球比赛举行
-                        </p>
-                        <div class="index-detail center-block">
-                            近日，由温州市财政地税局机关党委、工会、团委主办、开发区分局承办的温州市第九届财...
-                        </div>
-                        <a href="#" class="index-btn center-block index-more">
-                            阅读更多
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xs-3 col-md-3">
-                    <div class="index-list">
-                        <img src="../images/top.png" class="index-top">
-                        <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="活力青春•动杆财税”台球比赛举行">
-                            活力青春•动杆财税”台球比赛举行
-                        </p>
-                        <div class="index-detail center-block">
-                            近日，由温州市财政地税局机关党委、工会、团委主办、开发区分局承办的温州市第九届财...
-                        </div>
-                        <a href="#" class="index-btn center-block index-more">
-                            阅读更多
-                        </a>
-                    </div>
-                </div>
+<div class="container" ng-controller="InformController">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="index-subtitle">
+                通知公告
+                <a ng-show="loadMore" ui-sref="list">+查看更多</a>
             </div>
         </div>
+        <div class="col-md-12" ng-hide="noThing">
+            <h4 class="text-center">暂无通知公告信息！</h4>
+        </div>
+        <div class="col-xs-3 col-md-3" ng-repeat="s in informTops | orderBy:'yxj':true" ng-show="noThing">
+            <div class="index-list">
+                <img ng-src="../images/top.png" class="index-top" ng-show="s.yxj">
+                <p class="index-topic center-block" data-toggle="tooltip" data-placement="top" title="活力青春•动杆财税”台球比赛举行">
+                    {{s.bt}}
+                </p>
+                <div class="index-detail center-block">
+                    {{s.nrjj}}
+                </div>
+                <a  ui-sref="informDetail.detail({listId:s.xxid})" class="index-btn center-block index-more">
+                    <span>查看详情</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <div class="container">
-            <div class="row"> 
-                <div class="col-md-12">
-                    <div class="index-subtitle">
-                        知识库&资料下载
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="index-subtitle">
+                知识库&资料下载
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="index-knowledge clearfix">
+                <div class="index-knowledge-left">
+                    <div class="index-knowledge-brands">
+                        <a ui-sref="list" class="center-block index-more index-whole" target="_blank">
+                            全部资料
+                        </a>
                     </div>
+
                 </div>
-                <div class="col-md-12">
-                    <div class="index-knowledge clearfix">
-                        <div class="index-knowledge-left">
-                            <div class="index-knowledge-brands">
-                                <a ui-sref="list" class="center-block index-more index-whole" target="_blank">
-                                    全部资料
-                                </a>
-                            </div>
-                            
-                        </div>
-                        <div class="index-knowledge-right" ng-controller="KnowledgeCtrl">
-                            <ul class="index-ul">
-                            	<li ng-repeat="k in knowledges | limitTo:5">
-                            		<a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" target="_blank">
-                            			<!--<img ng-src="../images/{{k.type}}.png" />-->
-                            				{{k.bt}}
-                                		<span class="index-time" ng-bind="k.fbrq.substring(0,10)">
-                                        </span>
-                                    </a>
-                            	</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="index-knowledge clearfix">
-                        <div class="index-knowledge-left">
-                            <div class="index-knowledge-brands index-knowledge-data">
-                                <a href="#" class="center-block index-more index-whole">
-                                    全部资料
-                                </a>
-                            </div>
-                            
-                        </div>
-                        <div class="index-knowledge-right">
-                            <ul class="index-ul">
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                        <img src="../images/excel.png">
-                                        我局取得全市党员干部讲故事比赛季军 
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                        <img src="../images/ppt.png">
-                                        我局取得全市党员干部讲故事比赛季军 
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                        <img src="../images/excel.png">
-                                        我局取得全市党员干部讲故事比赛季军 
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                        <img src="../images/word.png">
-                                        我局取得全市党员干部讲故事比赛季军 
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="我局取得全市党员干部讲故事比赛季军">
-                                        <img src="../images/excel.png">
-                                        我局取得全市党员干部讲故事比赛季军 
-                                        <span class="index-time">
-                                            2016-01-28
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="index-knowledge-right" ng-controller="KnowledgeCtrl">
+                    <ul class="index-ul">
+                        <li ng-repeat="k in knowledges | limitTo:5">
+                            <a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" target="_blank">
+                                <!--<img ng-src="../images/{{k.type}}.png" />-->
+                                {{k.bt}}
+                                <span class="index-time" ng-bind="k.fbrq.substring(0,10)">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <div class="col-md-12">
+            <div class="index-knowledge clearfix">
+                <div class="index-knowledge-left">
+                    <div class="index-knowledge-brands index-knowledge-data">
+                        <a ui-sref="list" class="center-block index-more index-whole" target="_blank">
+                            全部资料
+                        </a>
+                    </div>
+
+                </div>
+                <div class="index-knowledge-right" ng-controller="DataCtrl">
+                    <ul class="index-ul">
+                        <li  ng-repeat="d in datas | limitTo:5">
+                            <a ui-sref="knowledgeDetail.detail({xxid:d.xxid})" title="{{d.bt}}" target="_blank">
+                                {{d.bt}}
+                                <span class="index-time"  ng-bind="d.fbrq.substring(0,10)">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
