@@ -11,7 +11,6 @@ angular.module("FWPT")
             templateUrl: 'account/loginForm.html',
             link: function(scope, ele, attrs) {
                 scope.recode=function(){
-                    $("#codeimg").attr("src","http://localhost:8082/rap/fwpt/msgService/code.do?t="+Math.random());
                 };
                 scope.submitLogin = function() {
                     scope.onLogin({user: scope.loginUser});
