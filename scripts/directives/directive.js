@@ -10,6 +10,9 @@ angular.module("FWPT")
             },
             templateUrl: 'account/loginForm.html',
             link: function(scope, ele, attrs) {
+                scope.recode=function(){
+                    $("#codeimg").attr("src","http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/code.do?t="+Math.random());
+                };
                 scope.submitLogin = function() {
                     scope.onLogin({user: scope.loginUser});
                 }
@@ -30,8 +33,8 @@ angular.module("FWPT")
             '<li ng-class="{disabled: conf.currentPage == conf.numberOfPages}" ng-click="nextPage()"><span>&raquo;</span></li>' +
             '</ul>' +
             '<div class="page-total" ng-show="conf.totalItems > 0">' +
-            '<input type="text" ng-show="conf.jumpOrNot" ng-model="jumpPageNum"  ng-keyup="jumpToPage($event)"/> ' +
-            '<select ng-if="conf.dataCountDisplay" ng-model="conf.itemsPerPage" ng-options="option for option in conf.perPageOptions "></select>' +
+            '跳转至 <input type="text" ng-show="conf.jumpOrNot" ng-model="jumpPageNum"  ng-keyup="jumpToPage($event)"/> 页　' +
+            '每页显示 <select ng-if="conf.dataCountDisplay" ng-model="conf.itemsPerPage" ng-options="option for option in conf.perPageOptions "></select> 条' +
             '/共<b>{{ conf.totalItems }}</b>条' +
             '</div>' +
             '<div class="no-items" ng-show="conf.totalItems <= 0">暂无数据</div>' +

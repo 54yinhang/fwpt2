@@ -196,12 +196,134 @@ angular.module('FWPT')
         }
     ])
     .controller('addFileController',['$scope','$state','$stateParams','ElectronicFileService',
-        function($scope, $state, $stateParams, ElectronicFileService){
+        function($scope, $state, $stateParams, ElectronicFileService,$http){
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
                     console.log(data.result);
                 }
             );
+            $scope.saveAddFile = function(){
+                $scope.fileData = {
+                    sydwmc:$scope.addFile.ysdwmc,
+                    ssny:$scope.addFile.ssny,
+                    zflh:$scope.addFile.zflh,
+                    ms:$scope.addFile.ms
+                }
+                ElectronicFileService.sendAddFile($scope.fileData);
+            }
+            /***************************上传组件初始化***********************************/
+            var uploader = WebUploader.create({
+                swf: 'Uploader.swf',
+                server: 'server.php',
+                pick: '#picker',
+                //paste: 'document.body',
+                accept:{
+                    title: 'png,jpg,doc,pdf',
+                    extensions: 'png,jpg,doc,pdf',
+                    mimeType: '*'
+                },
+                resize: false,
+                duplicate:true
+            });
+            // 当有文件被添加进队列的时候
+            uploader.on( 'fileQueued', function( file ) {
+
+                $("#list").css('display','block').append('<label class="alert-info docInfo">'+file.name+'</label>');
+
+            });
+            $scope.upInfo={};
+            /***************************上传前的表单验证***********************************/
+            $("#ctlBtn").click(function(){
+                console.log(123);
+                if($scope.upInfo.cName&&$scope.upInfo.year&&$scope.upInfo.payNum&&uploader.getFiles().length){
+                    uploader.upload();
+                }else{
+                    if(!$scope.upInfo.cName){
+                        $('#list').css('display','block').html("<p class='alert-danger'>单位名称为必填项</p>").fadeOut(2300,function(){
+                            $(this).text('');
+                        });
+                    }else if(!$scope.upInfo.year){
+                        $('#list').css('display','block').html("<p class='alert-danger'>年度为必填项</p>").fadeOut(2300,function(){
+                            $(this).text('');
+                        });
+                    }else if(!$scope.upInfo.payNum){
+                        $('#list').css('display','block').html("<p class='alert-danger'>支付令号为必填项</p>").fadeOut(2300,function(){
+                            $(this).text('');
+                        });
+                    }else{
+                        $('#list').css('display','block').html("<p class='alert-danger'>上传文件不能为空</p>").fadeOut(2300,function(){
+                            $(this).text('');
+                        });
+                    }
+                }
+            });
+            /***************************重新上传失败附件*********************************/
+            $('#reupload').click(function(){
+                $.each(uploader.getFiles('error'),function(i,item){
+                    uploader.upload(item);
+                });
+            });
+            /***************************上传前发送的数据***********************************/
+            $scope.items = [];
+            uploader.on('uploadBeforeSend',function(block, data){
+
+                data.docId = (new Date()).getTime();
+                $scope.docId = data.docId;
+                data.cName = $scope.upInfo.cName;
+                data.year = $scope.upInfo.year;
+                data.payNum = $scope.upInfo.payNum;
+            });
+            /***************************上传成功***********************************/
+            uploader.on( 'uploadSuccess', function( file, res ) {
+                if(res){
+                    console.log($scope.upInfo);
+                    $scope.items.push({
+                        docId:$scope.docId,
+                        cName:$scope.upInfo.cName,
+                        docSize:file.size
+                    });
+                    $scope.$apply();
+                    console.log($scope.items.length);
+                    console.log($scope.items);
+                }
+
+
+            });
+            /*************************上传结束***************************************/
+            uploader.on('uploadFinished',function(){
+                if(uploader.getFiles('error')==[]){
+                    $('#reupload').css('display','block');
+                }else{
+                    $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
+                        $(this).text('');
+                    });
+                }
+            });
+            /***************************删除附件***********************************/
+            $scope.delDoc = function(doc){
+                var transform = function(data){
+                    return $.param(data);
+                };
+                $http.post('del.php',{docId:doc},{
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                    transformRequest: transform
+                }).success(function(data,status){
+                    angular.forEach($scope.items, function(value, key){
+                        if(value['docId'] == doc)
+                            $scope.items.splice(key, 1);
+                    });
+                }).error(function(){
+                    console.log('文件'+doc+'删除失败！');
+                });
+            };
+            /***************************保存附件***********************************/
+            $scope.save = function(){
+
+            };
+            /***************************保存并上传附件***********************************/
+            $scope.saves = function(){
+
+            };
         }])
 
 
