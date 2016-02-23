@@ -199,7 +199,7 @@ angular.module('FWPT')
         function($scope, $state, $stateParams, ElectronicFileService){
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
-                    console.log(data);
+                    console.log(data.result);
                 }
             );
         }])
