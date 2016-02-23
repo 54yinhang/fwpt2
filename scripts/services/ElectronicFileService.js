@@ -102,6 +102,20 @@ angular.module('FWPT')
                         alert("获取数据失败");
                     })
                 return deferred.promise;
+            },
+            sendAddFile:function(fileData){
+                $http({
+                    method:'Post',
+                    url:'',
+                    data:fileData
+                })
+                    .success(function(){
+                        alert("保存成功");
+                    })
+                    .error(function(){
+                        alert("连接服务器失败");
+                    })
+
             }
         };
     });

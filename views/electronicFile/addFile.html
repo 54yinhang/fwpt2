@@ -14,24 +14,12 @@
                 <label>单位名称：</label>
 
                 <div class="dropdown select">
-                    <input type="text" class="form-control companyName" data-toggle="dropdown"/>
-                    <ul class="dropdown-menu companyLists">
-                        <li><a href="#">温州企业1</a></li>
-                        <li><a href="#">温州企业2</a></li>
-                        <li><a href="#">温州企业3</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                    </ul>
+                    <input type="text" class="form-control companyName" ng-model="addFile.ysdwmc"/>
                 </div>
             </div>
-
             <div class="form-group  has-feedback">
                 <label>年度：</label>
-                <input type="text" class="form-control year" value="2016"/>
+                <input type="text" class="form-control year" value="2016" ng-model="addFile.ssny"/>
                             <span class="form-control-feedback tip">
                                 <i class="top"></i>
                                 <i class="down"></i>
@@ -39,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="num">支付令号：</label>
-                <input type="text" class="form-control paynum" id="num" value="请输入支付令号"/>
+                <input type="text" class="form-control paynum" id="num" ng-model="addFile.zflh"/>
             </div>
             <div class="form-group">
                 <label>上传附件：</label>
@@ -78,10 +66,10 @@
         <div class="intro">
             <span>档案说明：</span>
 
-            <p></p>
+            <p><input type="text" ng-model="addFile.ms"></p>
         </div>
         <div class="state">
-            <button type="button" class="btn save">保存</button>
+            <button type="button" class="btn save" ng-click="saveAddFile()">保存</button>
             <button type="button" class="btn sar">保存并上报</button>
             <button type="button" class="btn back">返回</button>
 

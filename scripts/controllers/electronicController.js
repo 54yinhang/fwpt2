@@ -197,11 +197,22 @@ angular.module('FWPT')
     ])
     .controller('addFileController',['$scope','$state','$stateParams','ElectronicFileService',
         function($scope, $state, $stateParams, ElectronicFileService){
+            $scope.addFile = {};
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
-                    console.log(data);
+                    console.log(data.result);
+                    $scope.addFile.result = data.result;
                 }
             );
+            $scope.saveAddFile = function(){
+                $scope.fileData = {
+                    sydwmc:$scope.addFile.ysdwmc,
+                    ssny:$scope.addFile.ssny,
+                    zflh:$scope.addFile.zflh,
+                    ms:$scope.addFile.ms
+                }
+                ElectronicFileService.sendAddFile($scope.fileData);
+            }
         }])
 
 
