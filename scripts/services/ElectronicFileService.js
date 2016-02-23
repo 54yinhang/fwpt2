@@ -12,7 +12,7 @@ angular.module('FWPT')
                 if(category=='allList' || !category){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do'
+                        url:'../assets/electronicFile.json'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -69,7 +69,7 @@ angular.module('FWPT')
                     data:deleteData
                 })
                     .success(function(data){
-                        alert("删除成功");
+                        console.log("删除成功");
                     })
                     .error(function(){
                         alert("删除失败");
@@ -82,7 +82,7 @@ angular.module('FWPT')
                     data:pushData
                 })
                     .success(function(data){
-                        alert("上报成功");
+                        console.log("上报成功");
                     })
                     .error(function(){
                         alert("上报失败");

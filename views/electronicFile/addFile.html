@@ -1,6 +1,9 @@
 <div class="right">
     <ul class="note">
-        <li>电子凭证
+        <li>
+            <a ui-sref="electronic">
+                电子凭证
+            </a>
             <i></i>
         </li>
         <li>新增档案</li>
@@ -10,32 +13,25 @@
             <div class="form-group">
                 <label>单位名称：</label>
                 <div class="dropdown select">
-                    <input type="text" class="form-control companyName" data-toggle="dropdown"/>
-                    <ul class="dropdown-menu companyLists">
-                        <li><a href="#">温州企业1</a></li>
-                        <li><a href="#">温州企业2</a></li>
-                        <li><a href="#">温州企业3</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                    </ul>
+                    <input type="text" class="form-control companyName" ng-model="addFile.ysdwmc"/>
                 </div>
             </div>
 
             <div class="form-group  has-feedback">
                 <label>年度：</label>
-                <input type="text" class="form-control year" value="2016"/>
-                        <span class="form-control-feedback tip">
-                            <i class="top"></i>
-                            <i class="down"></i>
-                        </span>
+                <input type="text" class="form-control year" value="2016" ng-model="addFile.ssny"/>
+                            <span class="form-control-feedback tip">
+                                <i class="top"></i>
+                                <i class="down"></i>
+                            </span>
             </div>
             <div class="form-group">
                 <label for="num">支付令号：</label>
                 <input type="text" class="form-control paynum" id="num" ng-model="addFile.zflh"/>
+            </div>
+            <div class="intro">
+                <span>档案说明：</span>
+                <p><input type="text" ng-model="addFile.ms"></p>
             </div>
             <div class="form-group">
                 <div id="uploader">
@@ -45,38 +41,35 @@
                         <button id="ctlBtn" class="btn btn-default">开始上传</button>
                         <button id="reupload" class="btn btn-danger">重新上传出错附件</button>
                     </div>
-                    <div id="list" class="uploader-list"></div>
+                    <div id="list" class="uploader-list">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>单位名称</th>
+                                <th>附件大小</th>
+                                <th>上传日期</th>
+                                <th>上传人</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in items track by $index">
+                                <td>{{item.cName}}</td>
+                                <td>{{item.docSize}}</td>
+                                <td>{{item.upTime}}</td>
+                                <td>{{item.upPerson}}</td>
+                                <td><a ng-click="delDoc(item.docId)">删除</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+        </div>
 
-        </div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>单位名称</th>
-                <th>附件大小</th>
-                <th>上传日期</th>
-                <th>上传人</th>
-                <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="item in items track by $index">
-                <td>{{item.cName}}</td>
-                <td>{{item.docSize}}</td>
-                <td>{{item.upTime}}</td>
-                <td>{{item.upPerson}}</td>
-                <td><a ng-click="delDoc(item.docId)">删除</a></td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="intro">
-            <span>档案说明：</span>
-            <p></p>
-        </div>
         <div class="state">
-            <button type="button" class="btn save" ng-click="save()">保存</button>
-            <button type="button" class="btn sar" ng-click="saves()">保存并上报</button>
+            <button type="button" class="btn save" ng-click="saveAddFile()">保存</button>
+            <button type="button" class="btn sar">上报</button>
             <button type="button" class="btn back">返回</button>
         </div>
     </form>
