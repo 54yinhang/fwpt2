@@ -196,8 +196,7 @@ angular.module('FWPT')
         }
     ])
     .controller('addFileController',['$scope','$state','$stateParams','ElectronicFileService',
-        function($scope, $state, $stateParams, ElectronicFileService){
-            $scope.addFile = {};
+        function($scope, $state, $stateParams, ElectronicFileService,$http){
             ElectronicFileService.getList($stateParams.category).then(
                 function(data){
                     console.log(data);
