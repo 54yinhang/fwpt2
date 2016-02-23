@@ -26,7 +26,7 @@
 						<p>知识库&资料下载</p>
 						<hr/>
 							<ol>
-								<li ng-repeat="k in knowLists">
+								<li ng-repeat="k in knowLists | limitTo:10">
 									<span></span>
 									<a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" ng-bind="k.bt">
 									</a>

@@ -84,7 +84,7 @@
                         </div>
                         <div class="index-knowledge-right" ng-controller="KnowledgeCtrl">
                             <ul class="index-ul">
-                            	<li ng-repeat="k in knowledges">
+                            	<li ng-repeat="k in knowledges | limitTo:5">
                             		<a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" target="_blank">
                             			<!--<img ng-src="../images/{{k.type}}.png" />-->
                             				{{k.bt}}

@@ -6,7 +6,7 @@ angular.module('FWPT')
 				$http({
 					method:'GET',
 					//url:'../assets/knowledgeList.json'
-					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=5'
+					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=50'
 				})
 				.success(function(data){
 					defer.resolve(data.result);
