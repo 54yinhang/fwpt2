@@ -35,6 +35,11 @@ input.form-control {
 .btn-danger:hover {
   background-color: #c9302c;
 }
+.clear {
+  content: "";
+  display: table;
+  clear: both;
+}
 /*header*/
 .index-nav {
   width: 100%;
@@ -62,14 +67,14 @@ input.form-control {
 }
 /*banner*/
 .index-banner {
-  background: url(../images/banner_bj.jpg) repeat-x;
+  background: url(../img/banner_bj.jpg) repeat-x;
   width: 100%;
   height: 371px;
 }
 .index-banner .banner-left {
   float: left;
   height: 371px;
-  background: url(../images/banner.png) no-repeat top right;
+  background: url(../img/banner.png) no-repeat top right;
   width: 750px;
 }
 .index-banner .banner-left .banner-year {
@@ -221,7 +226,7 @@ input.form-control {
 .index-middle .index-knowledge .index-knowledge-left .index-knowledge-brands {
   width: 250px;
   height: 303px;
-  background: url(../images/bj.png) no-repeat;
+  background: url(../img/bj.png) no-repeat;
   padding-top: 200px;
   position: absolute;
   top: -9px;
@@ -236,7 +241,7 @@ input.form-control {
   text-align: center;
 }
 .index-middle .index-knowledge .index-knowledge-left .index-knowledge-data {
-  background-image: url(../images/bj2.png);
+  background-image: url(../img/bj2.png);
 }
 .index-middle .index-knowledge .index-knowledge-right {
   float: left;
@@ -347,198 +352,6 @@ input.form-control {
   color: #fff;
 }
 /*通知公告和知识库*/
-ul,
-ol,
-li {
-  padding: 0;
-  margin: 0;
-}
-.notices .mainSection {
-  border: 1px solid #e1e1e1;
-  width: 1140px;
-  margin-bottom: 20px;
-}
-.notices .mainSection > ul {
-  width: 1116px;
-  height: 50px;
-  margin-left: 12px;
-}
-.notices .mainSection > ul li a {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  height: 47px;
-  line-height: 28px;
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-}
-.notices .mainSection > ul li.active {
-  border-top: 3px solid #950909;
-}
-.notices .notice,
-.notices .knowledge {
-  background-color: #fff;
-  width: 1138px;
-}
-.notices .notice > .content,
-.notices .knowledge > .content {
-  padding-top: 10px;
-}
-.notices .notice > .content ul,
-.notices .knowledge > .content ul {
-  padding: 0;
-  margin: 0;
-  width: 1084px;
-  margin-left: 17px;
-}
-.notices .notice > .content ul li,
-.notices .knowledge > .content ul li {
-  border-bottom: 1px dashed #cbcbcb;
-  position: relative;
-}
-.notices .notice > .content ul li a,
-.notices .knowledge > .content ul li a {
-  display: block;
-  height: 47px;
-  line-height: 47px;
-  width: 1084px;
-  color: #666666;
-  text-decoration: none;
-}
-.notices .notice > .content ul li a .date,
-.notices .knowledge > .content ul li a .date {
-  float: right;
-}
-.notices .notice > .content ul li a .program,
-.notices .knowledge > .content ul li a .program {
-  margin-left: 17px;
-}
-.notices .notice > .content ul li a b,
-.notices .knowledge > .content ul li a b {
-  position: absolute;
-  width: 13px;
-  height: 16px;
-  background: url(../images/icon.png) no-repeat 0 -154px;
-  top: 15px;
-}
-.notices .notice > .page,
-.notices .knowledge > .page {
-  padding-top: 20px;
-  text-align: center;
-}
-.notices .notice > .page ul,
-.notices .knowledge > .page ul {
-  display: inline-block;
-}
-.notices .notice > .page ul li,
-.notices .knowledge > .page ul li {
-  float: left;
-  margin-right: 15px;
-  text-align: center;
-}
-.notices .notice > .page ul li a,
-.notices .knowledge > .page ul li a {
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  text-decoration: none;
-  color: #666666;
-}
-.notices .notice > .page ul .prev > a,
-.notices .knowledge > .page ul .prev > a,
-.notices .notice > .page ul .next > a,
-.notices .knowledge > .page ul .next > a {
-  display: inline;
-}
-.notices .notice > .page ul .active,
-.notices .knowledge > .page ul .active {
-  background-color: #950909;
-}
-.notices .notice > .page ul .active a,
-.notices .knowledge > .page ul .active a {
-  color: #fff;
-}
-.notices .knowledge > .content ul li a b {
-  width: 26px;
-  height: 26px;
-  background: url(../images/icon.png) no-repeat 0 -72px;
-}
-.notices .knowledge > .content ul li a .program {
-  margin-left: 30px;
-}
-.notices .knowledge {
-  display: none;
-}
-.notices .guide,
-.notice .guide {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.notices .guide ol,
-.notice .guide ol {
-  height: 15px;
-  line-height: 15px;
-}
-.notices .guide ol li,
-.notice .guide ol li {
-  float: left;
-}
-.notices .guide ol li span,
-.notice .guide ol li span {
-  display: inline-block;
-  width: 7px;
-  height: 8px;
-  background: url(../images/icon.png) no-repeat -54px -168px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-/*公告详情*/
-.notice .mainSection > div {
-  border: 1px solid #e1e1e1;
-  background-color: #fff;
-  padding-left: 17px;
-  padding-right: 17px;
-  padding: 0 17px 10px 17px;
-}
-.notice .mainSection .article {
-  float: left;
-  width: 804px;
-}
-.notice .mainSection .article h2 {
-  color: #950909;
-  text-align: center;
-}
-.notice .mainSection .article p {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 30px;
-}
-.notice .mainSection .notice-list {
-  float: right;
-  width: 316px;
-}
-.notice .mainSection .notice-list p {
-  margin: 18px 0 0 10px;
-  font-size: 16px;
-}
-.notice .mainSection .notice-list hr {
-  margin-top: 15px;
-}
-.notice .mainSection .notice-list ol {
-  margin-left: 8px;
-}
-.notice .mainSection .notice-list ol span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background-color: #950909;
-  margin: 10px 8px 0 0;
-}
 /*电子档案*/
 .section {
   width: 100%;
@@ -553,6 +366,7 @@ li {
   display: table;
   clear: both;
 }
+/*左边列表*/
 .left {
   float: left;
   width: 284px;
@@ -581,7 +395,7 @@ li {
   width: 16px;
   height: 8px;
   margin: 25px 15px;
-  background: url(../images/icon.png) no-repeat 1px -188px;
+  background: url(../img/icon.png) no-repeat 1px -188px;
 }
 .left > ul > li > span > i.on {
   background-position: 0 -174px;
@@ -599,7 +413,7 @@ li {
   height: 14px;
   margin: 0 10px 0 26px;
   vertical-align: middle;
-  background: url(../images/icon.png) no-repeat;
+  background: url(../img/icon.png) no-repeat;
 }
 .manage > li > i.add {
   background-position: 0 0;
@@ -620,6 +434,7 @@ li {
   color: #3299fe;
   text-decoration: none;
 }
+/*右边详情*/
 .right {
   float: right;
   width: 833px;
@@ -627,6 +442,7 @@ li {
   background-color: #fff;
   padding: 0 17px;
 }
+/*右边详情-面包屑*/
 .note {
   border-bottom: 1px solid #e1e1e1;
   margin: 0;
@@ -645,14 +461,150 @@ li {
   display: inline-block;
   width: 7px;
   height: 7px;
-  background: url(../images/icon.png) no-repeat -54px -177px;
+  background: url(../img/icon.png) no-repeat -54px -177px;
   margin-right: 5px;
 }
+/*右边详情-具体部分-（新增档案、修改档案详情、查看档案详情）*/
+.detail {
+  padding-left: 66px;
+  padding-right: 95px;
+}
+.detail .form-control,
+.detail .form-group {
+  display: inline-block;
+}
+.detail .form-group {
+  line-height: 40px;
+}
+.detail .form-group input {
+  vertical-align: middle;
+  height: 40px;
+  line-height: 26px;
+}
+.detail > .setting {
+  width: 628px;
+  margin: 25px 0 15px 0;
+}
+.detail > .setting label {
+  font-weight: 400;
+}
+.detail > .setting .select {
+  display: inline-block;
+  margin: 0 32px 0 10px;
+  vertical-align: middle;
+}
+.detail > .setting .select .companyName {
+  width: 340px;
+}
+.detail > .setting .select .companyLists {
+  width: 340px;
+  height: 200px;
+  overflow-x: hidden;
+}
+.detail > .setting .select .companyLists > li a {
+  line-height: 30px;
+}
+.detail > .setting .year {
+  margin-left: 10px;
+  width: 106px;
+}
+.detail > .setting .tip {
+  width: 18px;
+  top: 15px;
+}
+.detail > .setting .tip i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: url(../img/icon.png) no-repeat;
+}
+.detail > .setting .tip i.top {
+  background-position: -54px -193px;
+}
+.detail > .setting .tip i.down {
+  background-position: -54px -203px;
+}
+.detail > .setting .paynum {
+  width: 540px;
+  height: 40px;
+  margin-left: 10px;
+}
+.detail > .setting .choseFile {
+  margin-left: 10px;
+  width: 127px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.detail > .setting .reportFile {
+  width: 127px;
+  background-color: #3398CC;
+  color: #fff;
+}
+.detail > .setting .fail {
+  width: 135px;
+  color: #fff;
+  margin-left: 142px;
+}
+.detail > table {
+  border: 1px solid #e1e1e1;
+}
+.detail > table thead {
+  background-color: #f5f4f9;
+}
+.detail > .intro {
+  margin-top: 40px;
+}
+.detail > .intro:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.detail > .intro p {
+  width: 550px;
+  height: 90px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  border: 1px solid #e1e1e1;
+  float: right;
+}
+.detail > .state {
+  margin-bottom: 29px;
+}
+.detail > .state:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.detail > .state button {
+  width: 110px;
+  height: 33px;
+  color: #fff;
+  float: right;
+  margin-left: 20px;
+}
+.detail > .state button.save {
+  background-color: #4989b9;
+}
+.detail > .state button.sar {
+  background-color: #9c221f;
+}
+.detail > .state button.back {
+  background-color: #aeafb1;
+}
+/*右边详情-具体部分-（主页、修改档案、上报档案、查看档案）*/
 .record form,
 .check form,
 .report form,
 .revise form {
-  padding: 0;
+  margin-top: 22px;
+}
+.record form > div .input-inline,
+.check form > div .input-inline,
+.report form > div .input-inline,
+.revise form > div .input-inline {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 26px;
 }
 .record form > div > input,
 .check form > div > input,
@@ -674,7 +626,7 @@ li {
   position: absolute;
   width: 16px;
   height: 16px;
-  background: url(../images/icon.png) no-repeat 0 -199px;
+  background: url(../img/icon.png) no-repeat 0 -199px;
   top: 12px;
   left: 18px;
 }
@@ -814,110 +766,4 @@ li {
 .report .formPage ul {
   margin-top: 5px;
 }
-/*报表填报*/
-.index-middle:before {
-  display: table;
-  content: " ";
-  clear: both;
-}
-.fill {
-  margin-top: 32px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding-left: 10px;
-  padding-right: 12px;
-  border: 1px solid #e1e1e1;
-}
-.fill .title {
-  height: 53px;
-  border-bottom: 1px solid #e1e1e1;
-}
-.fill .title > span {
-  font-size: 16px;
-  margin-top: 17px;
-  display: inline-block;
-  margin-left: 10px;
-}
-.fill .title form > div {
-  position: relative;
-}
-.fill .title form > div input {
-  border-color: #e1e1e1;
-  width: 305px;
-  height: 39px;
-  border-radius: 2px;
-  padding-left: 38px;
-}
-.fill .title form > div > span {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: url(../images/icon.png) no-repeat 0 -199px;
-  top: 11px;
-  left: 12px;
-}
-.fill .title form > div button {
-  width: 128px;
-  height: 39px;
-  border-radius: 2px;
-  background-color: #2196F3;
-}
-.fill .formSection .formContent {
-  margin-top: 36px;
-}
-.fill .formSection .formContent table {
-  width: 1081px;
-  border: 1px solid #D5D4D5;
-  margin-left: 29px;
-}
-.fill .formSection .formContent table thead {
-  background-color: #F5F4F9;
-}
-.fill .formSection .formContent table thead th {
-  height: 50px;
-  vertical-align: middle;
-  padding-left: 20px;
-}
-.fill .formSection .formContent table td {
-  height: 55px;
-  vertical-align: middle;
-  padding-left: 20px;
-}
-.fill .formSection .formPage {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: right;
-  margin-right: 50px;
-}
-.fill .formSection .formPage ul {
-  display: inline-block;
-}
-.fill .formSection .formPage ul li {
-  float: left;
-  margin-right: 15px;
-  text-align: center;
-}
-.fill .formSection .formPage ul li a {
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  text-decoration: none;
-  color: #666666;
-}
-.fill .formSection .formPage ul .allPage {
-  height: 26px;
-  line-height: 26px;
-  margin-right: 40px;
-}
-.fill .formSection .formPage ul .prev > a,
-.fill .formSection .formPage ul .next > a {
-  display: inline;
-}
-.fill .formSection .formPage ul .active {
-  background-color: #950909;
-}
-.fill .formSection .formPage ul .active a {
-  color: #fff;
-}
-/*报表查询*/
+/**/

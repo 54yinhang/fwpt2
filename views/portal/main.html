@@ -84,11 +84,11 @@
                         </div>
                         <div class="index-knowledge-right" ng-controller="KnowledgeCtrl">
                             <ul class="index-ul">
-                            	<li ng-repeat="k in knowledges | orderBy:'djl':true | limitTo:5 ">
-                            		<a ui-sref="knowledgeDetail({knowId:k.knowId})" title="{{k.title}}" target="_blank">
-                            			<img ng-src="../images/{{k.type}}.png" />
-                            				{{k.title}}
-                                		<span class="index-time" ng-bind="k.date">
+                            	<li ng-repeat="k in knowledges | limitTo:5">
+                            		<a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}" target="_blank">
+                            			<!--<img ng-src="../images/{{k.type}}.png" />-->
+                            				{{k.bt}}
+                                		<span class="index-time" ng-bind="k.fbrq.substring(0,10)">
                                         </span>
                                     </a>
                             	</li>

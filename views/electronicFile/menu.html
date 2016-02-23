@@ -5,23 +5,23 @@
                 <span>电子档案</span>
                 <ul>
                     <li>
-                        <span>电子凭证<i class="on"></i></span>
-                        <ul class="manage">
+                        <span>电子凭证<i ng-click="tag()" ng-class="{on:toggle}" ng-model="toggle"></i></span>
+                        <ul class="manage" ng-class="{manageon:!toggle}">
                             <li>
                                 <i class="add"></i>
-                                <a ui-sref="electronic.addFile">新增档案</a>
+                                <a ui-sref="electronic.addFile({category:'addRequest'})">新增档案</a>
                             </li>
                             <li>
                                 <i class="revise"></i>
-                                <a ui-sref="electronic.modifyList({category:modifyList})">修改档案</a>
+                                <a ui-sref="electronic.modifyList({category:'modifyList'})">修改档案</a>
                             </li>
                             <li>
                                 <i class="report"></i>
-                                <a ui-sref="electronic.unpushList({category:unpushList})">上报档案</a>
+                                <a ui-sref="electronic.unpushList({category:'unpushList'})">上报档案</a>
                             </li>
                             <li>
                                 <i class="check"></i>
-                                <a ui-sref="electronic.allList({category:allList})">查看档案</a>
+                                <a ui-sref="electronic.allList({category:'allList'})">查看档案</a>
                             </li>
                         </ul>
                     </li>
@@ -32,57 +32,6 @@
                 </ul>
             </div>
             <div ui-view="list">
-                <div class="right record">
-                    <ul class="note">
-                        <li>电子凭证</li>
-                    </ul>
-                    <form class="navbar-form" action="">
-                        <div class="form-group has-feedback">
-                            <label class="sr-only" for="search">搜索</label>
-                            <input class="form-control" id="search" type="text" placeholder="请输入关键字查询"/>
-                            <span></span>
-                            <button class="btn btn-info">查询</button>
-                        </div>
-                    </form>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="blank">单位名称</th>
-                            <th>年度</th>
-                            <th>支付口令</th>
-                            <th>申报状态</th>
-                            <th>上报人</th>
-                            <th>上报日期</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="data in listData">
-                            <td><input type="checkbox" id="{{data.id}}" ng-click="updateSelections($event,data.id)" ng-checked="selectAll"/><span ng-bind="data.ysdwmc"></span></td>
-                            <td><span ng-bind="data.ssny"></span></td>
-                            <td><span ng-bind="data.zflh"></span></td>
-                            <td><span ng-bind="data.spzt"></span></td>
-                            <td><span ng-bind="data.spr"></span></td>
-                            <td><span ng-bind="data.spsj"></span></td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                    <div class="formPage">
-                        <div>
-                            <input type="checkbox" ng-model="selectAll"/>
-                            <button ng-click="delete">删除</button>
-                        </div>
-                        <ul>
-                            <li class="allPage">共有<span>7</span>条，每页显示50条</li>
-                            <li class="prev"><a href="">上一页</a></li>
-                            <li class="active"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li class="next"><a href="">下一页</a></li>
-                        </ul>
-                    </div>
-
-                </div>
             </div>
 
 

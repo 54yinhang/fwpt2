@@ -22,37 +22,27 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td><input type="checkbox"/>某某预水水水水水水水算单位</td>
-            <td>2015</td>
-            <td>2015301321</td>
-            <td>以填报</td>
-            <td>张三</td>
-            <td>2015301321</td>
+        <tr ng-repeat="data in listData">
+            <td>
+                <input type="checkbox" id="{{data.id}}" ng-model="data.selected" ng-click="setSelected($event,$index)" ng-bind="data.selected"/>
+                <span ng-bind="data.ysdwmc"></span>
+            </td>
+            <td><span ng-bind="data.ssny"></span></td>
+            <td><span ng-bind="data.zflh"></span></td>
+            <td><span ng-bind="data.spzt"></span></td>
+            <td><span ng-bind="data.spr"></span></td>
+            <td><span ng-bind="data.spsj"></span></td>
         </tr>
-        <tr>
-            <td><input type="checkbox"/>某某预水水水水水水水算单位</td>
-            <td>2015</td>
-            <td>2015301321</td>
-            <td>以填报</td>
-            <td>张三</td>
-            <td>2015301321</td>
-        </tr>
+
         </tbody>
     </table>
     <div class="formPage">
         <div>
-            <input type="checkbox"/>
-            <button>删除</button>
+            <input type="checkbox" ng-click="selectAll($event)"/>
+            <button ng-click="delete">删除</button>
         </div>
-        <ul>
-            <li class="allPage">共有<span>7</span>条，每页显示50条</li>
-            <li class="prev"><a href="">上一页</a></li>
-            <li class="active"><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li class="next"><a href="">下一页</a></li>
-        </ul>
     </div>
-
+    <nav class="navbar-right">
+        <div conf="paginationConf"></div>
+    </nav>
 </div>
