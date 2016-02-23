@@ -57,12 +57,6 @@ angular.module('FWPT')
 		 * 分页调用---结束
 		 */
 
-		/*通知公告*/
-		$http.get("../assets/tpl.json").success(function(data){
-	        $scope.listDetail=data.splice(0,8);
-		    }).error(function(){
-		        console.log("通知公告列表获取数据失败")
-		});
 	}])
 	
 	.controller('KnowDetailCtrl',['$scope','ListService',function($scope,ListService){
