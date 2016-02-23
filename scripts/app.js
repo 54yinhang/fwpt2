@@ -94,7 +94,7 @@ angular.module('FWPT', [
 
         /* electronicFile*/
         .state('electronic',{
-            url:'/electronic',
+            url:'/electronic:category',
             views: {
                 '': {
                     templateUrl:'electronicFile/menu.html',
@@ -107,7 +107,7 @@ angular.module('FWPT', [
             }
         })
         .state('electronic.modifyList',{
-            url:'/modifyList',
+            url:'/modifyList:category',
             views:{
                 'list':{
                     templateUrl:'electronicFile/modifyList.html',
@@ -116,7 +116,7 @@ angular.module('FWPT', [
             }
         })
         .state('electronic.unpushList',{
-            url:'/unpushList',
+            url:'/unpushList:category',
             views:{
                 'list':{
                     templateUrl:'electronicFile/unpushList.html',
@@ -125,7 +125,7 @@ angular.module('FWPT', [
             }
         })
         .state('electronic.allList',{
-            url:'/allList',
+            url:'/allList:category',
             views:{
                 'list':{
                     templateUrl:'electronicFile/allList.html',
@@ -143,11 +143,11 @@ angular.module('FWPT', [
             }
         })
         .state('electronic.addFile',{
-            url:'/addFile',
+            url:'/addFile:category',
             views:{
                 'list':{
                     templateUrl:'electronicFile/addFile.html',
-                    controller:'ElectronicFileController'
+                    controller:'addFileController'
                 }
             }
         })

@@ -48,6 +48,19 @@ angular.module('FWPT')
                         });
                     return deferred.promise;
                 }
+                if(category=='addRequest'){
+                    $http({
+                        method:'GET',
+                        url:''
+                    })
+                        .success(function(data){
+                            deferred.resolve(data);
+                        })
+                        .error(function(){
+                            console.log("连接服务器失败")
+                        })
+                    return deferred.promise;
+                }
             },
             delete:function(deleteData){
                 $http({
