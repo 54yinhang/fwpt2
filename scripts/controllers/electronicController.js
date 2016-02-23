@@ -367,6 +367,7 @@ angular.module('FWPT')
                 data.fl = 1;
                 data.daid = '$scope.daId';//$scope.daId;
                 data.wjid = (new Date()).getTime();
+                $scope.docId = data.wjid;
                 data.name = file.name;
                 data.type = file.type;
                 data.size = file.size;
@@ -406,7 +407,7 @@ angular.module('FWPT')
 
             $scope.success = true;
             uploader.on( 'uploadSuccess', function( file, res ) {
-                console.log($scope.upInfo);
+
                 $scope.items.push({
                     docId:$scope.docId,
                     cName:'当前登录用户的单位',
@@ -414,6 +415,7 @@ angular.module('FWPT')
                     upTime:getNowFormatDate(),
                     upPerson:'当前登录用户'
                 });
+                console.log($scope.items);
                 $scope.$apply();
                 $scope.success = $scope.success && res;
                 //console.log($scope.items.length);
@@ -445,9 +447,12 @@ angular.module('FWPT')
                         });
                     }
                 }).error(function(){
-                    console.log('文件'+doc+'删除失败！');
+                    angular.forEach($scope.items, function(value, key){
+                        if(value['docId'] == doc)
+                            $("#list").css('display','block').html("<p class='alert-success'>'文件'+value['docName']+'删除失败！'</p>").fadeOut(2300,function(){
+                                $(this).text('');
+                            });
+                    });
                 });
             };
         }])
-
-
