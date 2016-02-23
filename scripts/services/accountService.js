@@ -4,7 +4,7 @@
 
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams,$location) {
-        $http.get('http://192.168.0.111:8080/ifugle-rap/fwpt/msgService/code.do' ).success(function(data){
+        $http.get('http://localhost:8080/rap/fwpt/msgService/code.do' ).success(function(data){
             //console.log(data);
             window.sessionStorage.setItem("key", "value");
 
@@ -18,11 +18,12 @@ angular.module('FWPT')
 
             sendLogin: function(user) {
                 $.ajax({
-                    url: 'http://192.168.0.111:8080/ifugle-rap/fwpt/msgService/fwptLogin.do',
+                    url: 'http://localhost:8080/rap/fwpt/msgService/fwptLogin.do',
                     type: 'GET',
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
+
                         $state.go('account',$stateParams);
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
@@ -58,7 +59,9 @@ angular.module('FWPT')
     })
     .factory('TodoTaskService', function($http, $state, $stateParams) {
 
-        var jsondata={};
+        var TodoTaskSumjson={};
+        //var TodoTaskSumarray=[];
+        var TodoTaskSumrjson={};
         var userjson={};
         $http({
             method:'GET',
@@ -87,24 +90,43 @@ angular.module('FWPT')
             getTodoTaskSum: function () {
                 $http({
                     method:'GET',
-                    url:'http://192.168.0.111:8080/rap/szcz/dagl/daCount.do'
+                    url:'http://localhost:8080/rap/szcz/dagl/daCount.do'
 
                 }).success(function(data){
-                    console.log(data);
-                    //jsondata=data;
+                    TodoTaskSumjson=data ;
+                    for(i=0;i<TodoTaskSumjson.result.length;i++){
+                        switch (TodoTaskSumjson.result[i].FL){
+                            case 1:
+                                TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
+                                //我的未读消息
+                            break;
+                            case 5 :
+                                TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
+                                //我的电子凭证（财政未核对）
+                                 break;
+                            case 6 :
+                                TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
+                                // 我的电子凭证（被退回）
+                                break;
+                            case 7 :
+                                TodoTaskSumarray.push("{FL:'hdwcdp',"+"COUNT:'"+TodoTaskSumjson.result[i].COUNT+"'}");
+                                //我的电子凭证（已核对未查看）
+                                break;
 
+                        }
+                    }
                 }).error(function(data,status,headers,config) {
                     // 当响应以错误状态返回时调用
-                    console.log("login failed");
+                    console.log("获取用户数据失败！");
                 });
                 return {
-                    wdxx: 9,
-                    wtbb: 11,
-                    wqq: 13,
-                    ckqq: 32,
-                    whddp: 12,
-                    thddp: 33,
-                    hdwcdp: 0
+                    //wdxx: TodoTaskSumjson,
+                    //wtbb: 11,
+                    //wqq: 13,
+                    //ckqq: 32,
+                    //whddp: 12,
+                    //thddp: 33,
+                    //hdwcdp: 0
                 }
             },
             getTodoTask: function(category) {
