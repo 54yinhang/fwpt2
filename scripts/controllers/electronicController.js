@@ -337,7 +337,7 @@ angular.module('FWPT')
                 //paste: 'document.body',
                 accept:{
                     title: 'png,jpg,doc,pdf',
-                    extensions: 'png,jpg,doc,pdf',
+                    extensions: 'png,jpg,doc,pdf,docx',
                     mimeType: '*'
                 },
                 resize: false,
