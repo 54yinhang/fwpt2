@@ -83,6 +83,8 @@ angular.module('FWPT')
                     $scope.ulToggle = false;
                 }
             }
+            //新增按钮发送请求
+
     }])
     .controller('ElectronicFilePushController',['$scope','$state','$stateParams','ElectronicFileService',
         function ($scope, $state, $stateParams, ElectronicFileService) {
@@ -147,7 +149,6 @@ angular.module('FWPT')
                         selected.push($scope.listData[i]);
                     }
                 }
-                ElectronicFileService.push($scope.selected);
                 ElectronicFileService.getList($stateParams.category).then(
                         function(data){
                             $scope.listData = data;
@@ -194,5 +195,13 @@ angular.module('FWPT')
             );
         }
     ])
+    .controller('addFileController',['$scope','$state','$stateParams','ElectronicFileService',
+        function($scope, $state, $stateParams, ElectronicFileService){
+            ElectronicFileService.getList($stateParams.category).then(
+                function(data){
+                    console.log(data);
+                }
+            );
+        }])
 
 

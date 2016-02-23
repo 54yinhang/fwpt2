@@ -10,6 +10,7 @@ angular.module('FWPT')
     }])
     .controller('TodoTaskController',['$scope','$state','$stateParams','TodoTaskService', 'AccountService',function($scope,$state,$stateParams,TodoTaskService,AccountService) {
         //$scope.displayName=AccountService.getCurrentUser().displayName;
+        console.log($stateParams.category);
         if($state.includes('account.todoTask')) {
             $scope.taskInfos = TodoTaskService.getTodoTask($stateParams.category);
         }
