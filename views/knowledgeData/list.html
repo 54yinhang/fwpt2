@@ -37,7 +37,7 @@
             <div class="notice" ng-show="state=='knowledge'">
                 <div class="content">
                     <ul>
-                        <li ng-repeat="k in knowLists">
+                        <li ng-repeat="k in knowledgeDatas">
                             <a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}">
                                 <!--<img ng-src="../images/{{k.type}}.png" />-->
                                 <span class="program" ng-bind="k.bt"></span>
