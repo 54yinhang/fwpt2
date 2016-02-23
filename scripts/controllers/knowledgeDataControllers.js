@@ -11,15 +11,17 @@ angular.module('FWPT')
 		});
 	}])
 
-	.controller('ListCtrl',['$scope','$http','ListService',function($scope,$http,ListService){
+	.controller('ListCtrl',['$scope','$http','$stateParams','ListService',function($scope,$http,$stateParams,ListService){
 		/*通知公告、知识库list页面设置默认值，暂设为通知公告*/
-		$scope.state = 'notice';
-		if($scope.state == 'knowledge'){
+		//$scope.state = 'notice';
+		if($stateParams.state == 'knowledge'){
 			$scope.knowledgeClass = true;
 			$scope.noticeClass = false;
-		}else if($scope.state == 'notice'){
+			$scope.state = $stateParams.state;
+		}else if($stateParams.state == 'notice'){
 			$scope.knowledgeClass = false;
 			$scope.noticeClass = true;
+			$scope.state = $stateParams.state;
 		}
 
 		$scope.showNotice = function(){
@@ -71,8 +73,8 @@ angular.module('FWPT')
 	}])
 	
 	.controller('KnowDetailCtrl',['$scope','ListService',function($scope,ListService){
-		ListService.getKnowledges().then(function(data){
-			$scope.knowLists = data
+		ListService.getKnowledgeDatas().then(function(data){
+			$scope.knowledgeDatas = data
 		});
 	}])
 

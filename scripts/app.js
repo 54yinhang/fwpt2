@@ -164,7 +164,7 @@ angular.module('FWPT', [
 
         /*knowledgeData*/
         .state('list',{
-            url:'/list',
+            url:'/list/:state',
             templateUrl:'knowledgeData/list.html'
         })
         .state('knowledgeDetail',{
