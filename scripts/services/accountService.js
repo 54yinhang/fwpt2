@@ -95,39 +95,30 @@ angular.module('FWPT')
                 }).success(function(data){
                     TodoTaskSumjson=data ;
                     for(i=0;i<TodoTaskSumjson.result.length;i++){
-                        switch (TodoTaskSumjson.result[i].FL){
-                            case 1:
-                                TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
-                                //我的未读消息
-                            break;
-                            case 5 :
-                                TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
-                                //我的电子凭证（财政未核对）
-                                 break;
-                            case 6 :
-                                TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
-                                // 我的电子凭证（被退回）
-                                break;
-                            case 7 :
-                                TodoTaskSumarray.push("{FL:'hdwcdp',"+"COUNT:'"+TodoTaskSumjson.result[i].COUNT+"'}");
-                                //我的电子凭证（已核对未查看）
-                                break;
-
-                        }
+                            switch (TodoTaskSumjson.result[i].FL){
+                                case 1:
+                                    TodoTaskSumrjson.wdxx=TodoTaskSumjson.result[i].COUNT;
+                                    //我的未读消息
+                                    break;
+                                case 5 :
+                                    TodoTaskSumrjson.whddp=TodoTaskSumjson.result[i].COUNT;
+                                    //我的电子凭证（财政未核对）
+                                    break;
+                                case 6 :
+                                    TodoTaskSumrjson.thddp=TodoTaskSumjson.result[i].COUNT;
+                                    // 我的电子凭证（被退回）
+                                    break;
+                                case 7 :
+                                    TodoTaskSumrjson.hdwcdp=TodoTaskSumjson.result[i].COUNT;
+                                    //我的电子凭证（已核对未查看）
+                                    break;
+                            }
                     }
                 }).error(function(data,status,headers,config) {
                     // 当响应以错误状态返回时调用
                     console.log("获取用户数据失败！");
                 });
-                return {
-                    //wdxx: TodoTaskSumjson,
-                    //wtbb: 11,
-                    //wqq: 13,
-                    //ckqq: 32,
-                    //whddp: 12,
-                    //thddp: 33,
-                    //hdwcdp: 0
-                }
+                return TodoTaskSumrjson;
             },
             getTodoTask: function(category) {
                 switch(category){
