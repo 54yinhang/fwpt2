@@ -12,7 +12,7 @@ angular.module('FWPT')
                 if(category=='allList' || !category){
                     $http({
                         method:'GET',
-                        url:'../assets/electronicFile.json'
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -25,7 +25,7 @@ angular.module('FWPT')
                 if(category=='modifyList'){
                     $http({
                         method:'GET',
-                        url:'../assets/electronicFile.json'
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -51,7 +51,7 @@ angular.module('FWPT')
                 if(category=='addRequest'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/fwpt/msgService/getPK.do'
+                        url:'http://localhost:8080/rap/szcz/dagl/getPK.do'
                     })
                         .success(function(data){
                             deferred.resolve(data);
@@ -103,16 +103,16 @@ angular.module('FWPT')
                     })
                 return deferred.promise;
             },
-            sendAddFile:function(fileData){
+            sendAddFile:function(ysdwmc,ssny,zflh,ms,result){
                 $http({
-                    method:'Post',
-                    url:'http://localhost:8080/rap/fwpt/msgService/daAdd.do',
-                    data:fileData
+                    method:'POST',
+                    url:'http://localhost:8080/rap/szcz/dagl/daAdd.do',
+                    data:{ysdwmc:ysdwmc,ssny:ssny,zflh:zflh,ms:ms,id:result}
                 })
-                    .success(function(){
+                    .success(function(data){
                         alert("保存成功");
                     })
-                    .error(function(){
+                    .error(function(data){
                         alert("连接服务器失败");
                     })
 

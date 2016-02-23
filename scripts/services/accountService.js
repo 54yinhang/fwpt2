@@ -28,7 +28,6 @@ angular.module('FWPT')
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
                     }});
-                $state.go('account',$stateParams);
             //}).success(function(data,status,headers,config) {
             //        // 当相应准备就绪时调用
             //        current_user = data;

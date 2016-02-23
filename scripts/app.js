@@ -98,7 +98,6 @@ angular.module('FWPT', [
             views: {
                 '': {
                     templateUrl:'electronicFile/menu.html',
-                    controller:'ElectronicFileController'
                 },
                 'list@electronic':{
                     templateUrl:'electronicFile/list.html',
@@ -164,7 +163,7 @@ angular.module('FWPT', [
 
         /*knowledgeData*/
         .state('list',{
-            url:'/list',
+            url:'/list/:state',
             templateUrl:'knowledgeData/list.html'
         })
         .state('knowledgeDetail',{
