@@ -590,6 +590,9 @@ li {
   padding: 0;
   background-color: #f5f4f9;
 }
+.manageon {
+  display:none;
+}
 .manage > li {
   line-height: 50px;
 }

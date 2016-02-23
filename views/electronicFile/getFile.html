@@ -6,7 +6,13 @@
             </a>
             <i></i>
         </li>
-        <li>新增档案</li>
+        <li>
+            <a ui-sref="electronic.modifyList({category:modifyList})">修改档案</a>
+            <i></i>
+        </li>
+        <li>
+            修改详情
+        </li>
     </ul>
     <form action="" class="add-form">
         <div class="setting">
@@ -16,15 +22,7 @@
                 <div class="dropdown select">
                     <input type="text" class="form-control companyName" data-toggle="dropdown"/>
                     <ul class="dropdown-menu companyLists">
-                        <li><a href="#">温州企业1</a></li>
-                        <li><a href="#">温州企业2</a></li>
-                        <li><a href="#">温州企业3</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
-                        <li><a href="#">温州企业4</a></li>
-                        <li><a href="#">温州企业5</a></li>
+                        <li ><a href="#"></a></li>
                     </ul>
                 </div>
             </div>
@@ -45,7 +43,6 @@
                 <label>上传附件：</label>
                 <button type="button" class="btn choseFile">选择附件</button>
                 <button type="button" class="btn reportFile">上传附件</button>
-                <button type="button" class="btn btn-danger fail">重新上传失败附件</button>
             </div>
         </div>
         <table class="table">
@@ -81,10 +78,7 @@
             <p></p>
         </div>
         <div class="state">
-            <button type="button" class="btn save">保存</button>
-            <button type="button" class="btn sar">保存并上报</button>
             <button type="button" class="btn back">返回</button>
-
         </div>
 
     </form>

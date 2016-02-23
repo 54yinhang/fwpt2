@@ -6,7 +6,6 @@ angular.module('FWPT', [
     /* Add New States Above */
     //$urlRouterProvider.when('/:category', '/todoTask/:category')
     $urlRouterProvider.otherwise('/home');
-
     $stateProvider
         .state('home',{
             url: '/home',
@@ -51,6 +50,24 @@ angular.module('FWPT', [
                 }
             }
         })
+        .state('account.todoTask.list.detail',
+        {
+            url:'/:id',
+            views:{
+                '@account.todoTask':{
+                    //templateUrl: 'account/record-check-detail.html',
+                    templateUrl:function($routeParams){
+                        if($routeParams.id<20){
+                            return  'account/messageForm.html';
+
+                        }else{
+                            return 'account/record-check-detail.html';
+                        }
+                    },
+                    controller: 'TodoTaskController'
+                }
+            }
+        })
         //.state('todoTask.detail')
         /* account */
 
@@ -79,8 +96,12 @@ angular.module('FWPT', [
         .state('electronic',{
             url:'/electronic',
             views: {
-                '@': {
+                '': {
                     templateUrl:'electronicFile/menu.html',
+                    controller:'ElectronicFileController'
+                },
+                'list@electronic':{
+                    templateUrl:'electronicFile/list.html',
                     controller:'ElectronicFileController'
                 }
             }
@@ -90,7 +111,7 @@ angular.module('FWPT', [
             views:{
                 'list':{
                     templateUrl:'electronicFile/modifyList.html',
-                    controller:'ElectronicFileController'
+                    controller:'ElectronicFileModifyController'
                 }
             }
         })
@@ -112,12 +133,30 @@ angular.module('FWPT', [
                 }
             }
         })
+        .state('electronic.getFile',{
+            url:'/getFile',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/getFile.html',
+                    controller:'ElectronicFileModifyController'
+                }
+            }
+        })
         .state('electronic.addFile',{
             url:'/addFile',
             views:{
                 'list':{
                     templateUrl:'electronicFile/addFile.html',
                     controller:'ElectronicFileController'
+                }
+            }
+        })
+        .state('electronic.modifyFile',{
+            url:'/modifyFile',
+            views:{
+                'list':{
+                    templateUrl:'electronicFile/modifyFile.html',
+                    controller:'ElectronicFileModifyController'
                 }
             }
         })
