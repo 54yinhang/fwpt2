@@ -161,6 +161,31 @@ angular.module('FWPT', [
             }
         })
         /* electronicFile*/
+
+        /*knowledgeData*/
+        .state('list',{
+            url:'/list',
+            templateUrl:'knowledgeData/list.html'
+        })
+        .state('knowledgeDetail',{
+            url:'/knowledgeDetail',
+            views:{
+                '@':{
+                    templateUrl: 'knowledgeData/knowledgeDetail.html',
+                    controller:'KnowDetailCtrl'
+                }
+            }
+        })
+        .state('knowledgeDetail.detail',{
+            url:'/detail:xxid',
+            views:{
+                'detail':{
+                    templateUrl:'knowledgeData/knowledgeContent.html',
+                    controller:'ContentCtrl'
+                }
+            }
+        })
+        /*knowledgeData*/
 }])
 
 
