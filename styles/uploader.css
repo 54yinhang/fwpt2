@@ -11,11 +11,12 @@
     display: inline-block;
     cursor: pointer;
     background: #00b7ee;
-    padding: 7px 15px;
+    padding: 0px 15px;
     color: #fff;
     text-align: center;
     border-radius: 3px;
     overflow: hidden;
+    line-height: 34px;
 }
 .webuploader-pick-hover {
     background: #00a2d4;
@@ -28,6 +29,10 @@
 /***********************************/
 #picker{
     display: inline-block;
+}
+div.btns {
+    width: 636px;
+    margin-top: 5px;
 }
 .btns .btn{
     vertical-align: top;
