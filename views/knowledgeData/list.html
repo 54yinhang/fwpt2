@@ -1,51 +1,52 @@
-<div class="container" ng-controller="ListCtrl">
-<div class="row"> 
-    <div class="col-md-12">
-        <div class="page_right_nav">
-        	<div class="pos fr">
-        		<a ui-sref="home">首页</a>
-        		 > 
-        		<a ui-sref="list">通知公告(知识库&资料下载)</a>
-        	</div>
-        </div>
-        
-        <div class="index-bgcolor">
-            <ul class="row nav nav-tabs index-ul">
-                <li class="active col-xs-6 text-center"><a class="bg-info" data-toggle="tab" ng-click="showNotice()">通知公告</a></li>
-                <li class="col-xs-6 text-center"><a class="bg-info" data-toggle="tab" ng-click="showKnowledge()">知识库&资料下载</a></li>
-            </ul>
-        </div>
-        
-        <div class="tab-content" ng-show="state=='notice'">
-                <ul class="index-ul">
-                    <li ng-repeat="times in listDetail">
-                        <a ui-sref="noticeDetail({did:times.did})">
-                            <img src="../images/hot.png">
-                            {{times.title}}
-                                    <span ng-bind="times.dataTime">
-                                    </span>
-                        </a>
-                    </li>
+<div class="section" ng-controller="ListCtrl">
+    <!--middle-->
+    <div class="index-middle">
+        <div class="container notices">
+            <div class="guide">
+                <!--<div class="pos fr">-->
+                    <a ui-sref="home">首页</a>
+                     >
+                    <a ui-sref="list">通知公告(知识库&资料下载)</a>
+                <!--</div>-->
+            </div>
+
+            <div class="mainSection">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation" ng-class="{true:'active'}[noticeClass]"><a ng-click="showNotice()">通知公告</a></li>
+                    <li role="presentation" ng-class="{true:'active'}[knowledgeClass]"><a ng-click="showKnowledge()">知识库&资料下载</a></li>
                 </ul>
+            </div>
+
+            <div class="tab-content" ng-show="state=='notice'">
+                    <ul class="index-ul">
+                        <li ng-repeat="times in listDetail">
+                            <a ui-sref="noticeDetail({did:times.did})">
+                                <img src="../images/hot.png">
+                                {{times.title}}
+                                        <span ng-bind="times.dataTime">
+                                        </span>
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+
+            <div class="tab-content" ng-show="state=='knowledge'">
+                    <ul class="index-ul">
+                        <li ng-repeat="k in knowLists">
+                            <a ui-sref="knowledgeDetail.detail({xxid:k.xxid})" title="{{k.bt}}">
+                                <!--<img ng-src="../images/{{k.type}}.png" />-->
+                                        {{k.bt}}
+                                <span ng-bind="k.fbrq.substring(0,10)">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <nav class="navbar-right">
+                        <div conf="paginationConf"></div>
+                    </nav>
+            </div>
         </div>
-        
-        <div class="tab-content" ng-show="state=='knowledge'">
-                <ul class="index-ul">
-                	<li ng-repeat="k in knowLists | orderBy:'djl':true">
-                		<a ui-sref="knowledgeDetail({knowId:k.knowId})" title="{{k.title}}">
-                			<img ng-src="../images/{{k.type}}.png" />
-                					{{k.title}}
-                    		<span class="index-time" ng-bind="k.date">
-                            </span>
-                        </a>
-                	</li>
-                </ul>
-                <nav class="navbar-right">
-                    <div conf="paginationConf"></div>
-                </nav>
-        </div>
+
     </div>
-                           
-</div>
 </div>
 
