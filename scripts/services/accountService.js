@@ -4,7 +4,7 @@
 
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams,$location) {
-        $http.get('http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/code.do' ).success(function(data){
+        $http.get('http://192.168.0.111:8080/ifugle-rap/fwpt/msgService/code.do' ).success(function(data){
             //console.log(data);
             window.sessionStorage.setItem("key", "value");
 
@@ -18,7 +18,7 @@ angular.module('FWPT')
 
             sendLogin: function(user) {
                 $.ajax({
-                    url: 'http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/fwptLogin.do',
+                    url: 'http://192.168.0.111:8080/ifugle-rap/fwpt/msgService/fwptLogin.do',
                     type: 'GET',
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
@@ -87,7 +87,7 @@ angular.module('FWPT')
             getTodoTaskSum: function () {
                 $http({
                     method:'GET',
-                    url:'http://http://192.168.1.88:8082/ifugle-rap/szcz/dagl/daCount.do'
+                    url:'http://192.168.0.111:8080/rap/szcz/dagl/daCount.do'
 
                 }).success(function(data){
                     console.log(data);
