@@ -12,7 +12,7 @@ angular.module('FWPT')
                 if(category=='allList' || !category){
                     $http({
                         method:'GET',
-                        url:'../assets/electronicFile.json'
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=100'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -25,7 +25,7 @@ angular.module('FWPT')
                 if(category=='modifyList'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do'
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101',
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -38,7 +38,7 @@ angular.module('FWPT')
                 if(category=='unpushList'){
                     $http({
                         method:'GET',
-                        url:'../assets/electronicFile.json'
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101',
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -49,44 +49,45 @@ angular.module('FWPT')
                     return deferred.promise;
                 }
             },
-            delete:function(deleteData){
+            deleteFile:function(id,spzt){
                 $http({
                     method:'POST',
-                    url:'',
-                    data:deleteData
+                    url:'http://localhost:8080/rap/szcz/dagl/deleteDa.do',
+                    data:{id:id,spzt:spzt}
                 })
                     .success(function(data){
-                        console.log("删除成功");
+                        console.log(data.successMsg);
                     })
                     .error(function(){
-                        alert("删除失败");
+                        console.log("删除失败");
                     })
             },
-            push:function(pushData){
+            pushFile:function(id){
                 $http({
                     method:'POST',
-                    url:'',
-                    data:pushData
+                    url:'http://localhost:8080/rap/szcz/dagl/fqsp.do',
+                    data:{id:id}
                 })
                     .success(function(data){
-                        console.log("上报成功");
+                        console.log(data.successMsg);
                     })
                     .error(function(){
-                        alert("上报失败");
+                        console.log("上报失败");
                     })
             },
-            getOne:function(id){
+            getOne:function(){
+                //console.log($stateParams.id);
                 var deferred = $q.defer();
                 $http({
                     method:'POST',
-                    url:'',
-                    data:id
+                    url:'http://localhost:8080/rap/szcz/dagl/daDetail.do',
+                    data:{id:$stateParams.id}
                 })
                     .success(function(data){
                         deferred.resolve(data);
                     })
                     .error(function(){
-                        alert("获取数据失败");
+                        console.log("连接服务器失败")
                     })
                 return deferred.promise;
             },
@@ -103,6 +104,21 @@ angular.module('FWPT')
                         alert("连接服务器失败");
                     })
 
+            },
+            queryFiles: function (condition) {
+                var deferred = $q.defer();
+                console.log(condition);
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=100'
+                })
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function () {
+                        console.log("连接服务器失败");
+                    })
+                return deferred.promise;
             }
         };
     });
