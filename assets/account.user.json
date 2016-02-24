@@ -1,1 +1,15 @@
-{"id":"1","userName":"testUser","displayName":"测试用户"}
+{"result":[{"id":118,"creatorId":1990200033,"creator":"开发_陈海浪",
+  "creationDate":"2016-02-22 16:01:40","modifierId":1990200033,
+  "modifier":"开发_陈海浪","modificationDate":"2016-02-22 16:01:40",
+  "revision":null,"syncFlag":null,"nodeId":330100,"code":"118",
+  "mc":"118其他档案","flId":1000300002,"ms":null,"approvalId":null,
+  "appTodoId":null,"approvalHistoryId":null,"ssny":20160222,"ysdwbm":null,
+  "ysdwmc":"spring_16_01","zflh":"20160222","zt":1,"hbbm":null,"spr":null,
+  "spzt":0,"spps":null,"spsj":null,"deptId":33010100,"userName":"开发_陈海浪"
+,"userPrefixId":102,"userPrefixIdWithDate":102160223,"userDeptId":33010100,
+  "appUserId":1990200033,"nowDate":"2016-02-23","nowTime":"14:43:25","userNodeId":330100,
+  "userFullName":"开发_陈海浪","userDeptName":"杭州市地方税务局","userParentDeptId":33010000,
+  "userRootDeptId":33010000,"userBranchDeptId":33010100,"userTrunkDeptId":33010100,
+  "userQueryDeptId":33010000,"userPublicDeptId":33990200,"userQueryDeptIdFrom":33010000,
+  "userQueryDeptIdTo":33019999,"nowTimestamp":"2016-02-23 14:43:25"}
+,{"id":119,"creatorId":1990200033,"creator":"开发_陈海浪","creationDate":"2016-02-22 16:17:31","modifierId":1990200033,"modifier":"开发_陈海浪","modificationDate":"2016-02-22 16:17:31","revision":null,"syncFlag":null,"nodeId":330100,"code":"119","mc":"119其他档案","flId":1000300002,"ms":null,"approvalId":null,"appTodoId":null,"approvalHistoryId":null,"ssny":20160222,"ysdwbm":null,"ysdwmc":"spring_16_17","zflh":"20160222","zt":1,"hbbm":null,"spr":null,"spzt":0,"spps":null,"spsj":null,"deptId":33010100,"userName":"开发_陈海浪","userPrefixId":102,"userPrefixIdWithDate":102160223,"userDeptId":33010100,"appUserId":1990200033,"nowDate":"2016-02-23","nowTime":"14:43:25","userNodeId":330100,"userFullName":"开发_陈海浪","userDeptName":"杭州市地方税务局","userParentDeptId":33010000,"userRootDeptId":33010000,"userBranchDeptId":33010100,"userTrunkDeptId":33010100,"userQueryDeptId":33010000,"userPublicDeptId":33990200,"userQueryDeptIdFrom":33010000,"userQueryDeptIdTo":33019999,"nowTimestamp":"2016-02-23 14:43:25"},{"id":122,"creatorId":1990200033,"creator":"开发_陈海浪","creationDate":"2016-02-22 18:07:16","modifierId":1990200033,"modifier":"开发_陈海浪","modificationDate":"2016-02-22 18:43:18","revision":null,"syncFlag":null,"nodeId":330100,"code":"122","mc":"122其他档案","flId":1000300002,"ms":null,"approvalId":null,"appTodoId":null,"approvalHistoryId":null,"ssny":2016,"ysdwbm":null,"ysdwmc":"spring_18_01","zflh":"20160222","zt":1,"hbbm":null,"spr":null,"spzt":0,"spps":null,"spsj":null,"deptId":33010100,"userName":"开发_陈海浪","userPrefixId":102,"userPrefixIdWithDate":102160223,"userDeptId":33010100,"appUserId":1990200033,"nowDate":"2016-02-23","nowTime":"14:43:25","userNodeId":330100,"userFullName":"开发_陈海浪","userDeptName":"杭州市地方税务局","userParentDeptId":33010000,"userRootDeptId":33010000,"userBranchDeptId":33010100,"userTrunkDeptId":33010100,"userQueryDeptId":33010000,"userPublicDeptId":33990200,"userQueryDeptIdFrom":33010000,"userQueryDeptIdTo":33019999,"nowTimestamp":"2016-02-23 14:43:25"}],"success":true}
