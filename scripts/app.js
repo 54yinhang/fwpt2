@@ -143,7 +143,7 @@ angular.module('FWPT', [
             }
         })
         .state('electronic.addFile',{
-            url:'/addFile:category',
+            url:'/addFile',
             views:{
                 'list':{
                     templateUrl:'electronicFile/addFile.html',

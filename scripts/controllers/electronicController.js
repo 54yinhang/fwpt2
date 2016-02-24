@@ -331,9 +331,7 @@ angular.module('FWPT')
                     zflh:$scope.addFile.zflh,
                     ms:$scope.addFile.ms
                 };
-//                console.log(JSON.stringify($scope.fileData));
-//                ElectronicFileService.sendAddFile($scope.fileData);
-                ElectronicFileService.sendAddFile($scope.addFile.ysdwmc,$scope.addFile.ssny,$scope.addFile.zflh,$scope.addFile.ms,$scope.addFile.result);
+                ElectronicFileService.sendAddFile($scope.addFile.ysdwmc,$scope.addFile.ssny,$scope.addFile.zflh,$scope.addFile.ms);
             }
             /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({

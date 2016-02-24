@@ -48,19 +48,6 @@ angular.module('FWPT')
                         });
                     return deferred.promise;
                 }
-                if(category=='addRequest'){
-                    $http({
-                        method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/getPK.do'
-                    })
-                        .success(function(data){
-                            deferred.resolve(data);
-                        })
-                        .error(function(){
-                            console.log("连接服务器失败")
-                        })
-                    return deferred.promise;
-                }
             },
             delete:function(deleteData){
                 $http({
@@ -103,11 +90,11 @@ angular.module('FWPT')
                     })
                 return deferred.promise;
             },
-            sendAddFile:function(ysdwmc,ssny,zflh,ms,result){
+            sendAddFile:function(ysdwmc,ssny,zflh,ms){
                 $http({
                     method:'POST',
                     url:'http://localhost:8080/rap/szcz/dagl/daAdd.do',
-                    data:{ysdwmc:ysdwmc,ssny:ssny,zflh:zflh,ms:ms,id:result}
+                    data:{ysdwmc:ysdwmc,ssny:ssny,zflh:zflh,ms:ms}
                 })
                     .success(function(data){
                         alert("保存成功");
