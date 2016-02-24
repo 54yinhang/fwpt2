@@ -355,6 +355,7 @@ angular.module('FWPT')
                     $scope.addFile.result = data.result;
                 }
             );
+            $scope.btn={};
             $scope.saveAddFile = function(){
                 $scope.fileData = {
                     ysdwmc:$scope.addFile.ysdwmc,
@@ -362,7 +363,20 @@ angular.module('FWPT')
                     zflh:$scope.addFile.zflh,
                     ms:$scope.addFile.ms
                 };
-                ElectronicFileService.sendAddFile($scope.addFile.ysdwmc,$scope.addFile.ssny,$scope.addFile.zflh,$scope.addFile.ms);
+                ElectronicFileService.sendAddFile($scope.addFile.ysdwmc,$scope.addFile.ssny,$scope.addFile.zflh,$scope.addFile.ms).then(
+                    function(data){
+                        if(data.success){
+                            $scope.btn.switch = false;
+                            //$scope.btn.id = data.successMsg;
+                            console.log(data.successMsg);
+                            console.log($scope.btn.switch);
+                        }else{
+                            $scope.btn.switch = true;
+                            console.log($scope.btn.switch);
+                        }
+                    }
+                );
+
             }
             /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({
