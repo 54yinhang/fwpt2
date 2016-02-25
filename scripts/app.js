@@ -11,10 +11,8 @@ angular.module('FWPT', [
             url: '/home',
             //templateUrl: 'portal/anonymous.html'
             templateUrl:function($rootScope){
-
                 if(window.sessionStorage.getItem("islogin")=="true"){//根据不同的参数跳转不同的界面
                     return   'portal/account.html';
-
                 }else{
                     return 'portal/anonymous.html';
                 }}

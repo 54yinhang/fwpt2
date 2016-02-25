@@ -3,7 +3,6 @@
  */
 angular.module('FWPT')
     .factory('ElectronicFileService', function ($http, $state, $stateParams,$q) {
-
         return {
             getList: function (category) {
                 var deferred = $q.defer();
@@ -65,11 +64,10 @@ angular.module('FWPT')
             pushFile:function(id){
                 console.log(id);
                 $http({
-                    method:'POST',
+                    method:'post',
                     url:'http://localhost:8080/rap/szcz/dagl/fqsp.do',
                     data:{id:id}
-                })
-                    .success(function(data){
+                }) .success(function(data){
                         console.log(data.successMsg);
                     })
                     .error(function(){

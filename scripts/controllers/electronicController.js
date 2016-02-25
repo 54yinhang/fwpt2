@@ -153,14 +153,15 @@ angular.module('FWPT')
           templateUrl:'electronicFile/confirm.html',
           controller:'PushConfirmController',
           resolve:{
-            id:id
+            id:function(){
+              return id;
+            }
           }
         });
         modalInstance.result.then(function(text){
           console.log(text);
         })
       }
-
       //$scope.pushFile = function (id) {
       //    ElectronicFileService.pushFile(id);
       //
@@ -399,12 +400,9 @@ angular.module('FWPT')
           function (data) {
             if (data.success) {
               $scope.btn.switch = false;
-              //$scope.btn.id = data.successMsg;
-              console.log(data.successMsg);
-              console.log($scope.btn.switch);
+              $scope.btn.id = data.successMsg;
             } else {
               $scope.btn.switch = true;
-              console.log($scope.btn.switch);
             }
           }
         );
