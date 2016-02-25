@@ -145,8 +145,11 @@ angular.module('FWPT')
           }
         );
       }
-      $scope.pushFile = function (id) {
-        ElectronicFileService.pushFile(id);
+      $scope.pushFile = function (pushFlag,id) {
+        if(pushFlag){
+          ElectronicFileService.pushFile(id);
+        }
+
       }
       ////全选
       //$scope.selectAll = function($event){

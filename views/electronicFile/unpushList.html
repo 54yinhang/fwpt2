@@ -41,7 +41,7 @@
             <td><span ng-bind="data.spsj"></span></td>
             <td>
                 <a ng-click="pushFile(data.id)">上报</a>
-                <div confirm-push></div>
+                <div confirm-push confirm="pushFile(pushFlag,data.id)"></div>
             </td>
         </tr>
         </tbody>
