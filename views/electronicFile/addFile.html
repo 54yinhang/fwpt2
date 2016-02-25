@@ -30,8 +30,8 @@
                 <input type="text" class="form-control paynum" id="num" ng-model="addFile.zflh"/>
             </div>
             <div class="intro">
-                <span>档案说明：</span>
-                <p><input type="text" ng-model="addFile.ms"></p>
+                <lable>档案说明：</lable>
+                <textarea class="detail" ng-model="addFile.ms"></textarea>
             </div>
             <div class="form-group">
                 <div id="uploader">
@@ -42,7 +42,6 @@
                         <button id="reupload" class="btn btn-danger">重新上传出错附件</button>
                     </div>
                     <div id="list" class="uploader-list">
-                        <button id="cBtn" class="btn btn-default">查看</button>
                         <table class="table">
                             <thead>
                             <tr>
@@ -67,10 +66,10 @@
                 </div>
             </div>
         </div>
-
-        <div class="state">
-            <button type="button" class="btn save" ng-click="saveAddFile()" model="btn">保存</button>
-            <button type="button" class="btn sar" ng-click="pushFile()" disabled="btn.switch">上报</button>
+            <div class="state">
+            <button id="cBtn" class="btn btn-default">查看</button>
+            <button type="button" class="btn save" ng-click="saveAddFile()">保存</button>
+            <button type="button" class="btn sar">上报</button>
             <button type="button" class="btn back">返回</button>
         </div>
     </form>
