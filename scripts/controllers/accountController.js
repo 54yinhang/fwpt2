@@ -16,11 +16,11 @@ angular.module('FWPT')
         else {
             $scope.taskSum = TodoTaskService.getTodoTaskSum();
         }
-        $scope.safeout=function(){
+        $scope.safeout=function(){//安全退出
             window.sessionStorage.setItem("islogin", "false");
             $state.go('home',$stateParams);
         };
-        $scope.reLogin=function(){
+        $scope.reLogin=function(){ //重新登录
             $scope.sendLogin = function(user) {
                 AccountService.sendLogin(user);
             };
@@ -31,5 +31,6 @@ angular.module('FWPT')
                 $(".reloginClose").css("display","none");
             })
         }
-        $scope.tasklist=TodoTaskService.getTodoList();
+        $scope.tasklist=TodoTaskService.getTodoList();//我的未读消息详情
+        $scope.todotaskdd=TodoTaskService.getTodoListdd();//电子凭证详情
     }]);

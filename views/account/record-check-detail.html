@@ -1,7 +1,7 @@
 <form action="" class="detail">
                     <div class="setting">
                         <div class="form-group has-feedback">
-                            <label>单位名称：</label>
+                            <label>单位名称：{{todotaskdd.ysdwmc}}</label>
 
                             <div class="dropdown select">
                                 <input type="text" class="form-control companyName" data-toggle="dropdown"/>
@@ -24,16 +24,16 @@
                         </div>
 
                         <div class="form-group  has-feedback">
-                            <label>年度：</label>
-                            <input type="text" class="form-control year" value="2016"/>
+                            <label>年度：{{todotaskdd.ssny}}</label>
+                            <input type="text" class="form-control year"/>
                             <span class="form-control-feedback tip">
                                 <i class="top"></i>
                                 <i class="down"></i>
                             </span>
                         </div>
                         <div class="form-group">
-                            <label for="num">支付令号：</label>
-                            <input type="text" class="form-control paynum" id="num" value="请输入支付令号"/>
+                            <label for="num">支付令号：{{todotaskdd.zflh}}</label>
+                            <input type="text" class="form-control paynum" id="num"/>
                         </div>
                     </div>
                     <table class="table">
@@ -64,7 +64,7 @@
                         </tbody>
                     </table>
                     <div class="intro">
-                        <span>档案说明：</span>
+                        <span>档案说明：this is a test</span>
 
                         <p></p>
                     </div>
