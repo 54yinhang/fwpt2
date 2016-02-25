@@ -29,16 +29,7 @@ angular.module('FWPT', [
             url:'/:category',
             views: {
                 '': {
-                    //templateUrl: 'account/todoTaskList.html',
-                    templateUrl:function($routeParams){
-                        console.log($routeParams.category);
-                        if($routeParams.category="wdxx"){//根据不同的参数跳转不同的界面
-                            return  'account/todoTaskList.html';
-
-                        }else{
-                            return 'account/todoTaskList1.html';
-                        }
-                    },
+                    templateUrl: 'account/todoTaskList.html',
                     controller: 'TodoTaskController'
                 }
             }
