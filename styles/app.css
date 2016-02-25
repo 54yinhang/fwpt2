@@ -869,16 +869,17 @@ hr{
     float: right;
 }
 .alertWindow{
-    width: 300px;
     height: 168px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
 }
-.alertWindow .header{
-    margin:0 auto;
+.alertWindow>.alertHeader{
+    margin-top:30px;
+    margin-left: 235px;
 }
-.alertWindow .btn{
-    margin:0 auto;
+.alertWindow>.alertConfirm{
+    margin-left: 400px;
+    margin-top:50px;
 }
 
 /*知识库样式*/

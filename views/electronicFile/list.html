@@ -38,7 +38,10 @@
             </td>
             <td><span ng-bind="data.spr"></span></td>
             <td><span ng-bind="data.spsj"></span></td>
-            <td><a ng-click="deleteFile(data.id,data.spzt)">删除</a></td>
+            <td>
+                <!--<a ng-click="deleteFile(data.id,data.spzt)">删除</a>-->
+                <input type="button" class="btn btn-default" ng-click="deleteFile(data.id,data.spzt)" value="删除">
+            </td>
         </tr>
 
         </tbody>

@@ -48,11 +48,11 @@ angular.module('FWPT')
                     return deferred.promise;
                 }
             },
-            deleteFile:function(id,spzt){
+            deleteFile:function(id){
                 $http({
                     method:'POST',
                     url:'http://localhost:8080/rap/szcz/dagl/deleteDa.do',
-                    data:{id:id,spzt:spzt}
+                    data:{id:id}
                 })
                     .success(function(data){
                         console.log(data.successMsg);
