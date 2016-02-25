@@ -868,6 +868,12 @@ hr{
     padding-top: 10px;
     float: right;
 }
+.alertWindow{
+    width: 800px;
+    height: 450px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
 
 /*知识库样式*/
 .knowledge-list{
