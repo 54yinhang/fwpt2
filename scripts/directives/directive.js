@@ -23,6 +23,7 @@ angular.module("FWPT")
   .directive('confirmPush',function(){
       return {
           scope:{
+              confirm:'&'
           },
           templateUrl:'electronicFile/confirm.html',
           link:function(scope){
