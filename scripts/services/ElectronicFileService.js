@@ -92,6 +92,7 @@ angular.module('FWPT')
                 return deferred.promise;
             },
             sendAddFile:function(ysdwmc,ssny,zflh,ms){
+                var deferred = $q.defer();
                 $http({
                     method:'POST',
                     url:'http://localhost:8080/rap/szcz/dagl/daAdd.do',
@@ -99,11 +100,12 @@ angular.module('FWPT')
                 })
                     .success(function(data){
                         alert("保存成功");
+                        deferred.resolve(data);
                     })
                     .error(function(data){
                         alert("连接服务器失败");
                     })
-
+                return deferred.promise;
             },
             queryFiles: function (condition) {
                 var deferred = $q.defer();
