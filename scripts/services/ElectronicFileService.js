@@ -63,6 +63,7 @@ angular.module('FWPT')
                     })
             },
             pushFile:function(id){
+                console.log(id);
                 $http({
                     method:'POST',
                     url:'http://localhost:8080/rap/szcz/dagl/fqsp.do',

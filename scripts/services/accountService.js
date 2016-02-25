@@ -4,6 +4,7 @@
 
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams,$location,$rootScope) {
+        window.sessionStorage.setItem("islogin", "false");
         $http.get('http://localhost:8080/rap/fwpt/msgService/code.do' ).success(function(data){
             //请求验证码
             //可以删除
@@ -20,11 +21,12 @@ angular.module('FWPT')
             sendLogin: function(user) {
                 $.ajax({
                     url: 'http://localhost:8080/rap/fwpt/msgService/fwptLogin.do',
-                    type: 'GET',
+                    type: 'POST',
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
-                        $rootScope.user=1;
+                        window.sessionStorage.setItem("islogin", "true");
+                        console.log($rootScope.usernumber);
                         $state.go('account',$stateParams);
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
