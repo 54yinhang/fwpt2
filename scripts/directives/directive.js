@@ -19,6 +19,7 @@ angular.module("FWPT")
             }
         }
     })
+  //
   .directive('confirmPush',function(){
       return {
           scope:{
@@ -27,10 +28,9 @@ angular.module("FWPT")
           templateUrl:'electronicFile/confirm.html',
           link:function(scope){
               scope.confirmPush = function(){
-                  return scope.confirmResult = true;
+                  scope.confirm();
               }
               scope.cancle = function(){
-                  return scope.confirmResult = false;
               }
           }
       }
