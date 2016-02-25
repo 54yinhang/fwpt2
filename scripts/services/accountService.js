@@ -232,7 +232,20 @@ angular.module('FWPT')
                     //break;
                 }
             },
-            getTodoList:function(id){
+            getTodoList:function() {
+                var TodoTaskListjson={};
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do',
+                    data:{id:$stateParams.id}
+                }).success(function(data){
+                    TodoTaskListjson.caption=data.result.bt;
+                    TodoTaskListjson.text=data.result.nr;
+                }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("获取消息详情失败");
+                });
+                return TodoTaskListjson;
 
             }
         }

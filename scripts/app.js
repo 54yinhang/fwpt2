@@ -41,7 +41,6 @@ angular.module('FWPT', [
                 '@account.todoTask':{
                     //templateUrl: 'account/record-check-detail.html',
                     templateUrl:function($routeParams){
-                        console.log($routeParams.category);
                         if($routeParams.category="wdxx"){//根据不同的参数跳转不同的界面
                             return  'account/messageForm.html';
 
