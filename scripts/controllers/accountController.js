@@ -10,8 +10,6 @@ angular.module('FWPT')
         };
     }])
     .controller('TodoTaskController',['$scope','$state','$stateParams','TodoTaskService', 'AccountService',function($scope,$state,$stateParams,TodoTaskService,AccountService) {
-
-        console.log($stateParams.category);
         if($state.includes('account.todoTask')) {
             $scope.taskInfos = TodoTaskService.getTodoTask($stateParams.category);
         }
@@ -29,5 +27,5 @@ angular.module('FWPT')
                 $(".reloginClose").css("display","none");
             })
         }
-
+        $scope.tasklist=TodoTaskService.getTodoList();
     }]);
