@@ -791,6 +791,7 @@ hr{
     padding-left:12px;
     border: 1px solid #e1e1e1;
     float: right;
+    resize:none;
 }
 .add-form > .setting .choseFile {
     margin-left: 10px;

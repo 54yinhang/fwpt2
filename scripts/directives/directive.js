@@ -18,6 +18,22 @@ angular.module("FWPT")
             }
         }
     })
+  .directive('confirmPush',function(){
+      return {
+          scope:{
+              confirm:'&'
+          },
+          templateUrl:'electronicFile/confirm.html',
+          link:function(scope){
+              scope.confirmPush = function(){
+                  return scope.confirmResult = true;
+              }
+              scope.cancle = function(){
+                  return scope.confirmResult = false;
+              }
+          }
+      }
+  })
     //分页部分
     .directive('conf',[function(){
         return {

@@ -38,7 +38,7 @@ angular.module('FWPT')
                 if(category=='unpushList'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101',
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
