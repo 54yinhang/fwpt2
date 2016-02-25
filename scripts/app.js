@@ -22,14 +22,6 @@ angular.module('FWPT', [
                 '@': {
                     templateUrl: 'account/todoTask.html',
                     controller: 'TodoTaskController'
-                    /*controller: ['$scope', '$stateParams', '$state',
-                        function (  $scope,   $stateParams,   $state ) {
-                            if($stateParams.category == "wdxx" || !$stateParams.category) {
-                                $scope.taskInfos = [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'},{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}]
-                            } else {
-                                $scope.taskInfos = [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}]
-                            }
-                        }]*/
                 }
             }
         })
@@ -39,14 +31,6 @@ angular.module('FWPT', [
                 '': {
                     templateUrl: 'account/todoTaskList.html',
                     controller: 'TodoTaskController'
-                    /*controller: ['$scope', '$stateParams', '$state',
-                        function (  $scope,   $stateParams,   $state ) {
-                            if($stateParams.category == "wdxx" || !$stateParams.category) {
-                                $scope.taskInfos = [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'},{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}]
-                            } else {
-                                $scope.taskInfos = [{lx:1,fqr:2,mc:3,zt:4,fqsj:5,jssj:6,cz:7,id:'查看'}]
-                            }
-                        }]*/
                 }
             }
         })
@@ -57,7 +41,8 @@ angular.module('FWPT', [
                 '@account.todoTask':{
                     //templateUrl: 'account/record-check-detail.html',
                     templateUrl:function($routeParams){
-                        if($routeParams.id<20){
+                        console.log($routeParams.category);
+                        if($routeParams.category="wdxx"){//根据不同的参数跳转不同的界面
                             return  'account/messageForm.html';
 
                         }else{

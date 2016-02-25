@@ -88,6 +88,7 @@ angular.module('FWPT')
             getTodoTask: function(category) {
                 switch(category){
                     case "wdxx"://我的未读消息
+                        var TodoTasklistrjson=[];
                         $http({
                                     method:'GET',
                                     url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsInterface.do',
@@ -161,7 +162,6 @@ angular.module('FWPT')
                             //TodoTasklistjson.result[i].creationDate//发起时间
                             //nowTimestamp//到期时间
                             //id//操作
-                            console.log(data);
 
                         }).error(function(data,status,headers,config) {
                             // 当响应以错误状态返回时调用
@@ -189,13 +189,6 @@ angular.module('FWPT')
                                 k.id=TodoTasklistjson.result[i].id;
                                 TodoTasklistrjson.push(k);
                             }
-                            //TodoTasklistjson.result[i].creator//发起人
-                            //TodoTasklistjson.result[i].mc//名称
-                            //TodoTasklistjson.result[i].creationDate//发起时间
-                            //nowTimestamp//到期时间
-                            //id//操作
-                            console.log(data);
-
                         }).error(function(data,status,headers,config) {
                             // 当响应以错误状态返回时调用
                             console.log("login failed");
@@ -228,7 +221,6 @@ angular.module('FWPT')
                             //TodoTasklistjson.result[i].creationDate//发起时间
                             //nowTimestamp//到期时间
                             //id//操作
-                            console.log(data);
 
                         }).error(function(data,status,headers,config) {
                             // 当响应以错误状态返回时调用
@@ -239,6 +231,9 @@ angular.module('FWPT')
                         return TodoTasklistrjson;
                     //break;
                 }
+            },
+            getTodoList:function(id){
+
             }
         }
     });
