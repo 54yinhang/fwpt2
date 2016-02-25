@@ -3,7 +3,7 @@
  */
 
 angular.module('FWPT')
-    .factory('AccountService', function($http, $state, $stateParams,$location) {
+    .factory('AccountService', function($http, $state, $stateParams,$location,$rootScope) {
         $http.get('http://localhost:8080/rap/fwpt/msgService/code.do' ).success(function(data){
             //请求验证码
             //可以删除
@@ -24,7 +24,7 @@ angular.module('FWPT')
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
-
+                        $rootScope.user=1;
                         $state.go('account',$stateParams);
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
@@ -141,7 +141,6 @@ angular.module('FWPT')
                     ////break;
                     case "whddp":// 我的电子凭证（财政未核对）
                         $("table tr td:eq(5)").html("");
-                        console.log( $("table tr td:eq(5)"));
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
