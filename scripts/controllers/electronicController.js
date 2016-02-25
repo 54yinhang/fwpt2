@@ -4,6 +4,7 @@
 angular.module('FWPT')
     .controller('ElectronicFileController', ['$scope', '$state', '$modal', '$stateParams', 'ElectronicFileService',
         function ($scope, $state, $modal, $stateParams, ElectronicFileService) {
+            $scope.queryFlag = false;
             //分页
             $scope.paginationConf = {
                 currentPage: 1,      //当前页，默认为1
@@ -28,14 +29,25 @@ angular.module('FWPT')
             };
             //根据传入的菜单选项标识category获取相应菜单列表数据
             $scope.setPagingFilter = function () {
-                ElectronicFileService.getList($stateParams.category).then(
-                    function (data) {
-                        $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
-                        //for(var i=0;i<$scope.listData.length;i++){
-                        //    $scope.listData[i].selected = false;
-                        //}
-                    }
-                );
+                //查询按钮未点击
+                if(!$scope.queryFlag || $scope.queryText==''){
+                    ElectronicFileService.getList($stateParams.category).then(
+                        function (data) {
+                            $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                            //for(var i=0;i<$scope.listData.length;i++){
+                            //    $scope.listData[i].selected = false;
+                            //}
+                        }
+                    );
+                }
+                //查询按钮被点击且查询输入框不为空
+                if($scope.queryFlag && $scope.queryText!=''){
+                    ElectronicFileService.queryFiles($scope.queryText).then(
+                        function (data) {
+                            $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                        })
+                }
+                $scope.queryFiles
             }
             //删除事件
             $scope.deleteFile = function (id, spzt) {
@@ -57,11 +69,8 @@ angular.module('FWPT')
                 }
             }
             //暂时有问题
-            $scope.queryFiles = function (text) {
-                ElectronicFileService.queryFiles(text).then(
-                    function (data) {
-
-                    })
+            $scope.queryFiles = function () {
+                $scope.queryFlag = true;
             }
 
 
