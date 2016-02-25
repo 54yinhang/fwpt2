@@ -28,10 +28,9 @@ angular.module("FWPT")
           templateUrl:'electronicFile/confirm.html',
           link:function(scope){
               scope.confirmPush = function(){
-                  scope.confirm({pushFlag:true});
+                  scope.confirm();
               }
               scope.cancle = function(){
-                  scope.confirm({pushFlag:false});
               }
           }
       }

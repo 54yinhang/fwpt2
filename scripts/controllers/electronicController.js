@@ -145,10 +145,8 @@ angular.module('FWPT')
           }
         );
       }
-      $scope.pushFile = function (pushFlag,id) {
-        if(pushFlag){
+      $scope.pushFile = function (id) {
           ElectronicFileService.pushFile(id);
-        }
 
       }
       ////全选
