@@ -140,6 +140,8 @@ angular.module('FWPT')
                     //    return {};
                     ////break;
                     case "whddp":// 我的电子凭证（财政未核对）
+                        $("table tr td:eq(5)").html("");
+                        console.log( $("table tr td:eq(5)"));
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
@@ -153,7 +155,6 @@ angular.module('FWPT')
                                 k.mc=TodoTasklistjson.result[i].mc;
                                 k.zt="财政未核对";
                                 k.fqsj=TodoTasklistjson.result[i].creationDate;
-                                k.jssj=TodoTasklistjson.result[i].nowTimestamp;
                                 k.id=TodoTasklistjson.result[i].id;
                                 TodoTasklistrjson.push(k);
                             }
@@ -232,7 +233,19 @@ angular.module('FWPT')
                     //break;
                 }
             },
-            getTodoList:function(id){
+            getTodoList:function() {
+                var TodoTaskListjson={};
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do?id='+$stateParams.id
+                }).success(function(data){
+                    TodoTaskListjson.caption=data.result.bt;
+                    $(".minmessagebox>p").append(data.result.nr);
+                }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("获取消息详情失败");
+                });
+                return TodoTaskListjson;
 
             }
         }

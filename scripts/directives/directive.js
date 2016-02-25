@@ -11,6 +11,7 @@ angular.module("FWPT")
             templateUrl: 'account/loginForm.html',
             link: function(scope, ele, attrs) {
                 scope.recode=function(){
+
                 };
                 scope.submitLogin = function() {
                     scope.onLogin({user: scope.loginUser});
