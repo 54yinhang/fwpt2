@@ -139,6 +139,9 @@ angular.module('FWPT')
         ElectronicFileService.getList($stateParams.category).then(
           function (data) {
             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+            for(var i=0; i<$scope.listData.length; i++){
+              $scope.listData[i].toggle = false;
+            }
             //for(var i=0;i<$scope.listData.length;i++){
             //    $scope.listData[i].selected = false;
             //}
@@ -147,6 +150,14 @@ angular.module('FWPT')
       }
       $scope.pushFile = function (id) {
           ElectronicFileService.pushFile(id);
+
+      }
+      $scope.pushToggle = function(index){
+        if($scope.listData[index].toggle){
+          $scope.listData[index].toggle = false;
+        }else{
+          $scope.listData[index].toggle = true;
+        }
 
       }
       ////全选

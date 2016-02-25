@@ -41,7 +41,9 @@
             <td><span ng-bind="data.spsj"></span></td>
             <td>
                 <a ng-click="pushFile(data.id)">上报</a>
-                <div confirm-push confirm="pushFile(data.id)"></div>
+                <input type="button" ng-click="pushToggle($index)">
+                <a ng-click="pushToggle()" ></a>
+                <div ng-class="{manageon:data.toggle}" confirm-push confirm="pushFile(data.id)"></div>
             </td>
         </tr>
         </tbody>
