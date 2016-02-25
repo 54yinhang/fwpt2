@@ -248,6 +248,20 @@ angular.module('FWPT')
                 });
                 return TodoTaskListjson;
 
-            }
-        }
+            },
+            getTodoListdd:function(){
+                var TodoTaskListddjson={};
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/dagl/daDetail.do?id='+$stateParams.id
+                }).success(function(data){
+                    TodoTaskListddjson.ysdwmc=data.result.ysdwmc;
+                    TodoTaskListddjson.ssny=data.result.ssny;
+                    TodoTaskListddjson.zflh=data.result.zflh;
+                }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("获取凭证详情失败");
+                });
+                return TodoTaskListddjson;
+        }}
     });
