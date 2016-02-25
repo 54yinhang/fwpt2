@@ -781,6 +781,17 @@ hr{
     height: 40px;
     margin-left: 10px;
 }
+.add-form > .setting .detail {
+    width: 540px;
+    height: 90px;
+    margin-top:0px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding_top:6px;
+    padding-left:12px;
+    border: 1px solid #e1e1e1;
+    float: right;
+}
 .add-form > .setting .choseFile {
     margin-left: 10px;
     width: 127px;

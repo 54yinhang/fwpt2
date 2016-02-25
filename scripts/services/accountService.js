@@ -88,8 +88,29 @@ angular.module('FWPT')
             getTodoTask: function(category) {
                 switch(category){
                     case "wdxx"://我的未读消息
+                        var TodoTasklistrjson=[];
+                        $http({
+                                    method:'GET',
+                                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsInterface.do',
+                                }).success(function(data){
+                                    TodoTasklistjson=data;
+                                    for(i=0;i<TodoTasklistjson.result.length;i++) {
+                                        var k = {};
+                                        k.lx = "消息推送";//类型
+                                        k.fqr = TodoTasklistjson.result[i].creator;//发起人
+                                        k.mc = TodoTasklistjson.result[i].bt;//名称
+                                        k.zt = TodoTasklistjson.result[i].dqzt = 0 ? "未查看" : "已查看";//消息状态
+                                        k.fqsj = TodoTasklistjson.result[i].creationDate;//发起时间
+                                        k.jssj = TodoTasklistjson.result[i].nowTimestamp;//结束时间
+                                        k.id = TodoTasklistjson.result[i].id;//消息类型
+                                        TodoTasklistrjson.push(k);
+                                    }
+                                }).error(function(data,status,headers,config) {
+                                    // 当响应以错误状态返回时调用
+                                    console.log("login failed");
+                                });
                         $(".flrrightinfo>h5>span").html("我的未读消息");
-                        return {}
+                        return TodoTasklistrjson;
                     //break;
                     //case "wtbb"://我未完成的报表填报任务
                     //    $(".flrrightinfo>h5>span").html("我未完成的报表填报任务");
@@ -141,7 +162,6 @@ angular.module('FWPT')
                             //TodoTasklistjson.result[i].creationDate//发起时间
                             //nowTimestamp//到期时间
                             //id//操作
-                            console.log(data);
 
                         }).error(function(data,status,headers,config) {
                             // 当响应以错误状态返回时调用
@@ -163,19 +183,12 @@ angular.module('FWPT')
                                 k.lx="电子凭证";
                                 k.fqr= TodoTasklistjson.result[i].creator;
                                 k.mc=TodoTasklistjson.result[i].mc;
-                                k.zt="财政未核对";
+                                k.zt="被退回";
                                 k.fqsj=TodoTasklistjson.result[i].creationDate;
                                 k.jssj=TodoTasklistjson.result[i].nowTimestamp;
                                 k.id=TodoTasklistjson.result[i].id;
                                 TodoTasklistrjson.push(k);
                             }
-                            //TodoTasklistjson.result[i].creator//发起人
-                            //TodoTasklistjson.result[i].mc//名称
-                            //TodoTasklistjson.result[i].creationDate//发起时间
-                            //nowTimestamp//到期时间
-                            //id//操作
-                            console.log(data);
-
                         }).error(function(data,status,headers,config) {
                             // 当响应以错误状态返回时调用
                             console.log("login failed");
@@ -197,7 +210,7 @@ angular.module('FWPT')
                                 k.lx="电子凭证";
                                 k.fqr= TodoTasklistjson.result[i].creator;
                                 k.mc=TodoTasklistjson.result[i].mc;
-                                k.zt="财政未核对";
+                                k.zt="已核对未查看";
                                 k.fqsj=TodoTasklistjson.result[i].creationDate;
                                 k.jssj=TodoTasklistjson.result[i].nowTimestamp;
                                 k.id=TodoTasklistjson.result[i].id;
@@ -208,7 +221,6 @@ angular.module('FWPT')
                             //TodoTasklistjson.result[i].creationDate//发起时间
                             //nowTimestamp//到期时间
                             //id//操作
-                            console.log(data);
 
                         }).error(function(data,status,headers,config) {
                             // 当响应以错误状态返回时调用
@@ -219,6 +231,22 @@ angular.module('FWPT')
                         return TodoTasklistrjson;
                     //break;
                 }
+            },
+            getTodoList:function() {
+                var TodoTaskListjson={};
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do',
+                    data:{id:$stateParams.id}
+                }).success(function(data){
+                    TodoTaskListjson.caption=data.result.bt;
+                    TodoTaskListjson.text=data.result.nr;
+                }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("获取消息详情失败");
+                });
+                return TodoTaskListjson;
+
             }
         }
     });

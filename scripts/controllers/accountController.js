@@ -27,5 +27,5 @@ angular.module('FWPT')
                 $(".reloginClose").css("display","none");
             })
         }
-
+        $scope.tasklist=TodoTaskService.getTodoList();
     }]);
