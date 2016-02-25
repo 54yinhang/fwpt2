@@ -362,6 +362,7 @@ angular.module('FWPT')
             $scope.upInfo={};
             /***************************上传前的表单验证***********************************/
             $("#ctlBtn").click(function(){
+                console.log(123);
                 if(uploader.getFiles().length){
                     uploader.upload();
                 }else{
@@ -393,7 +394,7 @@ angular.module('FWPT')
             });
             /***************************重新上传失败附件*********************************/
             $('#reupload').click(function(){
-                $.each(uploader.getFiles('error'),function(i,item){
+                angular.forEach(uploader.getFiles('error'),function(item,i){
                     uploader.upload(item);
                 });
             });
@@ -465,8 +466,11 @@ angular.module('FWPT')
             });
             /*************************上传结束***************************************/
             uploader.on('uploadFinished',function(){
-                if(uploader.getFiles('error')==[]&&(!$scope.sucess)){
+                if(!$scope.sucess){
                     $('#reupload').css('display','block');
+                    $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
+                        $(this).text('');
+                    });
                 }else{
                     $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
                         $(this).text('');
