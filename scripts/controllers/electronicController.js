@@ -110,8 +110,8 @@ angular.module('FWPT')
         }
       }
     }])
-  .controller('ElectronicFilePushController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
-    function ($scope, $state, $stateParams, ElectronicFileService) {
+  .controller('ElectronicFilePushController', ['$scope', '$state', '$stateParams', '$modal', 'ElectronicFileService',
+    function ($scope, $state, $stateParams, $modal, ElectronicFileService) {
       //分页
       $scope.paginationConf = {
         currentPage: 1,      //当前页，默认为1
@@ -148,18 +148,31 @@ angular.module('FWPT')
           }
         );
       }
-      $scope.pushFile = function (id) {
-          ElectronicFileService.pushFile(id);
-
+      $scope.pushFile = function(id){
+        var modalConfirm = $modal.open({
+          templateUrl:'electronicFile/confirm.html',
+          controller:'PushConfirmController',
+          resolve:{
+            id:id
+          }
+        });
+        modalInstance.result.then(function(text){
+          console.log(text);
+        })
       }
-      $scope.pushToggle = function(index){
-        if($scope.listData[index].toggle){
-          $scope.listData[index].toggle = false;
-        }else{
-          $scope.listData[index].toggle = true;
-        }
 
-      }
+      //$scope.pushFile = function (id) {
+      //    ElectronicFileService.pushFile(id);
+      //
+      //}
+      //通过指令来弹出控制框
+      //$scope.pushToggle = function(index){
+      //  if($scope.listData[index].toggle){
+      //    $scope.listData[index].toggle = false;
+      //  }else{
+      //    $scope.listData[index].toggle = true;
+      //  }
+      //}
       ////全选
       //$scope.selectAll = function($event){
       //    var checkbox = $event.target;
@@ -198,6 +211,18 @@ angular.module('FWPT')
       //}
     }
   ])
+  //上报按钮弹出框controller
+  .controller('PushConfirmController',['$scope', '$modalInstance', 'id', 'ElectronicFileService',
+    function($scope, $modalInstance, id, ElectronicFileService){
+      $scope.id = id;
+      $scope.confirm = function(){
+        ElectronicFileService.pushFile(id);
+        $modalInstance.close('上报成功');
+      }
+      $scope.cancel = function(){
+        $modalInstance.dismiss('cancel');
+      }
+  }])
   .controller('ElectronicFileModifyController', ['$scope', '$state', '$stateParams', 'ElectronicFileService', '$http',
     function ($scope, $state, $stateParams, ElectronicFileService, $http) {
       //分页
