@@ -36,12 +36,19 @@
             </td>
             <td><span ng-bind="data.ssny"></span></td>
             <td><span ng-bind="data.zflh"></span></td>
-            <td><span ng-bind="data.spzt"></span></td>
+            <td>
+                <span  ng-switch="data.spzt">
+                    <span ng-switch-when="0">未上报</span>
+                    <span ng-switch-when="1">已上报</span>
+                </span>
+            </td>
             <td><span ng-bind="data.spr"></span></td>
             <td><span ng-bind="data.spsj"></span></td>
             <td>
                 <a ng-click="pushFile(data.id)">上报</a>
-                <div confirm-push confirm="pushFile(data.id)"></div>
+                <input type="button" ng-click="pushToggle($index)">
+                <a ng-click="pushToggle()" ></a>
+                <div ng-class="{manageon:data.toggle}" confirm-push confirm="pushFile(data.id)"></div>
             </td>
         </tr>
         </tbody>
