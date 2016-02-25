@@ -7,7 +7,7 @@ angular.module('FWPT')
                     method:'GET',
                     //url:'../assets/informList.json'})
                     //url:'http://192.168.1.88:8082/ifugle-rap/fwpt/msgService/getMsg.do?bj=1&start=1&limit=4'})
-                    url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=1&start=1&limit=4'})
+                    url:'http://localhost:8080/lab2/fwpt/msgService/getMsg.do?bj=1&start=1&limit=4'})
                     .success(function(data){
                         defer.resolve(data.result);
                     })

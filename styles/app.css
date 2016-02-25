@@ -943,7 +943,7 @@ hr{
     display: block;
 }
 /*知识库样式*/
-.messageBox,{
+.messageBox{
     background-color: #fff;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -953,6 +953,16 @@ hr{
     border: 1px solid #ccc;
     padding-top: 10px;
     float: right;
+}
+.minmessagebox>h2{
+    text-align: center;
+    font-size: 16px;
+    margin:15px auto;
+}
+.minmessagebox>p{
+   margin-top: 15px;
+    margin:15px auto;
+    text-indent: 2em;
 }
 /*消息类窗口预留*/
 .detail {
