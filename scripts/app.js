@@ -9,7 +9,14 @@ angular.module('FWPT', [
     $stateProvider
         .state('home',{
             url: '/home',
-            templateUrl: 'portal/anonymous.html'
+            //templateUrl: 'portal/anonymous.html'
+            templateUrl:function($rootScope){
+                if($rootScope.user!=1){//根据不同的参数跳转不同的界面
+                    return   'portal/account.html';
+
+                }else{
+                    return 'portal/anonymous.html';
+                }}
         })
         /* account */
         .state('account',{
@@ -41,7 +48,7 @@ angular.module('FWPT', [
                 '@account.todoTask':{
                     //templateUrl: 'account/record-check-detail.html',
                     templateUrl:function($routeParams){
-                        if($routeParams.category="wdxx"){//根据不同的参数跳转不同的界面
+                        if($routeParams.category=="wdxx"){//根据不同的参数跳转不同的界面
                             return  'account/messageForm.html';
 
                         }else{
