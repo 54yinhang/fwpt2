@@ -26,6 +26,10 @@ angular.module('FWPT')
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
                         window.sessionStorage.setItem("islogin", "true");
+                        console.log(data);
+                        //branchDeptName 单位名称
+                        //fullname 用户姓名
+                        //userName 用户名
                         $state.go('account',$stateParams);
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
