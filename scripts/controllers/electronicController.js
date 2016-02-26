@@ -366,6 +366,9 @@ angular.module('FWPT')
                 };
                 ElectronicFileService.sendAddFile($scope.addFile.ysdwmc, $scope.addFile.ssny, $scope.addFile.zflh, $scope.addFile.ms).then(
                     function (data) {
+                        if (data.success) {
+
+                        }
                         //if (data.success) {
                         //    $scope.btn.switch = false;
                         //    $scope.btn.id = data.successMsg;
