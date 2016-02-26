@@ -5,7 +5,7 @@ angular.module('FWPT')
 				var defer = $q.defer();
 				$http({
 					method:'GET',
-					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=50'
+					url:'/rap/fwpt/msgService/getMsg.do?bj=5&start=1&limit=50'
 				})
 					.success(function(data){
 						defer.resolve(data.result);
@@ -20,7 +20,7 @@ angular.module('FWPT')
 				$http({
 					method:'GET',
 					//url:'../assets/knowledgeList.json'
-					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=1&limit=10'
+					url:'/rap/fwpt/msgService/getMsg.do?bj=5&start=1&limit=10'
 				})
 				.success(function(data){
 					defer.resolve(data.result);
@@ -34,7 +34,7 @@ angular.module('FWPT')
 				var defer = $q.defer();
 				$http({
 					method:'GET',
-					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsg.do?bj=5&start=11&limit=20'
+					url:'/rap/fwpt/msgService/getMsg.do?bj=5&start=11&limit=20'
 				})
 					.success(function(data){
 						defer.resolve(data.result);
@@ -54,7 +54,7 @@ angular.module('FWPT')
 				$http({
 					method:'GET',
 					//url:'../assets/knowledgeData/knowledgeDetail01.json'
-					url:'http://192.168.1.68:8081/lab2/fwpt/msgService/getMsgDetail.do?xxid='+xxid
+					url:'/rap/fwpt/msgService/getMsgDetail.do?xxid='+xxid
 				})
 				.success(function(data){
 					defer.resolve(data.result[0]);

@@ -5,7 +5,7 @@
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams,$location,$rootScope) {
         window.sessionStorage.setItem("islogin", "false");
-        $http.get('http://localhost:8080/rap/fwpt/msgService/code.do' ).success(function(data){
+        $http.get('/rap/fwpt/msgService/code.do' ).success(function(data){
             //请求验证码
             //可以删除
             //window.sessionStorage.setItem("key", "value");
@@ -20,7 +20,7 @@ angular.module('FWPT')
 
             sendLogin: function(user) {
                 $.ajax({
-                    url: 'http://localhost:8080/rap/fwpt/msgService/fwptLogin.do',
+                    url: '/rap/fwpt/msgService/fwptLogin.do',
                     type: 'POST',
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
@@ -55,7 +55,7 @@ angular.module('FWPT')
             getTodoTaskSum: function () {
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/dagl/daCount.do'
+                    url:'/rap/szcz/dagl/daCount.do'
 
                 }).success(function(data){
                     TodoTaskSumjson=data ;
@@ -92,7 +92,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                                     method:'GET',
-                                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsInterface.do',
+                                    url:'/rap/szcz/xxgl/xxts/queryXxtsInterface.do',
                                 }).success(function(data){
                                     TodoTasklistjson=data;
                                     for(i=0;i<TodoTasklistjson.result.length;i++) {
@@ -145,7 +145,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
-                            url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=0',
+                            url:'/rap/szcz/dagl/queryDa.do?condition&spzt=0',
                         }).success(function(data){
                             TodoTasklistjson=data;
                             for(i=0;i<TodoTasklistjson.result.length;i++){
@@ -176,7 +176,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
-                            url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=9',
+                            url:'/rap/szcz/dagl/queryDa.do?condition&spzt=9',
                         }).success(function(data){
                             TodoTasklistjson=data;
                             for(i=0;i<TodoTasklistjson.result.length;i++){
@@ -203,7 +203,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
-                            url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=2',
+                            url:'/rap/szcz/dagl/queryDa.do?condition&spzt=2',
                         }).success(function(data){
                             TodoTasklistjson=data;
                             for(i=0;i<TodoTasklistjson.result.length;i++){
@@ -237,7 +237,7 @@ angular.module('FWPT')
                 var TodoTaskListjson={};
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do?id='+$stateParams.id
+                    url:'/rap/szcz/xxgl/xxts/queryXxtsDetail.do?id='+$stateParams.id
                 }).success(function(data){
                     TodoTaskListjson.caption=data.result.bt;
                     $(".minmessagebox>p").append(data.result.nr);
@@ -252,7 +252,7 @@ angular.module('FWPT')
                 var TodoTaskListddjson={};
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/dagl/daDetail.do?id='+$stateParams.id
+                    url:'/rap/szcz/dagl/daDetail.do?id='+$stateParams.id
                 }).success(function(data){
                     TodoTaskListddjson.ysdwmc=data.result.ysdwmc;
                     TodoTaskListddjson.ssny=data.result.ssny;

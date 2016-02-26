@@ -11,7 +11,7 @@ angular.module('FWPT')
                 if(category=='allList' || !category){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=100'
+                        url:'/rap/szcz/dagl/queryDa.do?condition&spzt=100'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -24,7 +24,7 @@ angular.module('FWPT')
                 if(category=='modifyList'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101'
+                        url:'/rap/szcz/dagl/queryDa.do?condition&spzt=101'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -37,7 +37,7 @@ angular.module('FWPT')
                 if(category=='unpushList'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101'
+                        url:'/rap/szcz/dagl/queryDa.do?condition&spzt=101'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -51,7 +51,7 @@ angular.module('FWPT')
             deleteFile:function(id){
                 $http({
                     method:'POST',
-                    url:'http://localhost:8080/rap/szcz/dagl/deleteDa.do',
+                    url:'/rap/szcz/dagl/deleteDa.do',
                     data:{id:id}
                 })
                     .success(function(data){
@@ -65,7 +65,7 @@ angular.module('FWPT')
                 console.log(id);
                 $http({
                     method:'post',
-                    url:'http://localhost:8080/rap/szcz/dagl/fqsp.do',
+                    url:'/rap/szcz/dagl/fqsp.do',
                     data:{id:id}
                 }) .success(function(data){
                         console.log(data.successMsg);
@@ -79,7 +79,7 @@ angular.module('FWPT')
                 var deferred = $q.defer();
                 $http({
                     method:'POST',
-                    url:'http://localhost:8080/rap/szcz/dagl/daDetail.do',
+                    url:'/rap/szcz/dagl/daDetail.do',
                     data:{id:$stateParams.id}
                 })
                     .success(function(data){
@@ -94,7 +94,7 @@ angular.module('FWPT')
                 var deferred = $q.defer();
                 $http({
                     method:'POST',
-                    url:'http://localhost:8080/rap/szcz/dagl/daAdd.do',
+                    url:'/rap/szcz/dagl/daAdd.do',
                     data:{ysdwmc:ysdwmc,ssny:ssny,zflh:zflh,ms:ms}
                 })
                     .success(function(data){
@@ -110,7 +110,7 @@ angular.module('FWPT')
                 var deferred = $q.defer();
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=100'
+                    url:'/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=100'
                 })
                     .success(function (data) {
                         deferred.resolve(data);
@@ -124,7 +124,7 @@ angular.module('FWPT')
                 var deferred = $q.defer();
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=101'
+                    url:'/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=101'
                 })
                     .success(function (data) {
                         deferred.resolve(data);
