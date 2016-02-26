@@ -30,7 +30,6 @@ angular.module('FWPT')
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
                     }});//要该  这里是jquery的请求
-
             },
             sendLogout: function() {
                 current_user = null;
