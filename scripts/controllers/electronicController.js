@@ -334,58 +334,43 @@ angular.module('FWPT')
             }
         }
     ])
-    .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
-        function ($scope, $state, $stateParams, ElectronicFileService) {
+    .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService','$http',
+        function ($scope, $state, $stateParams, ElectronicFileService, $http) {
             //console.log($stateParams.id);
             //获得单个详细数据
             ElectronicFileService.getOne().then(
                 function (data) {
-                    console.log(data);
-                }
-            );
-        }])
-    .controller('ElectronicFileShowOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
-        function ($scope, $state, $stateParams, ElectronicFileService) {
-            //获得单个详细数据
-            ElectronicFileService.getOne().then(
-                function (data) {
+                    //console.log(data);
                     $scope.oneData = data.result;
+                    //console.log($scope.oneData.id);
+                    $scope.items = [];
+                    //console.log('查看');
+                    $http.get('/rap/szcz/dagl/queryAttachment.do?daid='+$scope.oneData.id)
+                        .success(function (data, status) {
+                            angular.forEach(data.result, function (value, key) {
+                                $scope.items.push({
+                                    docId: value.id,
+                                    cName: value.userDeptName,
+                                    docName: value.label,
+                                    docSize: value.fileSize,
+                                    upTime: value.creationDate,
+                                    upPerson: value.creator
+                                });
+                                $scope.$apply();
+                            })
+                        }).error(function (data) {
+                            console.log(data);
+                            console.log('查看出错！');
+                        })
                 }
             );
-        }])
-    .controller('addFileController', ['$scope', '$state', '$stateParams', 'ElectronicFileService', '$http',
-        function ($scope, $state, $stateParams, ElectronicFileService, $http) {
-            $scope.addFile = {};
-            $scope.btn = {};
-            $scope.saveAddFile = function () {
-                $scope.fileData = {
-                    ysdwmc: $scope.addFile.ysdwmc,
-                    ssny: $scope.addFile.ssny,
-                    zflh: $scope.addFile.zflh,
-                    ms: $scope.addFile.ms
-                };
-                ElectronicFileService.sendAddFile($scope.addFile.ysdwmc, $scope.addFile.ssny, $scope.addFile.zflh, $scope.addFile.ms).then(
-                    function (data) {
-                        if (data.success) {
-
-                        }
-                        //if (data.success) {
-                        //    $scope.btn.switch = false;
-                        //    $scope.btn.id = data.successMsg;
-                        //} else {
-                        //    $scope.btn.switch = true;
-                        //}
-                    }
-                );
-            }
-            /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({
                 swf: '../scripts/controllers/Uploader.swf',
-                server: 'http://localhost:8080/rap/szcz/dagl/qtDaSbFjSc.do',
+                server: '/rap/szcz/dagl/qtDaSbFjSc.do',
                 //server:'',
                 pick: '#picker',
                 formData:{
-                  daid:123,
+                    daid:123,
                     fl : 1
                 },
                 accept:{
@@ -405,7 +390,7 @@ angular.module('FWPT')
             $scope.upInfo = {};
             /***************************上传前的表单验证***********************************/
             $("#ctlBtn").click(function () {
-                console.log(ElectronicFileService.getNowFormatDate());
+                //console.log(ElectronicFileService.getNowFormatDate());
                 if (uploader.getFiles().length) {
                     uploader.upload();
                 } else {
@@ -415,26 +400,6 @@ angular.module('FWPT')
                 }
             });
 
-            $("#cBtn").click(function () {
-                console.log('查看');
-                $http.get('http://localhost:8080/rap/szcz/dagl/queryAttachment.do?daid=123')
-                    .success(function (data, status) {
-                        angular.forEach(data.result, function (value, key) {
-                            $scope.items.push({
-                                docId: value.id,
-                                cName: value.userDeptName,
-                                docName: value.label,
-                                docSize: value.fileSize,
-                                upTime: value.creationDate,
-                                upPerson: value.creator
-                            });
-                            $scope.$apply();
-                        })
-                    }).error(function (data) {
-                        console.log(data);
-                        console.log('查看出错！');
-                    })
-            });
             /***************************重新上传失败附件*********************************/
             $('#reupload').click(function(){
                 angular.forEach(uploader.getFiles('error'),function(item,i){
@@ -442,20 +407,9 @@ angular.module('FWPT')
                 });
             });
             /***************************上传前发送的数据***********************************/
-            $scope.items = [];
+            //$scope.items = [];
             uploader.on('uploadBeforeSend', function (block, data, header) {
-                header.enctype = "multipart/form-data"
-                //    var file = block.file;
-                //
-                //    data.fl = 1;
-                //    data.daid = 123;//$scope.daId;
-                //data.wjid = (new Date()).getTime();
-                //$scope.docId = data.wjid;
-                //data.name = file.name;
-                //data.type = file.type;
-                //data.size = file.size;
-                //data.status = 1;
-                //    delete data.key;
+                header.enctype = "multipart/form-data";
             });
             /***************************上传成功***********************************/
 
@@ -479,7 +433,7 @@ angular.module('FWPT')
             });
             /*************************上传结束***************************************/
             uploader.on('uploadFinished',function(){
-                if(!$scope.sucess){
+                if(!$scope.success){
                     $('#reupload').css('display','block');
                     $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
                         $(this).text('');
@@ -492,7 +446,7 @@ angular.module('FWPT')
             });
             /***************************删除附件***********************************/
             $scope.delDoc = function (doc) {
-                $http.post('http://localhost:8080/rap/szcz/xxgl/xxts/deleteAttachment.do', {
+                $http.post('/rap/szcz/xxgl/xxts/deleteAttachment.do', {
                     id: doc,
                     creatorId: 1990200032
                 })
@@ -519,6 +473,200 @@ angular.module('FWPT')
                         });
                     });
             };
+        }])
+    .controller('ElectronicFileShowOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService','$http',
+        function ($scope, $state, $stateParams, ElectronicFileService, $http) {
+            //获得单个详细数据
+            ElectronicFileService.getOne().then(
+                function (data) {
+                    $scope.oneData = data.result;
+                    console.log($scope.oneData.id);
+                    $scope.items = [];
+                    console.log('查看');
+                    $http.get('/rap/szcz/dagl/queryAttachment.do?daid='+$scope.oneData.id)
+                        .success(function (data, status) {
+                            angular.forEach(data.result, function (value, key) {
+                                $scope.items.push({
+                                    docId: value.id,
+                                    cName: value.userDeptName,
+                                    docName: value.label,
+                                    docSize: value.fileSize,
+                                    upTime: value.creationDate,
+                                    upPerson: value.creator
+                                });
+                                $scope.$apply();
+                            })
+                        }).error(function (data) {
+                            console.log(data);
+                            console.log('查看出错！');
+                        })
+                }
+            );
+
+        }])
+    .controller('addFileController', ['$scope', '$state', '$stateParams', 'ElectronicFileService', '$http',
+        function ($scope, $state, $stateParams, ElectronicFileService, $http) {
+            $scope.addFile = {};
+            $scope.btn = {};
+            $scope.saveAddFile = function () {
+                $scope.fileData = {
+                    ysdwmc: $scope.addFile.ysdwmc,
+                    ssny: $scope.addFile.ssny,
+                    zflh: $scope.addFile.zflh,
+                    ms: $scope.addFile.ms
+                };
+                ElectronicFileService.sendAddFile($scope.addFile.ysdwmc, $scope.addFile.ssny, $scope.addFile.zflh, $scope.addFile.ms).then(
+                    function (data) {
+                        //if (data.success) {
+                        //    $scope.btn.switch = false;
+                        //    $scope.btn.id = data.successMsg;
+                        //} else {
+                        //    $scope.btn.switch = true;
+                        //}
+                    }
+                );
+            }
+            ///***************************上传组件初始化***********************************/
+            //var uploader = WebUploader.create({
+            //    swf: '../scripts/controllers/Uploader.swf',
+            //    server: '/rap/szcz/dagl/qtDaSbFjSc.do',
+            //    //server:'',
+            //    pick: '#picker',
+            //    formData:{
+            //      daid:123,
+            //        fl : 1
+            //    },
+            //    accept:{
+            //        title: 'png,jpg,doc,pdf',
+            //        extensions: 'png,jpg,doc,pdf,docx',
+            //        mimeType: '*'
+            //    },
+            //    resize: false,
+            //    duplicate: true
+            //});
+            //// 当有文件被添加进队列的时候
+            //uploader.on('fileQueued', function (file) {
+            //
+            //    $("#list").css('display', 'block').append('<label class="alert-info docInfo">' + file.name + '</label>');
+            //
+            //});
+            //$scope.upInfo = {};
+            ///***************************上传前的表单验证***********************************/
+            //$("#ctlBtn").click(function () {
+            //    //console.log(ElectronicFileService.getNowFormatDate());
+            //    if (uploader.getFiles().length) {
+            //        uploader.upload();
+            //    } else {
+            //        $('#list').css('display', 'block').html("<p class='alert-danger'>上传文件不能为空</p>").fadeOut(2300, function () {
+            //            $(this).text('');
+            //        });
+            //    }
+            //});
+            //
+            ////$("#cBtn").click(function () {
+            ////    console.log('查看');
+            ////    $http.get('/rap/szcz/dagl/queryAttachment.do?daid=123')
+            ////        .success(function (data, status) {
+            ////            angular.forEach(data.result, function (value, key) {
+            ////                $scope.items.push({
+            ////                    docId: value.id,
+            ////                    cName: value.userDeptName,
+            ////                    docName: value.label,
+            ////                    docSize: value.fileSize,
+            ////                    upTime: value.creationDate,
+            ////                    upPerson: value.creator
+            ////                });
+            ////                $scope.$apply();
+            ////            })
+            ////        }).error(function (data) {
+            ////            console.log(data);
+            ////            console.log('查看出错！');
+            ////        })
+            ////});
+            ///***************************重新上传失败附件*********************************/
+            //$('#reupload').click(function(){
+            //    angular.forEach(uploader.getFiles('error'),function(item,i){
+            //        uploader.upload(item);
+            //    });
+            //});
+            ///***************************上传前发送的数据***********************************/
+            //$scope.items = [];
+            //uploader.on('uploadBeforeSend', function (block, data, header) {
+            //    header.enctype = "multipart/form-data"
+            //    //    var file = block.file;
+            //    //
+            //    //    data.fl = 1;
+            //    //    data.daid = 123;//$scope.daId;
+            //    //data.wjid = (new Date()).getTime();
+            //    //$scope.docId = data.wjid;
+            //    //data.name = file.name;
+            //    //data.type = file.type;
+            //    //data.size = file.size;
+            //    //data.status = 1;
+            //    //    delete data.key;
+            //});
+            ///***************************上传成功***********************************/
+            //
+            //$scope.success = true;
+            //uploader.on('uploadSuccess', function (file, res) {
+            //    console.log(res);
+            //    console.log(res.success);
+            //    console.log(res.successMsg);
+            //    $scope.items.push({
+            //        docId: res.successMsg,
+            //        cName: '当前登录用户的单位',
+            //        docName: file.name,
+            //        docSize: file.size,
+            //        upTime: ElectronicFileService.getNowFormatDate(),
+            //        upPerson: '当前登录用户'
+            //    });
+            //    $scope.$apply();
+            //    $scope.success = $scope.success && res.success;
+            //    //console.log($scope.items.length);
+            //    //console.log($scope.items);
+            //});
+            ///*************************上传结束***************************************/
+            //uploader.on('uploadFinished',function(){
+            //    if(!$scope.success){
+            //        $('#reupload').css('display','block');
+            //        $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
+            //            $(this).text('');
+            //        });
+            //    }else{
+            //        $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
+            //            $(this).text('');
+            //        });
+            //    }
+            //});
+            ///***************************删除附件***********************************/
+            //$scope.delDoc = function (doc) {
+            //    $http.post('/rap/szcz/xxgl/xxts/deleteAttachment.do', {
+            //        id: doc,
+            //        creatorId: 1990200032
+            //    })
+            //        .success(function (data, status) {
+            //            if (data.success) {
+            //                angular.forEach($scope.items, function (value, key) {
+            //                    if (value['docId'] == doc)
+            //                        $scope.items.splice(key, 1);
+            //                });
+            //            } else {
+            //                angular.forEach($scope.items, function (value, key) {
+            //                    if (value['docId'] == doc)
+            //                        $("#list").css('display', 'block').html("<p class='alert-success'>附件<b>[" + value['docName'] + "]</b>删除失败！</p>").fadeOut(2300, function () {
+            //                            $(this).text('');
+            //                        });
+            //                });
+            //            }
+            //        }).error(function () {
+            //            angular.forEach($scope.items, function (value, key) {
+            //                if (value['docId'] == doc)
+            //                    $("#list").css('display', 'block').html("<p class='alert-success'>附件<b>[" + value['docName'] + "]</b>删除失败！</p>").fadeOut(2300, function () {
+            //                        $(this).text('');
+            //                    });
+            //            });
+            //        });
+            //};
         }])
     .controller('ElectronicCheckFileController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
         function ($scope, $state, $stateParams, ElectronicFileService) {

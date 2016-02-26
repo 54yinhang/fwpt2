@@ -33,6 +33,12 @@
                 <input type="text" class="form-control paynum" id="num" value="{{oneData.sflh}}" disabled/>
             </div>
         </div>
+        <div class="intro">
+            <span>档案说明：</span>
+
+            <p></p>
+        </div>
+
         <table class="table">
             <thead>
             <tr>
@@ -44,27 +50,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>某某预算单位</td>
-                <td>201M</td>
-                <td>2016-01-21</td>
-                <td>张三</td>
-                <td>删除</td>
-            </tr>
-            <tr>
-                <td>某某预算单位</td>
-                <td>201M</td>
-                <td>2016-01-21</td>
-                <td>张三</td>
-                <td>删除</td>
+            <tr ng-repeat="item in items track by $index">
+                <td>{{item.cName}}</td>
+                <td>{{item.docSize}}</td>
+                <td>{{item.upTime}}</td>
+                <td>{{item.upPerson}}</td>
+                <td><a ng-click="delDoc(item.docId)">删除</a></td>
             </tr>
             </tbody>
         </table>
-        <div class="intro">
-            <span>档案说明：</span>
 
-            <p></p>
-        </div>
         <div class="state">
             <a ui-sref="electronic.allList"><button type="button" class="btn back">返回</button></a>
         </div>

@@ -18,6 +18,7 @@ angular.module('FWPT')
         }
         $scope.safeout=function(){//安全退出
             window.sessionStorage.setItem("islogin", "false");
+            console.log(1);
             $state.go('home',$stateParams);
         };
         $scope.reLogin=function(){ //重新登录

@@ -5,7 +5,7 @@
 angular.module('FWPT')
     .factory('AccountService', function($http, $state, $stateParams,$location,$rootScope) {
         window.sessionStorage.setItem("islogin", "false");
-        $http.get('http://localhost:8080/rap/fwpt/msgService/code.do' ).success(function(data){
+        $http.get('/rap/fwpt/msgService/code.do' ).success(function(data){
             //请求验证码
             //可以删除
             //window.sessionStorage.setItem("key", "value");
@@ -20,17 +20,23 @@ angular.module('FWPT')
 
             sendLogin: function(user) {
                 $.ajax({
-                    url: 'http://localhost:8080/rap/fwpt/msgService/fwptLogin.do',
+                    url: '/rap/fwpt/msgService/fwptLogin.do',
                     type: 'POST',
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
+                        data=eval("(" + data + ")");//返回我的是string？？not object！
                         window.sessionStorage.setItem("islogin", "true");
+                        window.sessionStorage.setItem("dwmc", data.result.branchDeptName);
+                        window.sessionStorage.setItem("fullname",data.result.fullName);
+                        window.sessionStorage.setItem("userName",data.result.userName);
+                        //branchDeptName 单位名称
+                        //fullname 用户姓名
+                        //userName 用户名
                         $state.go('account',$stateParams);
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
                     }});//要该  这里是jquery的请求
-
             },
             sendLogout: function() {
                 current_user = null;
@@ -56,7 +62,7 @@ angular.module('FWPT')
             getTodoTaskSum: function () {
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/dagl/daCount.do'
+                    url:'/rap/szcz/dagl/daCount.do'
 
                 }).success(function(data){
                     TodoTaskSumjson=data ;
@@ -93,7 +99,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                                     method:'GET',
-                                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsInterface.do',
+                                    url:'/rap/szcz/xxgl/xxts/queryXxtsInterface.do',
                                 }).success(function(data){
                                     TodoTasklistjson=data;
                                     for(i=0;i<TodoTasklistjson.result.length;i++) {
@@ -112,6 +118,8 @@ angular.module('FWPT')
                                     console.log("login failed");
                                 });
                         $(".flrrightinfo>h5>span").html("我的未读消息");
+                        $(".wdxx>a").removeClass("TodoTaskselect");
+                        $(".wdxx>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                     //break;
                     //case "wtbb"://我未完成的报表填报任务
@@ -146,7 +154,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
-                            url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=0',
+                            url:'/rap/szcz/dagl/queryDa.do?condition&spzt=0',
                         }).success(function(data){
                             TodoTasklistjson=data;
                             for(i=0;i<TodoTasklistjson.result.length;i++){
@@ -171,13 +179,15 @@ angular.module('FWPT')
                         });
 
                         $(".flrrightinfo>h5>span").html("我的电子凭证（财政未核对）");
+                        $(".whddp>a").removeClass("TodoTaskselect");
+                        $(".whddp>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                     //break;
                     case "thddp"://我的电子凭证（被退回）
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
-                            url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=9',
+                            url:'/rap/szcz/dagl/queryDa.do?condition&spzt=9',
                         }).success(function(data){
                             TodoTasklistjson=data;
                             for(i=0;i<TodoTasklistjson.result.length;i++){
@@ -197,6 +207,8 @@ angular.module('FWPT')
                         });
 
                         $(".flrrightinfo>h5>span").html("我的电子凭证（被退回）");
+                        $(".thddp>a").removeClass("TodoTaskselect");
+                        $(".thddp>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                         //break;
                     //break;
@@ -204,7 +216,7 @@ angular.module('FWPT')
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
-                            url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=2',
+                            url:'/rap/szcz/dagl/queryDa.do?condition&spzt=2',
                         }).success(function(data){
                             TodoTasklistjson=data;
                             for(i=0;i<TodoTasklistjson.result.length;i++){
@@ -230,6 +242,8 @@ angular.module('FWPT')
                         });
 
                         $(".flrrightinfo>h5>span").html("我的电子凭证（已核对未查看）");
+                        $(".hdwcdp>a").removeClass("TodoTaskselect");
+                        $(".hdwcdp>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                     //break;
                 }
@@ -238,7 +252,7 @@ angular.module('FWPT')
                 var TodoTaskListjson={};
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do?id='+$stateParams.id
+                    url:'/rap/szcz/xxgl/xxts/queryXxtsDetail.do?id='+$stateParams.id
                 }).success(function(data){
                     TodoTaskListjson.caption=data.result.bt;
                     $(".minmessagebox>p").append(data.result.nr);
@@ -253,7 +267,7 @@ angular.module('FWPT')
                 var TodoTaskListddjson={};
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/dagl/daDetail.do?id='+$stateParams.id
+                    url:'/rap/szcz/dagl/daDetail.do?id='+$stateParams.id
                 }).success(function(data){
                     TodoTaskListddjson.ysdwmc=data.result.ysdwmc;
                     TodoTaskListddjson.ssny=data.result.ssny;

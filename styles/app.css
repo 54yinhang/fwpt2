@@ -307,7 +307,7 @@ input.form-control{
     -webkit-border-radius: 5px;
     border-radius: 5px;
     width: 100%;
-    height: 292px;
+    height: 200px;
     margin-top: 30px;
     border: 1px solid #ccc;
     padding-top: 10px;
@@ -1509,4 +1509,7 @@ div.btns {
 }
 .add-form .table a{
     cursor: pointer;
+}
+.TodoTaskselect{
+    background-color: #f2eded;
 }

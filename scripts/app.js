@@ -12,6 +12,8 @@ angular.module('FWPT', [
             //templateUrl: 'portal/anonymous.html'
             templateUrl:function($rootScope){
                 if(window.sessionStorage.getItem("islogin")=="true"){//根据不同的参数跳转不同的界面
+
+
                     return   'portal/account.html';
                 }else{
                     return 'portal/anonymous.html';
@@ -68,16 +70,18 @@ angular.module('FWPT', [
         })
         .state('fillReport',{
             url: '/fillReport',
-            templateUrl: 'report/list.html',
+            templateUrl:'report/list.html',
             controller: 'FillReportController'
         })
         .state('report',{
             url: '/report',
-            templateUrl: 'portal/anonymous.html'
+            templateUrl:'portal/anonymous.html'
+
         })
         .state('about',{
             url: '/about',
-            templateUrl: 'portal/anonymous.html'
+             templateUrl:'portal/anonymous.html'
+
         })
 
 
@@ -206,7 +210,8 @@ angular.module('FWPT', [
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
-            if(toState.name=='home')return;// 如果是进入登录界面则允许
+            if(toState.name=='home'){
+                return;}// 如果是进入登录界面则允许
             // 如果用户不存在
             if(window.sessionStorage.getItem("islogin")!="true"){
                 event.preventDefault();// 取消默认跳转行为
