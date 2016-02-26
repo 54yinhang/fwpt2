@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee2f6768-2f38-4bdd-920e-eb815a9d35cb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/portal/account.html" afterPath="$PROJECT_DIR$/views/portal/account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/portal/anonymous.html" afterPath="$PROJECT_DIR$/views/portal/anonymous.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/portal/top.html" afterPath="$PROJECT_DIR$/views/portal/top.html" />
+    <list default="true" id="ee2f6768-2f38-4bdd-920e-eb815a9d35cb" name="Default" comment="IE8兼容问题">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fwpt.iws" />
@@ -80,8 +77,8 @@
       <file leaf-file-name="top.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/portal/top.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.028777">
-              <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.83093524">
+              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -529,7 +526,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456469160268</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="IE8兼容问题">
+      <created>1456469217494</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1456469217494</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1008,8 +1011,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/portal/top.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.028777">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.83093524">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
           <folding />
         </state>
       </provider>
