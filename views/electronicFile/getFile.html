@@ -7,11 +7,11 @@
             <i></i>
         </li>
         <li>
-            <a ui-sref="electronic.modifyList({category:modifyList})">修改档案</a>
+            <a ui-sref="electronic.allList">查看档案</a>
             <i></i>
         </li>
         <li>
-            修改详情
+            档案详情
         </li>
     </ul>
     <form action="" class="add-form">
@@ -20,24 +20,17 @@
                 <label>单位名称：</label>
 
                 <div class="dropdown select">
-                    <input type="text" class="form-control companyName" data-toggle="dropdown"/>
-                    <ul class="dropdown-menu companyLists">
-                        <li ><a href="#"></a></li>
-                    </ul>
+                    <input type="text" class="form-control companyName" data-toggle="dropdown" value="{{oneData.ysdwmc}}" disabled/>
                 </div>
             </div>
 
             <div class="form-group  has-feedback">
                 <label>年度：</label>
-                <input type="text" class="form-control year" value="2016"/>
-                            <span class="form-control-feedback tip">
-                                <i class="top"></i>
-                                <i class="down"></i>
-                            </span>
+                <input type="text" class="form-control year" value="{{oneData.ssny}}" disabled/>
             </div>
             <div class="form-group">
                 <label for="num">支付令号：</label>
-                <input type="text" class="form-control paynum" id="num" value="请输入支付令号"/>
+                <input type="text" class="form-control paynum" id="num" value="{{oneData.sflh}}" disabled/>
             </div>
             <div class="form-group">
                 <label>上传附件：</label>
@@ -78,7 +71,7 @@
             <p></p>
         </div>
         <div class="state">
-            <button type="button" class="btn back">返回</button>
+            <a ui-sref="electronic.allList"><button type="button" class="btn back">返回</button></a>
         </div>
 
     </form>

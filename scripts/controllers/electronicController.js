@@ -2,6 +2,7 @@
  * Created by bang on 2016/2/19.
  */
 angular.module('FWPT')
+
     .controller('ElectronicFileController', ['$scope', '$state', '$modal', '$stateParams', 'ElectronicFileService',
         function ($scope, $state, $modal, $stateParams, ElectronicFileService) {
             $scope.queryFlag = false;
@@ -443,11 +444,10 @@ angular.module('FWPT')
         }])
     .controller('ElectronicFileShowOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
         function ($scope, $state, $stateParams, ElectronicFileService) {
-            //console.log($stateParams.id);
             //获得单个详细数据
             ElectronicFileService.getOne().then(
                 function (data) {
-                    console.log(data);
+                    $scope.oneData = data.result;
                 }
             );
         }])
@@ -646,7 +646,7 @@ angular.module('FWPT')
                 pagesLength: 10,    //分页条的长度
                 perPageOptions: [7, 14, 21],    //当前显示的数据可选数量
                 onChange: function () {
-                    $scope.setPagingFilter();
+                    $scope.setPagingFilter($scope.queryText);
                 },
                 dataCountDisplay: true,         //选择显示当前页显示的数据数量
                 jumpOrNot: true           //是否选择跳转
@@ -661,14 +661,26 @@ angular.module('FWPT')
                 }
             };
             //根据传入的菜单选项标识category获取相应菜单列表数据
-            $scope.setPagingFilter = function () {
-                ElectronicFileService.getList($stateParams.category).then(
-                    function (data) {
-                        $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
-                        //for(var i=0;i<$scope.listData.length;i++){
-                        //    $scope.listData[i].selected = false;
-                        //}
-                    }
-                );
+            $scope.setPagingFilter = function (text) {
+                //查询按钮未点击
+                if(!$scope.queryFlag || text==''){
+                    ElectronicFileService.getList($stateParams.category).then(
+                        function (data) {
+                            $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                        }
+                    );
+                }
+                //查询按钮被点击且查询输入框不为空
+                if($scope.queryFlag && text!=''){
+                    ElectronicFileService.queryPushFiles(text).then(
+                        function (data) {
+                            $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                        })
+                }
+            }
+            //查询按钮点击事件
+            $scope.queryFiles = function () {
+                $scope.queryFlag = true;
+                $scope.setPagingFilter($scope.queryText);
             }
         }])
