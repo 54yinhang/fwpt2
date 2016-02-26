@@ -24,7 +24,7 @@ angular.module('FWPT')
                 if(category=='modifyList'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101',
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -133,6 +133,30 @@ angular.module('FWPT')
                         console.log("连接服务器失败");
                     })
                 return deferred.promise;
+            },
+            getNowFormatDate:function(){
+                var day = new Date();
+                var Year = 0;
+                var Month = 0;
+                var Day = 0;
+                var CurrentDate = "";
+                Year = day.getFullYear();//ie火狐下都可以
+                Month = day.getMonth() + 1;
+                Day = day.getDate();
+                CurrentDate += Year + "-";
+                if (Month >= 10) {
+                    CurrentDate += Month + "-";
+                }
+                else {
+                    CurrentDate += "0" + Month + "-";
+                }
+                if (Day >= 10) {
+                    CurrentDate += Day;
+                }
+                else {
+                    CurrentDate += "0" + Day;
+                }
+                return CurrentDate;
             }
         };
     });

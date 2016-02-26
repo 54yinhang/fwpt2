@@ -326,115 +326,6 @@ angular.module('FWPT')
                 $scope.queryFlag = true;
                 $scope.setPagingFilter($scope.queryText);
             }
-
-
-            //var uploader = WebUploader.create({
-            //    swf: 'Uploader.swf',
-            //    server: 'http://localhost:8080/rap/szcz/dagl/qtDaSbFjSc.do',
-            //    //server:'',
-            //    pick: '#picker',
-            //    //paste: 'document.body',
-            //    accept:{
-            //        title: 'png,jpg,doc,pdf',
-            //        extensions: 'png,jpg,doc,pdf',
-            //        mimeType: '*'
-            //    },
-            //    resize: false,
-            //    duplicate:true
-            //});
-            //// 当有文件被添加进队列的时候
-            //uploader.on( 'fileQueued', function( file ) {
-            //
-            //    $("#list").css('display','block').append('<label class="alert-info docInfo">'+file.name+'</label>');
-            //
-            //});
-            //$scope.upInfo={};
-            ///***************************上传前的表单验证***********************************/
-            //$("#ctlBtn").click(function(){
-            //    console.log(123);
-            //    if(uploader.getFiles().length){
-            //        uploader.upload();
-            //    }else{
-            //        $('#list').css('display','block').html("<p class='alert-danger'>上传文件不能为空</p>").fadeOut(2300,function(){
-            //            $(this).text('');
-            //        });
-            //    }
-            //});
-            ///***************************重新上传失败附件*********************************/
-            //$('#reupload').click(function(){
-            //    $.each(uploader.getFiles('error'),function(i,item){
-            //        uploader.upload(item);
-            //    });
-            //});
-            ///***************************上传前发送的数据***********************************/
-            //$scope.items = [];
-            //uploader.on('uploadBeforeSend',function(block, data){
-            //    var file = block.file;
-            //
-            //    data.fl = 1;
-            //    data.daid = '$scope.daId';//$scope.daId;
-            //    data.wjid = (new Date()).getTime();
-            //    data.name = file.name;
-            //    data.type = file.type;
-            //    data.size = file.size;
-            //    data.status = 1;
-            //});
-            ///***************************上传成功***********************************/
-            //function getNowFormatDate()
-            //{
-            //    var day = new Date();
-            //    var Year = 0;
-            //    var Month = 0;
-            //    var Day = 0;
-            //    var CurrentDate = "";
-            //    Year= day.getFullYear();//ie火狐下都可以
-            //    Month= day.getMonth()+1;
-            //    Day = day.getDate();
-            //    CurrentDate += Year + "-";
-            //    if (Month >= 10 )
-            //    {
-            //        CurrentDate += Month + "-";
-            //    }
-            //    else
-            //    {
-            //        CurrentDate += "0" + Month + "-";
-            //    }
-            //    if (Day >= 10 )
-            //    {
-            //        CurrentDate += Day ;
-            //    }
-            //    else
-            //    {
-            //        CurrentDate += "0" + Day ;
-            //    }
-            //    return CurrentDate;
-            //}
-            //$scope.success = true;
-            //uploader.on( 'uploadSuccess', function( file, res ) {
-            //    console.log($scope.upInfo);
-            //    $scope.items.push({
-            //        docId:$scope.docId,
-            //        cName:'当前登录用户的单位',
-            //        docSize:file.size,
-            //        upTime:2000,
-            //        upPerson:'当前登录用户'
-            //    });
-            //    $scope.$apply();
-            //    $scope.success = $scope.success && res;
-            //    //console.log($scope.items.length);
-            //    //console.log($scope.items);
-            //});
-            ///*************************上传结束***************************************/
-            //uploader.on('uploadFinished',function(){
-            //    console.log('上传结束');
-            //    if(uploader.getFiles('error')==[]){
-            //        $('#reupload').css('display','block');
-            //    }else{
-            //        $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
-            //            $(this).text('');
-            //        });
-            //    }
-            //});
         }
     ])
     .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
@@ -469,26 +360,26 @@ angular.module('FWPT')
                 };
                 ElectronicFileService.sendAddFile($scope.addFile.ysdwmc, $scope.addFile.ssny, $scope.addFile.zflh, $scope.addFile.ms).then(
                     function (data) {
-                        if (data.success) {
-                            $scope.btn.switch = false;
-                            $scope.btn.id = data.successMsg;
-                        } else {
-                            $scope.btn.switch = true;
-                        }
+                        //if (data.success) {
+                        //    $scope.btn.switch = false;
+                        //    $scope.btn.id = data.successMsg;
+                        //} else {
+                        //    $scope.btn.switch = true;
+                        //}
                     }
                 );
             }
             /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({
-                swf: 'Uploader.swf',
-                server: 'http://localhost:8080/rap/szcz/dagl/qtDaSbFjSc.do',//?id=123&fl=1
+                swf: '../scripts/controllers/Uploader.swf',
+                server: 'http://localhost:8080/rap/szcz/dagl/qtDaSbFjSc.do',
                 //server:'',
                 pick: '#picker',
-                formData: {
-                    daid: 123,
-                    fl: 1
+                formData:{
+                  daid:123,
+                    fl : 1
                 },
-                accept: {
+                accept:{
                     title: 'png,jpg,doc,pdf',
                     extensions: 'png,jpg,doc,pdf,docx',
                     mimeType: '*'
@@ -505,6 +396,7 @@ angular.module('FWPT')
             $scope.upInfo = {};
             /***************************上传前的表单验证***********************************/
             $("#ctlBtn").click(function () {
+                console.log(ElectronicFileService.getNowFormatDate());
                 if (uploader.getFiles().length) {
                     uploader.upload();
                 } else {
@@ -535,8 +427,8 @@ angular.module('FWPT')
                     })
             });
             /***************************重新上传失败附件*********************************/
-            $('#reupload').click(function () {
-                $.each(uploader.getFiles('error'), function (i, item) {
+            $('#reupload').click(function(){
+                angular.forEach(uploader.getFiles('error'),function(item,i){
                     uploader.upload(item);
                 });
             });
@@ -558,31 +450,6 @@ angular.module('FWPT')
             });
             /***************************上传成功***********************************/
 
-            function getNowFormatDate() {
-                var day = new Date();
-                var Year = 0;
-                var Month = 0;
-                var Day = 0;
-                var CurrentDate = "";
-                Year = day.getFullYear();//ie火狐下都可以
-                Month = day.getMonth() + 1;
-                Day = day.getDate();
-                CurrentDate += Year + "-";
-                if (Month >= 10) {
-                    CurrentDate += Month + "-";
-                }
-                else {
-                    CurrentDate += "0" + Month + "-";
-                }
-                if (Day >= 10) {
-                    CurrentDate += Day;
-                }
-                else {
-                    CurrentDate += "0" + Day;
-                }
-                return CurrentDate;
-            }
-
             $scope.success = true;
             uploader.on('uploadSuccess', function (file, res) {
                 console.log(res);
@@ -593,7 +460,7 @@ angular.module('FWPT')
                     cName: '当前登录用户的单位',
                     docName: file.name,
                     docSize: file.size,
-                    upTime: getNowFormatDate(),
+                    upTime: ElectronicFileService.getNowFormatDate(),
                     upPerson: '当前登录用户'
                 });
                 $scope.$apply();
@@ -602,11 +469,14 @@ angular.module('FWPT')
                 //console.log($scope.items);
             });
             /*************************上传结束***************************************/
-            uploader.on('uploadFinished', function () {
-                if (uploader.getFiles('error') == [] && (!$scope.sucess)) {
-                    $('#reupload').css('display', 'block');
-                } else {
-                    $("#list").css('display', 'block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300, function () {
+            uploader.on('uploadFinished',function(){
+                if(!$scope.sucess){
+                    $('#reupload').css('display','block');
+                    $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
+                        $(this).text('');
+                    });
+                }else{
+                    $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
                         $(this).text('');
                     });
                 }
