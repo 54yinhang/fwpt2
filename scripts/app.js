@@ -11,8 +11,6 @@ angular.module('FWPT', [
             url: '/home',
             //templateUrl: 'portal/anonymous.html'
             templateUrl:function($rootScope){
-                $(".active").removeClass("active");
-                $("#index").addClass("active");
                 if(window.sessionStorage.getItem("islogin")=="true"){//根据不同的参数跳转不同的界面
 
 
@@ -72,29 +70,18 @@ angular.module('FWPT', [
         })
         .state('fillReport',{
             url: '/fillReport',
-            templateUrl: function(){
-                $(".active").removeClass("active");
-                $("#bbtb").addClass("active");
-                return 'report/list.html';
-            },
-
+            templateUrl:'report/list.html',
             controller: 'FillReportController'
         })
         .state('report',{
             url: '/report',
-            templateUrl: function(){
-                $(".active").removeClass("active");
-                $("#bbcq").addClass("active");
-                return  'portal/anonymous.html';
-            }
+            templateUrl:'portal/anonymous.html'
+
         })
         .state('about',{
             url: '/about',
-             templateUrl: function(){
-            $(".active").removeClass("active");
-            $("#aboutme").addClass("active");
-            return  'portal/anonymous.html';
-        }
+             templateUrl:'portal/anonymous.html'
+
         })
 
 
@@ -104,11 +91,7 @@ angular.module('FWPT', [
             url:'/electronic:category',
             views: {
                 '': {
-                    templateUrl: function(){
-                        $(".active").removeClass("active");
-                        $("#dzdd").addClass("active");
-                        return  'electronicFile/menu.html';
-                    },
+                    templateUrl:'electronicFile/menu.html',
                     controller:'ElectronicFileMenuController'
                 },
                 'list@electronic':{
@@ -226,15 +209,15 @@ angular.module('FWPT', [
     //全局可访问路由
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-    $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
-            if(toState.name=='home'){
-                return;}// 如果是进入登录界面则允许
-            // 如果用户不存在
-            if(window.sessionStorage.getItem("islogin")!="true"){
-                event.preventDefault();// 取消默认跳转行为
-                $state.go("home",{from:fromState.name,w:'notLogin'});//跳转到登录界面
-            }
-        });
+    //$rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+    //        if(toState.name=='home'){
+    //            return;}// 如果是进入登录界面则允许
+    //        // 如果用户不存在
+    //        if(window.sessionStorage.getItem("islogin")!="true"){
+    //            event.preventDefault();// 取消默认跳转行为
+    //            $state.go("home",{from:fromState.name,w:'notLogin'});//跳转到登录界面
+    //        }
+    //    });
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
         if (phase === '$apply' || phase === '$digest') {

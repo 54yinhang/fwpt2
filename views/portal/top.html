@@ -9,27 +9,27 @@
             <div class="col-xs-7 col-md-7">
                 <ul class="nav nav-pills">
                     <li>
-                        <a id="index" ui-sref="home">
+                        <a  ui-sref="home" class="{{$state.current.name=='home'&&'active'||''}}">
                             首 页
                         </a>
                     </li>
                     <li>
-                        <a id="dzdd" ui-sref="electronic({category:'allList'})">
+                        <a  ui-sref="electronic({category:'allList'})" class="{{$state.current.name=='electronic'&&'active'||''}}">
                             电子档案
                         </a>
                     </li>
                     <li>
-                        <a id="bbtb" ui-sref="fillReport">
+                        <a ui-sref="fillReport" class="{{$state.current.name=='fillReport'&&'active'||''}}">
                             报表填报
                         </a>
                     </li>
                     <li>
-                        <a id="bbcq" ui-sref="report">
+                        <a ui-sref="report" class="{{$state.current.name=='report'&&'active'||''}}">
                             报表查询
                         </a>
                     </li>
                     <li>
-                        <a id="aboutme" ui-sref="about">
+                        <a  ui-sref="about" class="{{$state.current.name=='about'&&'active'||''}}">
                             关于我们
                         </a>
                     </li>
