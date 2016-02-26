@@ -209,15 +209,15 @@ angular.module('FWPT', [
     //全局可访问路由
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-    //$rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
-    //        if(toState.name=='home'){
-    //            return;}// 如果是进入登录界面则允许
-    //        // 如果用户不存在
-    //        if(window.sessionStorage.getItem("islogin")!="true"){
-    //            event.preventDefault();// 取消默认跳转行为
-    //            $state.go("home",{from:fromState.name,w:'notLogin'});//跳转到登录界面
-    //        }
-    //    });
+    $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+            if(toState.name=='home'){
+                return;}// 如果是进入登录界面则允许
+            // 如果用户不存在
+            if(window.sessionStorage.getItem("islogin")!="true"){
+                event.preventDefault();// 取消默认跳转行为
+                $state.go("home",{from:fromState.name,w:'notLogin'});//跳转到登录界面
+            }
+        });
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
         if (phase === '$apply' || phase === '$digest') {

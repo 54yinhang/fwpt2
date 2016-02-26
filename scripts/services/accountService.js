@@ -25,12 +25,11 @@ angular.module('FWPT')
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
+                        data=eval("(" + data + ")");//返回我的是string？？not object！
                         window.sessionStorage.setItem("islogin", "true");
-                        //window.sessionStorage.setItem("dwmc", data.result.branchDeptName);
-                        //window.sessionStorage.setItem("fullname",data.result.fullname);
-                        //window.sessionStorage.setItem("userName",data.result.userName);
-                        console.log(data);
-                        console.log(data.result);
+                        window.sessionStorage.setItem("dwmc", data.result.branchDeptName);
+                        window.sessionStorage.setItem("fullname",data.result.fullName);
+                        window.sessionStorage.setItem("userName",data.result.userName);
                         //branchDeptName 单位名称
                         //fullname 用户姓名
                         //userName 用户名
