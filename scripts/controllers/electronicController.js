@@ -129,14 +129,19 @@ angular.module('FWPT')
     .controller('ElectronicFileMenuController', ['$scope', '$state', '$stateParams',
         function ($scope, $state, $stateParams) {
             $scope.toggle = true;
-            $scope.ulToggle = false;
             $scope.tag = function () {
                 if ($scope.toggle) {
                     return $scope.toggle = false;
-                    $scope.ulToggle = true;
                 } else {
                     return $scope.toggle = true;
-                    $scope.ulToggle = false;
+                }
+            }
+            $scope.toggle1 = true;
+            $scope.tag1 = function () {
+                if ($scope.toggle1) {
+                    return $scope.toggle1 = false;
+                } else {
+                    return $scope.toggle1 = true;
                 }
             }
         }])
