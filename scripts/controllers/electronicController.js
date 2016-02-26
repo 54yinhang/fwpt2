@@ -402,7 +402,7 @@ angular.module('FWPT')
             $scope.upInfo = {};
             /***************************上传前的表单验证***********************************/
             $("#ctlBtn").click(function () {
-                console.log(ElectronicFileService.getNowFormatDate());
+                //console.log(ElectronicFileService.getNowFormatDate());
                 if (uploader.getFiles().length) {
                     uploader.upload();
                 } else {
@@ -476,7 +476,7 @@ angular.module('FWPT')
             });
             /*************************上传结束***************************************/
             uploader.on('uploadFinished',function(){
-                if(!$scope.sucess){
+                if(!$scope.success){
                     $('#reupload').css('display','block');
                     $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
                         $(this).text('');
