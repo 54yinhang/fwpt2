@@ -11,9 +11,9 @@
     <form class="navbar-form" action="">
         <div class="form-group has-feedback">
             <label class="sr-only" for="search">搜索</label>
-            <input class="form-control" id="search" type="text" placeholder="请输入关键字查询"/>
+            <input class="form-control" id="search" type="text" placeholder="请输入关键字查询" ng-model="queryText"/>
             <span></span>
-            <button class="btn btn-info">查询</button>
+            <button class="btn btn-info" ng-click="queryFiles(queryText)">查询</button>
         </div>
     </form>
     <table class="table">
