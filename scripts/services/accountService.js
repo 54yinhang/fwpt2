@@ -26,7 +26,11 @@ angular.module('FWPT')
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
                         window.sessionStorage.setItem("islogin", "true");
+                        //window.sessionStorage.setItem("dwmc", data.result.branchDeptName);
+                        //window.sessionStorage.setItem("fullname",data.result.fullname);
+                        //window.sessionStorage.setItem("userName",data.result.userName);
                         console.log(data);
+                        console.log(data.result);
                         //branchDeptName 单位名称
                         //fullname 用户姓名
                         //userName 用户名
