@@ -1449,3 +1449,64 @@ li {
     color: #fff;
 }
 /*报表查询*/
+
+/*上传组件*/
+
+.webuploader-container {
+    position: relative;
+}
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: #00b7ee;
+    padding: 0px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden;
+    line-height: 34px;
+}
+.webuploader-pick-hover {
+    background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+    opacity: 0.6;
+    pointer-events:none;
+}
+/***********************************/
+#picker{
+    display: inline-block;
+}
+div.btns {
+    width: 636px;
+    margin-top: 5px;
+}
+.btns .btn{
+    vertical-align: top;
+}
+#reupload{
+    float: right;
+    display: none;
+}
+#list .item{
+    border:1px solid red;
+}
+#list .docInfo{
+    border: 1px solid #449d44;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+#list p{
+    border: 1px solid #ac2925;
+    border-radius: 3px;
+}
+.add-form .table a{
+    cursor: pointer;
+}

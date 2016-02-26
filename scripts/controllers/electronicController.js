@@ -31,7 +31,7 @@ angular.module('FWPT')
             //根据传入的菜单选项标识category获取相应菜单列表数据
             $scope.setPagingFilter = function (text) {
                 //查询按钮未点击
-                if(!$scope.queryFlag || text==''){
+                if(!text){
                     ElectronicFileService.getList($stateParams.category).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
@@ -42,7 +42,7 @@ angular.module('FWPT')
                     );
                 }
                 //查询按钮被点击且查询输入框不为空
-                if($scope.queryFlag && text!=''){
+                if($scope.queryFlag){
                     ElectronicFileService.queryFiles(text).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
@@ -172,15 +172,18 @@ angular.module('FWPT')
             //根据传入的菜单选项标识category获取相应菜单列表数据
             $scope.setPagingFilter = function (text) {
                 //查询按钮未点击
-                if(!$scope.queryFlag || text==''){
+                if(!text){
                     ElectronicFileService.getList($stateParams.category).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                            //for(var i=0;i<$scope.listData.length;i++){
+                            //    $scope.listData[i].selected = false;
+                            //}
                         }
                     );
                 }
                 //查询按钮被点击且查询输入框不为空
-                if($scope.queryFlag && text!=''){
+                if($scope.queryFlag){
                     ElectronicFileService.queryPushFiles(text).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
@@ -306,15 +309,18 @@ angular.module('FWPT')
             };
             $scope.setPagingFilter = function (text) {
                 //查询按钮未点击
-                if(!$scope.queryFlag || text==''){
+                if(!text){
                     ElectronicFileService.getList($stateParams.category).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                            //for(var i=0;i<$scope.listData.length;i++){
+                            //    $scope.listData[i].selected = false;
+                            //}
                         }
                     );
                 }
                 //查询按钮被点击且查询输入框不为空
-                if($scope.queryFlag && text!=''){
+                if($scope.queryFlag){
                     ElectronicFileService.queryPushFiles(text).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
@@ -668,16 +674,19 @@ angular.module('FWPT')
             //根据传入的菜单选项标识category获取相应菜单列表数据
             $scope.setPagingFilter = function (text) {
                 //查询按钮未点击
-                if(!$scope.queryFlag || text==''){
+                if(!text){
                     ElectronicFileService.getList($stateParams.category).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+                            //for(var i=0;i<$scope.listData.length;i++){
+                            //    $scope.listData[i].selected = false;
+                            //}
                         }
                     );
                 }
                 //查询按钮被点击且查询输入框不为空
-                if($scope.queryFlag && text!=''){
-                    ElectronicFileService.queryPushFiles(text).then(
+                if($scope.queryFlag){
+                    ElectronicFileService.queryFiles(text).then(
                         function (data) {
                             $scope.setPagingData(data.result, $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
                         })
