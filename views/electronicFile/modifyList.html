@@ -11,9 +11,9 @@
     <form class="navbar-form" action="">
         <div class="form-group has-feedback">
             <label class="sr-only" for="search">搜索</label>
-            <input class="form-control" id="search" type="text" placeholder="请输入关键字查询"/>
+            <input class="form-control" id="search" type="text" placeholder="请输入关键字查询" ng-model="queryText"/>
             <span></span>
-            <button class="btn btn-info">查询</button>
+            <button class="btn btn-info" ng-click="queryFiles(queryText)">查询</button>
         </div>
     </form>
     <table class="table">
@@ -33,7 +33,12 @@
             <td><span ng-bind="data.ysdwmc"></span></td>
             <td><span ng-bind="data.ssny"></span></td>
             <td><span ng-bind="data.zflh"></span></td>
-            <td><span ng-bind="data.spzt"></span></td>
+            <td>
+                <span  ng-switch="data.spzt">
+                    <span ng-switch-when="0">未上报</span>
+                    <span ng-switch-when="1">已上报</span>
+                </span>
+            </td>
             <td><span ng-bind="data.spr"></span></td>
             <td><span ng-bind="data.spsj"></span></td>
             <td><a ui-sref="electronic.modifyFile({id:data.id})">修改</a></td>

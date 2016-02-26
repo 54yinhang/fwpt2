@@ -11,7 +11,7 @@ angular.module("FWPT")
             templateUrl: 'account/loginForm.html',
             link: function(scope, ele, attrs) {
                 scope.recode=function(){
-
+                    $("#codeimg").attr("src","http://localhost:8080/rap/fwpt/msgService/code.do"+Math.random());
                 };
                 scope.submitLogin = function() {
                     scope.onLogin({user: scope.loginUser});
@@ -19,6 +19,22 @@ angular.module("FWPT")
             }
         }
     })
+  //
+  .directive('confirmPush',function(){
+      return {
+          scope:{
+              confirm:'&'
+          },
+          templateUrl:'electronicFile/confirm.html',
+          link:function(scope){
+              scope.confirmPush = function(){
+                  scope.confirm();
+              }
+              scope.cancle = function(){
+              }
+          }
+      }
+  })
     //分页部分
     .directive('conf',[function(){
         return {

@@ -791,6 +791,7 @@ hr{
     padding-left:12px;
     border: 1px solid #e1e1e1;
     float: right;
+    resize:none;
 }
 .add-form > .setting .choseFile {
     margin-left: 10px;
@@ -866,6 +867,19 @@ hr{
     border: 1px solid #ccc;
     padding-top: 10px;
     float: right;
+}
+.alertWindow{
+    height: 168px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.alertWindow>.alertHeader{
+    margin-top:30px;
+    margin-left: 235px;
+}
+.alertWindow>.alertConfirm{
+    margin-left: 400px;
+    margin-top:50px;
 }
 
 /*知识库样式*/
@@ -943,7 +957,7 @@ hr{
     display: block;
 }
 /*知识库样式*/
-.messageBox,{
+.messageBox{
     background-color: #fff;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -953,6 +967,16 @@ hr{
     border: 1px solid #ccc;
     padding-top: 10px;
     float: right;
+}
+.minmessagebox>h2{
+    text-align: center;
+    font-size: 16px;
+    margin:15px auto;
+}
+.minmessagebox>p{
+   margin-top: 15px;
+    margin:15px auto;
+    text-indent: 2em;
 }
 /*消息类窗口预留*/
 .detail {

@@ -1,3 +1,4 @@
+<!--不要使用名字-->
 <div class="flrrightinfo">
     <!-- 这个是导航 需要跟踪变换，能链接-->
     <h5>我的一览表/ <span></span></h5>
@@ -11,7 +12,6 @@
                 <td>名称</td>
                 <td>状态</td>
                 <td>发起时间</td>
-                <td>到期时间</td>
                 <td>操作</td>
             </tr>
             <tr ng-repeat="item in taskInfos | filter:myFilter ">
@@ -20,7 +20,6 @@
                 <td>{{item.mc}}</td>
                 <td>{{item.zt}}</td>
                 <td>{{item.fqsj}}</td>
-                <td>{{item.jssj}}</td>
 
                 <td><a ui-sref="account.todoTask.list.detail({id:item.id})">查看</a></td>
             </tr>

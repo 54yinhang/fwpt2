@@ -3,7 +3,8 @@
  */
 
 angular.module('FWPT')
-    .factory('AccountService', function($http, $state, $stateParams,$location) {
+    .factory('AccountService', function($http, $state, $stateParams,$location,$rootScope) {
+        window.sessionStorage.setItem("islogin", "false");
         $http.get('http://localhost:8080/rap/fwpt/msgService/code.do' ).success(function(data){
             //请求验证码
             //可以删除
@@ -20,11 +21,12 @@ angular.module('FWPT')
             sendLogin: function(user) {
                 $.ajax({
                     url: 'http://localhost:8080/rap/fwpt/msgService/fwptLogin.do',
-                    type: 'GET',
+                    type: 'POST',
                     // dataType: 'json',
                     data: {'j_username':user.userName, 'j_password':user.passowrd,'j_verificationcode':user.code},
                     success:function(data){
-
+                        window.sessionStorage.setItem("islogin", "true");
+                        console.log($rootScope.usernumber);
                         $state.go('account',$stateParams);
                         $(".reLogin").css("display","none");
                         $(".reloginClose").css("display","none");
@@ -140,6 +142,7 @@ angular.module('FWPT')
                     //    return {};
                     ////break;
                     case "whddp":// 我的电子凭证（财政未核对）
+                        $("table tr td:eq(5)").html("");
                         var TodoTasklistrjson=[];
                         $http({
                             method:'GET',
@@ -153,7 +156,6 @@ angular.module('FWPT')
                                 k.mc=TodoTasklistjson.result[i].mc;
                                 k.zt="财政未核对";
                                 k.fqsj=TodoTasklistjson.result[i].creationDate;
-                                k.jssj=TodoTasklistjson.result[i].nowTimestamp;
                                 k.id=TodoTasklistjson.result[i].id;
                                 TodoTasklistrjson.push(k);
                             }
@@ -236,17 +238,30 @@ angular.module('FWPT')
                 var TodoTaskListjson={};
                 $http({
                     method:'GET',
-                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do',
-                    data:{id:$stateParams.id}
+                    url:'http://localhost:8080/rap/szcz/xxgl/xxts/queryXxtsDetail.do?id='+$stateParams.id
                 }).success(function(data){
                     TodoTaskListjson.caption=data.result.bt;
-                    TodoTaskListjson.text=data.result.nr;
+                    $(".minmessagebox>p").append(data.result.nr);
                 }).error(function(data,status,headers,config) {
                     // 当响应以错误状态返回时调用
                     console.log("获取消息详情失败");
                 });
                 return TodoTaskListjson;
 
-            }
-        }
+            },
+            getTodoListdd:function(){
+                var TodoTaskListddjson={};
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/dagl/daDetail.do?id='+$stateParams.id
+                }).success(function(data){
+                    TodoTaskListddjson.ysdwmc=data.result.ysdwmc;
+                    TodoTaskListddjson.ssny=data.result.ssny;
+                    TodoTaskListddjson.zflh=data.result.zflh;
+                }).error(function(data,status,headers,config) {
+                    // 当响应以错误状态返回时调用
+                    console.log("获取凭证详情失败");
+                });
+                return TodoTaskListddjson;
+        }}
     });

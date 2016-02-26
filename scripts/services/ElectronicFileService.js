@@ -3,7 +3,6 @@
  */
 angular.module('FWPT')
     .factory('ElectronicFileService', function ($http, $state, $stateParams,$q) {
-
         return {
             getList: function (category) {
                 var deferred = $q.defer();
@@ -38,7 +37,7 @@ angular.module('FWPT')
                 if(category=='unpushList'){
                     $http({
                         method:'GET',
-                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101',
+                        url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition&spzt=101'
                     })
                         .success(function (data) {
                             deferred.resolve(data);
@@ -49,11 +48,11 @@ angular.module('FWPT')
                     return deferred.promise;
                 }
             },
-            deleteFile:function(id,spzt){
+            deleteFile:function(id){
                 $http({
                     method:'POST',
                     url:'http://localhost:8080/rap/szcz/dagl/deleteDa.do',
-                    data:{id:id,spzt:spzt}
+                    data:{id:id}
                 })
                     .success(function(data){
                         console.log(data.successMsg);
@@ -63,12 +62,12 @@ angular.module('FWPT')
                     })
             },
             pushFile:function(id){
+                console.log(id);
                 $http({
-                    method:'POST',
+                    method:'post',
                     url:'http://localhost:8080/rap/szcz/dagl/fqsp.do',
                     data:{id:id}
-                })
-                    .success(function(data){
+                }) .success(function(data){
                         console.log(data.successMsg);
                     })
                     .error(function(){
@@ -109,10 +108,23 @@ angular.module('FWPT')
             },
             queryFiles: function (condition) {
                 var deferred = $q.defer();
-                console.log(condition);
                 $http({
                     method:'GET',
                     url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=100'
+                })
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function () {
+                        console.log("连接服务器失败");
+                    })
+                return deferred.promise;
+            },
+            queryPushFiles: function (condition) {
+                var deferred = $q.defer();
+                $http({
+                    method:'GET',
+                    url:'http://localhost:8080/rap/szcz/dagl/queryDa.do?condition='+condition+'&spzt=101'
                 })
                     .success(function (data) {
                         deferred.resolve(data);
