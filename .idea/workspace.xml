@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee2f6768-2f38-4bdd-920e-eb815a9d35cb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/portal/account.html" afterPath="$PROJECT_DIR$/views/portal/account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/portal/anonymous.html" afterPath="$PROJECT_DIR$/views/portal/anonymous.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/portal/top.html" afterPath="$PROJECT_DIR$/views/portal/top.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fwpt.iws" />
@@ -520,7 +523,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456468428470</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="IE8兼容问题">
+      <created>1456469160268</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1456469160268</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
