@@ -13,7 +13,7 @@ a:hover{
     text-decoration: none;
 }
 .container{
-    min-width: 1170px !important;
+    width: 1170px !important;
     margin: 0 auto;
 }
 img.normal{

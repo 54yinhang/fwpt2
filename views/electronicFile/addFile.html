@@ -12,6 +12,7 @@
         <div class="setting">
             <div class="form-group">
                 <label>单位名称：</label>
+
                 <div class="dropdown select">
                     <input type="text" class="form-control companyName" ng-model="addFile.ysdwmc"/>
                 </div>
@@ -37,6 +38,7 @@
                 <div id="uploader">
                     <div class="btns">
                         <label>上传附件：</label>
+
                         <div id="picker">选择附件</div>
                         <button id="ctlBtn" class="btn btn-default">开始上传</button>
                         <button id="reupload" class="btn btn-danger">重新上传出错附件</button>
@@ -67,11 +69,13 @@
 
             </div>
         </div>
-            <div class="state">
+        <div class="state">
             <button id="cBtn" class="btn btn-default">查看</button>
             <button type="button" class="btn save" ng-click="saveAddFile()" model="btn">保存</button>
             <button type="button" class="btn sar">上报</button>
-            <button type="button" class="btn back">返回</button>
+            <a ui-sref="electronic">
+                <button type="button" class="btn back">返回</button>
+            </a>
         </div>
     </form>
 </div>

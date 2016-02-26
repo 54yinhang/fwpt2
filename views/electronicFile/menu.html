@@ -5,7 +5,12 @@
                 <span>电子档案</span>
                 <ul>
                     <li>
-                        <span>电子凭证<i ng-click="tag()" ng-class="{on:toggle}" ng-model="toggle"></i></span>
+                        <span>
+                            <a ui-sref="electronic({category:'allList'})">
+                                电子凭证
+                            </a>
+                            <i ng-click="tag()" ng-class="{on:toggle}" ng-model="toggle"></i>
+                        </span>
                         <ul class="manage" ng-class="{manageon:!toggle}">
                             <li>
                                 <i class="add"></i>
@@ -26,15 +31,31 @@
                         </ul>
                     </li>
                     <li>
-                        <span>其他档案<i></i></span>
-
+                        <span>
+                            <a ui-sref="electronic({category:'allList'})">
+                                其他档案
+                            </a>
+                            <i ng-click="tag1()" ng-class="{on:toggle1}" ng-model="toggle1"></i>
+                        </span>
+                        <ul class="manage" ng-class="{manageon:!toggle1}">
+                            <li>
+                                <i class="add"></i>
+                                <a ui-sref="electronic.addFile">新增档案</a>
+                            </li>
+                            <li>
+                                <i class="revise"></i>
+                                <a ui-sref="electronic.modifyList({category:'modifyList'})">修改档案</a>
+                            </li>
+                            <li>
+                                <i class="check"></i>
+                                <a ui-sref="electronic.allList({category:'allList'})">查看档案</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div ui-view="list">
             </div>
-
-
 
 
         </div>
