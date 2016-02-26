@@ -1510,3 +1510,6 @@ div.btns {
 .add-form .table a{
     cursor: pointer;
 }
+.TodoTaskselect{
+    background-color: #f2eded;
+}

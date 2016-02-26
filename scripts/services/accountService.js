@@ -111,6 +111,8 @@ angular.module('FWPT')
                                     console.log("login failed");
                                 });
                         $(".flrrightinfo>h5>span").html("我的未读消息");
+                        $(".wdxx>a").removeClass("TodoTaskselect");
+                        $(".wdxx>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                     //break;
                     //case "wtbb"://我未完成的报表填报任务
@@ -170,6 +172,8 @@ angular.module('FWPT')
                         });
 
                         $(".flrrightinfo>h5>span").html("我的电子凭证（财政未核对）");
+                        $(".whddp>a").removeClass("TodoTaskselect");
+                        $(".whddp>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                     //break;
                     case "thddp"://我的电子凭证（被退回）
@@ -196,6 +200,8 @@ angular.module('FWPT')
                         });
 
                         $(".flrrightinfo>h5>span").html("我的电子凭证（被退回）");
+                        $(".thddp>a").removeClass("TodoTaskselect");
+                        $(".thddp>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                         //break;
                     //break;
@@ -229,6 +235,8 @@ angular.module('FWPT')
                         });
 
                         $(".flrrightinfo>h5>span").html("我的电子凭证（已核对未查看）");
+                        $(".hdwcdp>a").removeClass("TodoTaskselect");
+                        $(".hdwcdp>a").addClass("TodoTaskselect");
                         return TodoTasklistrjson;
                     //break;
                 }
