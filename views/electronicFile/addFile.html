@@ -43,29 +43,30 @@
                         <button id="ctlBtn" class="btn btn-default">开始上传</button>
                         <button id="reupload" class="btn btn-danger">重新上传出错附件</button>
                     </div>
-                    <div id="list" class="uploader-list">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>单位名称</th>
-                                <th>附件大小</th>
-                                <th>上传日期</th>
-                                <th>上传人</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="item in items track by $index">
-                                <td>{{item.cName}}</td>
-                                <td>{{item.docSize}}</td>
-                                <td>{{item.upTime}}</td>
-                                <td>{{item.upPerson}}</td>
-                                <td><a ng-click="delDoc(item.docId)">删除</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="list" class="uploader-list"></div>
                 </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>单位名称</th>
+                        <th>附件大小</th>
+                        <th>上传日期</th>
+                        <th>上传人</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in items track by $index">
+                        <td>{{item.cName}}</td>
+                        <td>{{item.docSize}}</td>
+                        <td>{{item.upTime}}</td>
+                        <td>{{item.upPerson}}</td>
+                        <td><a ng-click="delDoc(item.docId)">删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
         <div class="state">

@@ -1,5 +1,5 @@
 angular.module('FWPT', [
-    'ui.bootstrap','ui.utils','ui.router','ngAnimate'
+    'ui.utils','ui.router','ngAnimate'
 ])
 
 .config(['$stateProvider', '$urlRouterProvider',function ($stateProvider,   $urlRouterProvider) {

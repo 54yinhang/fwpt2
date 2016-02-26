@@ -1,10 +1,10 @@
 <form action="" class="detail">
                     <div class="setting">
                         <div class="form-group has-feedback">
-                            <label>单位名称：{{todotaskdd.ysdwmc}}</label>
+                            <label>单位名称：</label>
 
                             <div class="dropdown select">
-                                <input type="text" class="form-control companyName" data-toggle="dropdown"/>
+                                <input type="text" ng-model="{{todotaskdd.ysdwmc}}" class="form-control companyName" data-toggle="dropdown"/>
                                 <span class="form-control-feedback tip">
                                 <i class="top"></i>
                                 <i class="down"></i>
@@ -24,16 +24,16 @@
                         </div>
 
                         <div class="form-group  has-feedback">
-                            <label>年度：{{todotaskdd.ssny}}</label>
-                            <input type="text" class="form-control year"/>
+                            <label>年度</label>
+                            <input type="text" ng-model="：{{todotaskdd.ssny}}" class="form-control year"/>
                             <span class="form-control-feedback tip">
                                 <i class="top"></i>
                                 <i class="down"></i>
                             </span>
                         </div>
                         <div class="form-group">
-                            <label for="num">支付令号：{{todotaskdd.zflh}}</label>
-                            <input type="text" class="form-control paynum" id="num"/>
+                            <label for="num">支付令号：</label>
+                            <input type="text" ng-model="{{todotaskdd.zflh}}" class="form-control paynum" id="num"/>
                         </div>
                     </div>
                     <table class="table">
