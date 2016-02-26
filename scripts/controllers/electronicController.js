@@ -378,7 +378,7 @@ angular.module('FWPT')
             /***************************上传组件初始化***********************************/
             var uploader = WebUploader.create({
                 swf: '../scripts/controllers/Uploader.swf',
-                server: 'http://localhost:8080/rap/szcz/dagl/qtDaSbFjSc.do',
+                server: '/rap/szcz/dagl/qtDaSbFjSc.do',
                 //server:'',
                 pick: '#picker',
                 formData:{
@@ -402,7 +402,7 @@ angular.module('FWPT')
             $scope.upInfo = {};
             /***************************上传前的表单验证***********************************/
             $("#ctlBtn").click(function () {
-                console.log(ElectronicFileService.getNowFormatDate());
+                //console.log(ElectronicFileService.getNowFormatDate());
                 if (uploader.getFiles().length) {
                     uploader.upload();
                 } else {
@@ -414,7 +414,7 @@ angular.module('FWPT')
 
             $("#cBtn").click(function () {
                 console.log('查看');
-                $http.get('http://localhost:8080/rap/szcz/dagl/queryAttachment.do?daid=123')
+                $http.get('/rap/szcz/dagl/queryAttachment.do?daid=123')
                     .success(function (data, status) {
                         angular.forEach(data.result, function (value, key) {
                             $scope.items.push({
@@ -476,7 +476,7 @@ angular.module('FWPT')
             });
             /*************************上传结束***************************************/
             uploader.on('uploadFinished',function(){
-                if(!$scope.sucess){
+                if(!$scope.success){
                     $('#reupload').css('display','block');
                     $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
                         $(this).text('');
@@ -489,7 +489,7 @@ angular.module('FWPT')
             });
             /***************************删除附件***********************************/
             $scope.delDoc = function (doc) {
-                $http.post('http://localhost:8080/rap/szcz/xxgl/xxts/deleteAttachment.do', {
+                $http.post('/rap/szcz/xxgl/xxts/deleteAttachment.do', {
                     id: doc,
                     creatorId: 1990200032
                 })
