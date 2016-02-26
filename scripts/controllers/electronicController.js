@@ -420,11 +420,11 @@ angular.module('FWPT')
                 console.log(res.successMsg);
                 $scope.items.push({
                     docId: res.successMsg,
-                    cName: '当前登录用户的单位',
+                    cName: window.sessionStorage.getItem("dwmc"),
                     docName: file.name,
                     docSize: file.size,
                     upTime: ElectronicFileService.getNowFormatDate(),
-                    upPerson: '当前登录用户'
+                    upPerson: window.sessionStorage.getItem("fullname")
                 });
                 $scope.$apply();
                 $scope.success = $scope.success && res.success;
