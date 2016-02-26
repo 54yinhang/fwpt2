@@ -334,13 +334,34 @@ angular.module('FWPT')
             }
         }
     ])
-    .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService',
-        function ($scope, $state, $stateParams, ElectronicFileService) {
+    .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService','$http',
+        function ($scope, $state, $stateParams, ElectronicFileService, $http) {
             //console.log($stateParams.id);
             //获得单个详细数据
             ElectronicFileService.getOne().then(
                 function (data) {
-                    console.log(data);
+                    //console.log(data);
+                    $scope.oneData = data.result;
+                    //console.log($scope.oneData.id);
+                    $scope.items = [];
+                    //console.log('查看');
+                    $http.get('/rap/szcz/dagl/queryAttachment.do?daid='+$scope.oneData.id)
+                        .success(function (data, status) {
+                            angular.forEach(data.result, function (value, key) {
+                                $scope.items.push({
+                                    docId: value.id,
+                                    cName: value.userDeptName,
+                                    docName: value.label,
+                                    docSize: value.fileSize,
+                                    upTime: value.creationDate,
+                                    upPerson: value.creator
+                                });
+                                $scope.$apply();
+                            })
+                        }).error(function (data) {
+                            console.log(data);
+                            console.log('查看出错！');
+                        })
                 }
             );
             var uploader = WebUploader.create({
@@ -386,7 +407,7 @@ angular.module('FWPT')
                 });
             });
             /***************************上传前发送的数据***********************************/
-            $scope.items = [];
+            //$scope.items = [];
             uploader.on('uploadBeforeSend', function (block, data, header) {
                 header.enctype = "multipart/form-data";
             });
