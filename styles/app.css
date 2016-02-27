@@ -868,16 +868,7 @@ hr{
     padding-top: 10px;
     float: right;
 }
-.alertWindow{
-    height: 168px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
-.alertWindow>.alertHeader{
-    margin-top:30px;
-    margin-left: 235px;
-}
-.alertWindow>.alertConfirm{
+.alertConfirm{
     margin-left: 400px;
     margin-top:50px;
 }

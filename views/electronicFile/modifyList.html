@@ -41,7 +41,9 @@
             </td>
             <td><span ng-bind="data.spr"></span></td>
             <td><span ng-bind="data.spsj"></span></td>
-            <td><a ui-sref="electronic.modifyFile({id:data.id})">修改</a></td>
+            <td><a ui-sref="electronic.modifyFile({id:data.id})">
+                <input type="button" class="btn btn-default"value="编辑">
+            </a></td>
         </tr>
         </tbody>
     </table>

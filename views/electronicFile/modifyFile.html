@@ -7,7 +7,7 @@
             <i></i>
         </li>
         <li>
-            <a ui-sref="electronic.modifyList">修改档案</a>
+            <a ui-sref="electronic.modifyList">编辑档案</a>
             <i></i>
         </li>
         <li>
@@ -20,16 +20,13 @@
                 <label>单位名称：</label>
 
                 <div class="dropdown select">
-                    <input type="text" class="form-control companyName" data-toggle="dropdown"/>
-                    <ul class="dropdown-menu companyLists">
-                        <li ><a href="#"></a></li>
-                    </ul>
+                    <input type="text" class="form-control companyName" ng-model="oneData.ysdwmc"/>
                 </div>
             </div>
 
             <div class="form-group  has-feedback">
                 <label>年度：</label>
-                <input type="text" class="form-control year" value="2016"/>
+                <input type="text" class="form-control year" ng-model="oneData.ssny"/>
                             <span class="form-control-feedback tip">
                                 <i class="top"></i>
                                 <i class="down"></i>
@@ -37,7 +34,11 @@
             </div>
             <div class="form-group">
                 <label for="num">支付令号：</label>
-                <input type="text" class="form-control paynum" id="num" value="请输入支付令号"/>
+                <input type="text" class="form-control paynum" id="num" ng-model="oneData.zflh"/>
+            </div>
+            <div class="intro">
+                <lable>档案说明：</lable>
+                <textarea class="detail" ng-model="oneData.ms"></textarea>
             </div>
             <div class="form-group">
                 <div id="uploader">
@@ -71,14 +72,9 @@
             </tr>
             </tbody>
         </table>
-        <div class="intro">
-            <span>档案说明：</span>
-
-            <p></p>
-        </div>
         <div class="state">
-            <button type="button" class="btn save">保存</button>
-            <button type="button" class="btn sar">保存并上报</button>
+            <button type="button" class="btn save" ng-click="saveModify()">保存</button>
+            <button type="button" class="btn sar" ng-click="saveAndPush()">保存并上报</button>
             <a ui-sref="electronic.modifyList"><button type="button" class="btn back">返回</button></a>
 
 

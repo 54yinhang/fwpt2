@@ -52,7 +52,7 @@ angular.module('FWPT')
             //删除事件
             $scope.deleteFile = function (id, spzt) {
                 if (spzt == 0 || spzt == 9) {
-                    var modalConfirm = $modal.open({
+                    var modalInstance = $modal.open({
                         templateUrl: 'electronicFile/confirmDelete.html',
                         controller: 'DeleteConfirmController',
                         resolve: {
@@ -334,17 +334,48 @@ angular.module('FWPT')
             }
         }
     ])
-    .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService','$http',
-        function ($scope, $state, $stateParams, ElectronicFileService, $http) {
-            //console.log($stateParams.id);
+    .controller('ElectronicFileModifyOneController', ['$scope', '$state', '$modal', '$stateParams', 'ElectronicFileService','$http',
+        function ($scope, $state, $modal, $stateParams, ElectronicFileService, $http) {
+            //保存并上报
+            $scope.saveAndPush = function (){
+                //保存
+                ElectronicFileService.saveModify($scope.oneData.ysdwmc, $scope.oneData.ssny, $scope.oneData.zflh, $scope.oneData.ms, $scope.oneData.id).then(
+                    function(data){
+                        if(data.success){
+                            var modalInstance = $modal.open({
+                                templateUrl: 'electronicFile/confirm.html',
+                                controller: 'PushConfirmController',
+                                resolve: {
+                                    id: function () {
+                                        return $scope.oneData.id;
+                                    }
+                                }
+                            });
+                            modalInstance.result.then(function (text) {
+                                console.log(text);
+                            })
+                        }
+                    }
+                );
+            }
+            //保存修改文档
+            $scope.saveModify = function () {
+                ElectronicFileService.saveModify($scope.oneData.ysdwmc, $scope.oneData.ssny, $scope.oneData.zflh, $scope.oneData.ms, $scope.oneData.id).then(
+                  function(data){
+                    console.log("保存成功");
+                  }
+                );
+            }
             //获得单个详细数据
-            ElectronicFileService.getOne().then(
+            //console.log(456);
+            ElectronicFileService.getOne($stateParams.id).then(
                 function (data) {
                     //console.log(data);
+                    //console.log(123);
                     $scope.oneData = data.result;
-                    //console.log($scope.oneData.id);
+                    console.log($scope.oneData.id);
                     $scope.items = [];
-                    //console.log('查看');
+                    console.log('查看');
                     $http.get('/rap/szcz/dagl/queryAttachment.do?daid='+$scope.oneData.id)
                         .success(function (data, status) {
                             angular.forEach(data.result, function (value, key) {
@@ -477,7 +508,7 @@ angular.module('FWPT')
     .controller('ElectronicFileShowOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService','$http',
         function ($scope, $state, $stateParams, ElectronicFileService, $http) {
             //获得单个详细数据
-            ElectronicFileService.getOne().then(
+            ElectronicFileService.getOne($stateParams.id).then(
                 function (data) {
                     $scope.oneData = data.result;
                     console.log($scope.oneData.id);
@@ -517,6 +548,9 @@ angular.module('FWPT')
                 };
                 ElectronicFileService.sendAddFile($scope.addFile.ysdwmc, $scope.addFile.ssny, $scope.addFile.zflh, $scope.addFile.ms).then(
                     function (data) {
+                        if (data.success) {
+                            $state.go('electronic.modifyFile', {id: data.result});
+                        }
                         //if (data.success) {
                         //    $scope.btn.switch = false;
                         //    $scope.btn.id = data.successMsg;

@@ -62,7 +62,6 @@ angular.module('FWPT')
                     })
             },
             pushFile:function(id){
-                console.log(id);
                 $http({
                     method:'post',
                     url:'/rap/szcz/dagl/fqsp.do',
@@ -74,13 +73,12 @@ angular.module('FWPT')
                         console.log("上报失败");
                     })
             },
-            getOne:function(){
-                //console.log($stateParams.id);
+            getOne:function(id){
                 var deferred = $q.defer();
                 $http({
                     method:'POST',
                     url:'/rap/szcz/dagl/daDetail.do',
-                    data:{id:$stateParams.id}
+                    data:{id:id}
                 })
                     .success(function(data){
                         deferred.resolve(data);
@@ -96,6 +94,22 @@ angular.module('FWPT')
                     method:'POST',
                     url:'/rap/szcz/dagl/daAdd.do',
                     data:{ysdwmc:ysdwmc,ssny:ssny,zflh:zflh,ms:ms}
+                })
+                    .success(function(data){
+                        alert("保存成功");
+                        deferred.resolve(data);
+                    })
+                    .error(function(data){
+                        alert("连接服务器失败");
+                    })
+                return deferred.promise;
+            },
+            saveModify: function(ysdwmc,ssny,zflh,ms,id) {
+                var deferred = $q.defer();
+                $http({
+                    method:'POST',
+                    url:'/rap/szcz/dagl/daAdd.do',
+                    data:{ysdwmc:ysdwmc,ssny:ssny,zflh:zflh,ms:ms,id:id}
                 })
                     .success(function(data){
                         alert("保存成功");
