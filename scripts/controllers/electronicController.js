@@ -393,117 +393,118 @@ angular.module('FWPT')
                             console.log(data);
                             console.log('查看出错！');
                         })
-                }
-            );
-            var uploader = WebUploader.create({
-                swf: '../scripts/controllers/Uploader.swf',
-                server: '/rap/szcz/dagl/qtDaSbFjSc.do',
-                //server:'',
-                pick: '#picker',
-                formData:{
-                    daid:123,
-                    fl : 1
-                },
-                accept:{
-                    title: 'png,jpg,doc,pdf',
-                    extensions: 'png,jpg,doc,pdf,docx',
-                    mimeType: '*'
-                },
-                resize: false,
-                duplicate: true
-            });
-            // 当有文件被添加进队列的时候
-            uploader.on('fileQueued', function (file) {
-
-                $("#list").css('display', 'block').append('<label class="alert-info docInfo">' + file.name + '</label>');
-
-            });
-            $scope.upInfo = {};
-            /***************************上传前的表单验证***********************************/
-            $("#ctlBtn").click(function () {
-                //console.log(ElectronicFileService.getNowFormatDate());
-                if (uploader.getFiles().length) {
-                    uploader.upload();
-                } else {
-                    $('#list').css('display', 'block').html("<p class='alert-danger'>上传文件不能为空</p>").fadeOut(2300, function () {
-                        $(this).text('');
+                    var uploader = WebUploader.create({
+                        swf: '../scripts/controllers/Uploader.swf',
+                        server: '/rap/szcz/dagl/qtDaSbFjSc.do',
+                        //server:'',
+                        pick: '#picker',
+                        formData:{
+                            daid:$scope.oneData.id,
+                            fl : 1
+                        },
+                        accept:{
+                            title: 'png,jpg,doc,pdf',
+                            extensions: 'png,jpg,doc,pdf,docx',
+                            mimeType: '*'
+                        },
+                        resize: false,
+                        duplicate: true
                     });
-                }
-            });
+                    // 当有文件被添加进队列的时候
+                    uploader.on('fileQueued', function (file) {
 
-            /***************************重新上传失败附件*********************************/
-            $('#reupload').click(function(){
-                angular.forEach(uploader.getFiles('error'),function(item,i){
-                    uploader.upload(item);
-                });
-            });
-            /***************************上传前发送的数据***********************************/
-            //$scope.items = [];
-            uploader.on('uploadBeforeSend', function (block, data, header) {
-                header.enctype = "multipart/form-data";
-            });
-            /***************************上传成功***********************************/
+                        $("#list").css('display', 'block').append('<label class="alert-info docInfo">' + file.name + '</label>');
 
-            $scope.success = true;
-            uploader.on('uploadSuccess', function (file, res) {
-                console.log(res);
-                console.log(res.success);
-                console.log(res.successMsg);
-                $scope.items.push({
-                    docId: res.successMsg,
-                    cName: window.sessionStorage.getItem("dwmc"),
-                    docName: file.name,
-                    docSize: file.size,
-                    upTime: ElectronicFileService.getNowFormatDate(),
-                    upPerson: window.sessionStorage.getItem("fullname")
-                });
-                $scope.$apply();
-                $scope.success = $scope.success && res.success;
-                //console.log($scope.items.length);
-                //console.log($scope.items);
-            });
-            /*************************上传结束***************************************/
-            uploader.on('uploadFinished',function(){
-                if(!$scope.success){
-                    $('#reupload').css('display','block');
-                    $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
-                        $(this).text('');
                     });
-                }else{
-                    $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
-                        $(this).text('');
-                    });
-                }
-            });
-            /***************************删除附件***********************************/
-            $scope.delDoc = function (doc) {
-                $http.post('/rap/szcz/xxgl/xxts/deleteAttachment.do', {
-                    id: doc,
-                    creatorId: 1990200032
-                })
-                    .success(function (data, status) {
-                        if (data.success) {
-                            angular.forEach($scope.items, function (value, key) {
-                                if (value['docId'] == doc)
-                                    $scope.items.splice(key, 1);
-                            });
+                    $scope.upInfo = {};
+                    /***************************上传前的表单验证***********************************/
+                    $("#ctlBtn").click(function () {
+                        //console.log(ElectronicFileService.getNowFormatDate());
+                        if (uploader.getFiles().length) {
+                            uploader.upload();
                         } else {
-                            angular.forEach($scope.items, function (value, key) {
-                                if (value['docId'] == doc)
-                                    $("#list").css('display', 'block').html("<p class='alert-success'>附件<b>[" + value['docName'] + "]</b>删除失败！</p>").fadeOut(2300, function () {
-                                        $(this).text('');
-                                    });
+                            $('#list').css('display', 'block').html("<p class='alert-danger'>上传文件不能为空</p>").fadeOut(2300, function () {
+                                $(this).text('');
                             });
                         }
-                    }).error(function () {
-                        angular.forEach($scope.items, function (value, key) {
-                            if (value['docId'] == doc)
-                                $("#list").css('display', 'block').html("<p class='alert-success'>附件<b>[" + value['docName'] + "]</b>删除失败！</p>").fadeOut(2300, function () {
-                                    $(this).text('');
-                                });
+                    });
+
+                    /***************************重新上传失败附件*********************************/
+                    $('#reupload').click(function(){
+                        angular.forEach(uploader.getFiles('error'),function(item,i){
+                            uploader.upload(item);
                         });
                     });
-            };
+                    /***************************上传前发送的数据***********************************/
+                        //$scope.items = [];
+                    uploader.on('uploadBeforeSend', function (block, data, header) {
+                        header.enctype = "multipart/form-data";
+                    });
+                    /***************************上传成功***********************************/
+
+                    $scope.success = true;
+                    uploader.on('uploadSuccess', function (file, res) {
+                        console.log(res);
+                        console.log(res.success);
+                        console.log(res.successMsg);
+                        $scope.items.push({
+                            docId: res.successMsg,
+                            cName: window.sessionStorage.getItem("dwmc"),
+                            docName: file.name,
+                            docSize: file.size,
+                            upTime: ElectronicFileService.getNowFormatDate(),
+                            upPerson: window.sessionStorage.getItem("fullname")
+                        });
+                        $scope.$apply();
+                        $scope.success = $scope.success && res.success;
+                        //console.log($scope.items.length);
+                        //console.log($scope.items);
+                    });
+                    /*************************上传结束***************************************/
+                    uploader.on('uploadFinished',function(){
+                        if(!$scope.success){
+                            $('#reupload').css('display','block');
+                            $("#list").css('display','block').html("<p class='alert-success'>附件上传失败</p>").fadeOut(2300,function(){
+                                $(this).text('');
+                            });
+                        }else{
+                            $("#list").css('display','block').html("<p class='alert-success'>所有文件上传成功</p>").fadeOut(2300,function(){
+                                $(this).text('');
+                            });
+                        }
+                    });
+                    /***************************删除附件***********************************/
+                    $scope.delDoc = function (doc) {
+                        $http.post('/rap/szcz/xxgl/xxts/deleteAttachment.do', {
+                            id: doc,
+                            creatorId: 1990200032
+                        })
+                            .success(function (data, status) {
+                                if (data.success) {
+                                    angular.forEach($scope.items, function (value, key) {
+                                        if (value['docId'] == doc)
+                                            $scope.items.splice(key, 1);
+                                    });
+                                } else {
+                                    angular.forEach($scope.items, function (value, key) {
+                                        if (value['docId'] == doc)
+                                            $("#list").css('display', 'block').html("<p class='alert-success'>附件<b>[" + value['docName'] + "]</b>删除失败！</p>").fadeOut(2300, function () {
+                                                $(this).text('');
+                                            });
+                                    });
+                                }
+                            }).error(function () {
+                                angular.forEach($scope.items, function (value, key) {
+                                    if (value['docId'] == doc)
+                                        $("#list").css('display', 'block').html("<p class='alert-success'>附件<b>[" + value['docName'] + "]</b>删除失败！</p>").fadeOut(2300, function () {
+                                            $(this).text('');
+                                        });
+                                });
+                            });
+                    };
+                }
+            );
+
         }])
     .controller('ElectronicFileShowOneController', ['$scope', '$state', '$stateParams', 'ElectronicFileService','$http',
         function ($scope, $state, $stateParams, ElectronicFileService, $http) {
